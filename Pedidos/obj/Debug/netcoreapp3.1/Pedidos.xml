@@ -4,5 +4,30 @@
         <name>Pedidos</name>
     </assembly>
     <members>
+        <member name="M:Pedidos.Controllers.ChatsController.GetChat(Pedidos.Models.PageAndSortRequest)">
+            <summary>
+            Gets All the Chats from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.ChatsController.GetChat(System.Int64)">
+            <summary>
+            Get a Chat specific for Id from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.ChatsController.PutChat(System.Int64,Pedidos.Models.Chat)">
+            <summary>
+            Modifies an existing Chat
+            </summary>
+            <param name="chat"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.DetalleFacturasController.GetRubro(Pedidos.Models.PageAndSortRequest)">
+            <summary>
+            Gets All the DetalleFactura from the BDB
+            </summary>
+            <returns></returns>
+        </member>
     </members>
 </doc>
