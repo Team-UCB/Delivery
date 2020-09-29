@@ -29,5 +29,39 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Pedidos.Controllers.RubrosController.GetRubro(Pedidos.Models.PageAndSortRequest)">
+            <summary>
+            Gets All the Rubros from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.RubrosController.GetRubro(System.Int64)">
+            <summary>
+            Get a Chat specific for Id from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.RubrosController.PutRubro(System.Int64,Pedidos.Models.Rubro)">
+            <summary>
+            Modifies an existing Rubro
+            </summary>
+            <param name="id"></param>
+            <param name="rubro"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.RubrosController.PostRubro(Pedidos.Models.Rubro)">
+            <summary>
+            Creates a new rubro 
+            </summary>
+            <param name="rubro"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.RubrosController.DeleteRubro(System.Int64)">
+            <summary>
+            Removes a rubro from BDB
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

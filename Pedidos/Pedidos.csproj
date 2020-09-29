@@ -30,6 +30,7 @@
   <PropertyGroup>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <NoWarn>$(NoWarn);1591</NoWarn>
+        <UserSecretsId>c6c349cb-cacb-48f3-ad43-abe5c7f01b1b</UserSecretsId>
    </PropertyGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
