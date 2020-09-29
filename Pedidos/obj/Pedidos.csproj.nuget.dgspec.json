@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\leona\\source\\repos\\Delivery\\Pedidos\\Pedidos.csproj": {}
+    "C:\\Users\\lopez\\source\\repos\\Team-UCB\\Delivery\\Pedidos\\Pedidos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\leona\\source\\repos\\Delivery\\Pedidos\\Pedidos.csproj": {
+    "C:\\Users\\lopez\\source\\repos\\Team-UCB\\Delivery\\Pedidos\\Pedidos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\leona\\source\\repos\\Delivery\\Pedidos\\Pedidos.csproj",
+        "projectUniqueName": "C:\\Users\\lopez\\source\\repos\\Team-UCB\\Delivery\\Pedidos\\Pedidos.csproj",
         "projectName": "Pedidos",
-        "projectPath": "C:\\Users\\leona\\source\\repos\\Delivery\\Pedidos\\Pedidos.csproj",
-        "packagesPath": "C:\\Users\\leona\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\leona\\source\\repos\\Delivery\\Pedidos\\obj\\",
+        "projectPath": "C:\\Users\\lopez\\source\\repos\\Team-UCB\\Delivery\\Pedidos\\Pedidos.csproj",
+        "packagesPath": "C:\\Users\\lopez\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lopez\\source\\repos\\Team-UCB\\Delivery\\Pedidos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\leona\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lopez\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -76,7 +76,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[5.0.0-rc.1.20453.2, )"
+              "version": "[3.1.4, )"
             },
             "NHibernate": {
               "target": "Package",
@@ -105,7 +105,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
