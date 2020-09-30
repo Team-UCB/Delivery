@@ -20,7 +20,12 @@ namespace Pedidos.Controllers
             _context = context;
         }
 
-        // GET: api/Localizacions/columna/direccion
+
+        /// <summary>
+        /// Gets All the Vendedores from the BDB
+        /// </summary>
+        /// <returns></returns>
+        // GET: api/Vendedores/columna/direccion
         [Helpers.Authorize]
         [HttpGet]
         public async Task<ActionResult<PageAndSortResponse<Vendedor>>> GetVendedor([FromQuery] PageAndSortRequest param)
@@ -64,6 +69,13 @@ namespace Pedidos.Controllers
         //    return await _context.Vendedor.ToListAsync();
         //}
 
+
+
+
+        /// <summary>
+        /// Get a Vendedor specific for Id from the BDB
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Vendedores/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Vendedor>> GetVendedor(long id)
@@ -85,7 +97,6 @@ namespace Pedidos.Controllers
 
 
 
-       
 
 
 
@@ -98,6 +109,12 @@ namespace Pedidos.Controllers
 
 
 
+        /// <summary>
+        /// Modifies an existing Vendedor
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="vendedor"></param>
+        /// <returns></returns>
         // PUT: api/Vendedores/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -130,6 +147,14 @@ namespace Pedidos.Controllers
             return NoContent();
         }
 
+
+
+
+        /// <summary>
+        /// Creates a new rubro 
+        /// </summary>
+        /// <param name="vendedor"></param>
+        /// <returns></returns>
         // POST: api/Vendedores
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -142,6 +167,13 @@ namespace Pedidos.Controllers
             return CreatedAtAction("GetVendedor", new { id = vendedor.Id }, vendedor);
         }
 
+
+
+        /// <summary>
+        /// Removes a Vendedor from BDB
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // DELETE: api/Vendedores/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Vendedor>> DeleteVendedor(long id)
