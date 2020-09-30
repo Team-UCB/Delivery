@@ -7,7 +7,7 @@ namespace Pedidos.Models
     {
         public Rol()
         {
-            Usuario = new HashSet<Usuario>();
+           Usuario = new HashSet<Usuario>();
         }
 
         public long Id { get; set; }
