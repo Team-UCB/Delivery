@@ -19,7 +19,10 @@ namespace Pedidos.Controllers
         {
             _context = context;
         }
-
+        /// <summary>
+        /// Gets all the data Transportadores from the BDB
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Transportador/columna/direccion
         // [Helpers.Authorize]
         [HttpGet]
@@ -54,7 +57,10 @@ namespace Pedidos.Controllers
 
             return result;
         }
-
+        /// <summary>
+        ///  Gets an specific data Transportador from the BDB by id
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Transportadores/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Transportador>> GetTransportador(long id)
@@ -68,7 +74,10 @@ namespace Pedidos.Controllers
 
             return transportador;
         }
-
+        /// <summary>
+        /// Send data to a server to update a resource about Transportador.
+        /// </summary>
+        /// <returns></returns>
         // PUT: api/Transportadores/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -100,7 +109,10 @@ namespace Pedidos.Controllers
 
             return NoContent();
         }
-
+        /// <summary>
+        /// Send data to a server to create a resource about Transportador.
+        /// </summary>
+        /// <returns></returns>
         // POST: api/Transportadores
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -112,7 +124,10 @@ namespace Pedidos.Controllers
 
             return CreatedAtAction("GetTransportador", new { id = transportador.Id }, transportador);
         }
-
+        /// <summary>
+        /// Deletes the specified resource about Transportador.
+        /// </summary>
+        /// <returns></returns>
         // DELETE: api/Transportadores/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Transportador>> DeleteTransportador(long id)

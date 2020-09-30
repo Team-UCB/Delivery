@@ -26,8 +26,12 @@ namespace Pedidos.Controllers
             _context = context;
           
         }
-        // GET: api/Localizacions/columna/direccion
-       [Helpers.Authorize]
+        /// <summary>
+        /// Gets all the data Ofertas from the BDB
+        /// </summary>
+        /// <returns></returns>
+        // GET: api/Oferta/columna/direccion
+        [Helpers.Authorize]
         [HttpGet]
         public async Task<ActionResult<PageAndSortResponse<Oferta>>> GetOfertas([FromQuery] PageAndSortRequest param)
         {
@@ -60,15 +64,10 @@ namespace Pedidos.Controllers
 
             return result;
         }
-
-        //// GET: api/Ofertas
-        //[Helpers.Authorize]
-        //[HttpGet]
-        //public async Task<ActionResult<IEnumerable<Oferta>>> GetOferta()
-        //{
-        //    return await _context.Oferta.ToListAsync();
-        //}
-
+        /// <summary>
+        ///  Gets an specific data Oferta from the BDB by id
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Ofertas/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Oferta>> GetOferta(long id)
@@ -82,7 +81,11 @@ namespace Pedidos.Controllers
 
             return oferta;
         }
-        
+        /// <summary>
+        /// Send data to a server to update a resource about Oferta.
+        /// </summary>
+        /// <returns></returns>
+
         // PUT: api/Ofertas/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -114,7 +117,10 @@ namespace Pedidos.Controllers
 
             return NoContent();
         }
-        //hola
+        /// <summary>
+        /// Send data to a server to create a resource about Oferta.
+        /// </summary>
+        /// <returns></returns>
         // POST: api/Ofertas
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -126,7 +132,10 @@ namespace Pedidos.Controllers
 
             return CreatedAtAction("GetOferta", new { id = oferta.Id }, oferta);
         }
-
+        /// <summary>
+        /// Deletes the specified resource about Oferta.
+        /// </summary>
+        /// <returns></returns>
         // DELETE: api/Ofertas/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Oferta>> DeleteOferta(long id)
