@@ -99,6 +99,13 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="M:Pedidos.Controllers.UsuariosController.GetById(System.Int32)">
+            <summary>
+            Gets Usuario token 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:Pedidos.Controllers.VendedoresController.GetVendedor(Pedidos.Models.PageAndSortRequest)">
             <summary>
             Gets All the Vendedores from the BDB
@@ -124,6 +131,13 @@
             Creates a new rubro 
             </summary>
             <param name="vendedor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.VendedoresController.DeleteVendedor(System.Int64)">
+            <summary>
+            Removes a Vendedor from BDB
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
     </members>

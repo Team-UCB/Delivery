@@ -215,7 +215,11 @@ namespace Pedidos.Controllers
 
 
 
-
+        /// <summary>
+        /// Gets Usuario token 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public Usuario GetById(int id)
         {
