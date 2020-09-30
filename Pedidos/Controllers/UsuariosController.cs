@@ -28,90 +28,21 @@ namespace Pedidos.Controllers
             _appSettings = appSettings.Value;
         }
 
-
-        /// <summary>
-        /// Gets All the Usuarios from the BDB
-        /// </summary>
-        /// <returns></returns>
-        // GET: api/Usuarios/columna/direccion
-        //[Helpers.Authorize]
+        // GET: api/Usuarios
+        [Helpers.Authorize]
         [HttpGet]
-        public async Task<ActionResult<PageAndSortResponse<Usuario>>> GetUsuario([FromQuery] PageAndSortRequest param)
+        public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
         {
-            IEnumerable<Usuario> listaUsuario = null;
-            if (param.Direccion.ToLower() == "asc")
-                listaUsuario = await _context.Usuario.OrderBy(p => EF.Property<object>(p, param.Columna)).ToListAsync();
-            else if (param.Direccion.ToLower() == "desc")
-                listaUsuario = await _context.Usuario.OrderByDescending(p => EF.Property<object>(p, param.Columna)).ToListAsync();
-            else
-                listaUsuario = await _context.Usuario.OrderBy(p => p.Id).ToListAsync();
-
-            if (listaUsuario == null)
-            {
-                return NotFound();
-            }
-
-            int total = 0;
-            if (!string.IsNullOrEmpty(param.Filtro))
-            {
-                listaUsuario = listaUsuario.Where(ele => ele.Estado.Contains(param.Filtro));
-            }
-            total = listaUsuario.Count();
-            listaUsuario = listaUsuario.Skip((param.Pagina - 1) * param.TamPagina).Take(param.TamPagina);
-
-            var result = new PageAndSortResponse<Usuario>
-            {
-                Datos = listaUsuario,
-                TotalFilas = total
-            };
-
-            return result;
+            return await _context.Usuario.ToListAsync();
         }
 
+        
 
-
-
-
-
-
-
-        //// GET: api/Usuarios
-        //[Helpers.Authorize]
-        //[HttpGet]
-        //public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
-        //{
-        //    return await _context.Usuario.ToListAsync();
-        //}
-
-        // GET: api/Usuarios/5
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<Usuario>> GetUsuario(int id)
-        //{
-        //    var usuario = await _context.Usuario.FindAsync(id);
-
-        //    if (usuario == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return usuario;
-        //}
-
-
-
-
-
-        /// <summary>
-        /// Get an existing Usuario
-        /// </summary>
-        /// <param name="Nombre"></param>
-        /// <param name="Clave"></param>
-        /// <returns></returns>
         // GET: api/Usuarios/Nombre/Clave
-        [HttpGet("{Nombre}/{Clave}")]
-        public ActionResult<Usuario> GetUsuario(string Nombre, string Clave)
+        [HttpGet("{nombre_usuario}/{contrasena}")]
+        public ActionResult<Usuario> GetUsuario(string nombre_usuario, string contrasena)
         {
-            var usuario = _context.Usuario.FirstOrDefault(ele => ele.Nombre == Nombre && ele.Clave == Clave);
+            var usuario = _context.Usuario.FirstOrDefault(ele => ele.Nombre == nombre_usuario && ele.Clave == contrasena);
             if (usuario == null)
             {
                 return NotFound();
@@ -121,15 +52,6 @@ namespace Pedidos.Controllers
             return usuario;
         }
 
-
-
-
-        /// <summary>
-        /// Modifies an existing Usuario
-        /// </summary>
-        /// <param name="id"></param>
-        /// /// <param name="usuario"></param>
-        /// <returns></returns>
         // PUT: api/Usuarios/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -162,13 +84,6 @@ namespace Pedidos.Controllers
             return CreatedAtAction("GetUsuario", new { id = usuario.Id }, usuario);
         }
 
-
-
-        /// <summary>
-        /// Creates a new usuario 
-        /// </summary>
-        /// <param name="usuario"></param>
-        /// <returns></returns>
         // POST: api/Usuarios
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -182,16 +97,9 @@ namespace Pedidos.Controllers
             return CreatedAtAction("GetUsuario", new { id = usuario.Id }, usuario);
         }
 
-
-
-        /// <summary>
-        /// Removes a usuario from BDB
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         // DELETE: api/Usuarios/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Usuario>> DeleteUsuario(long id)
+        public async Task<ActionResult<Usuario>> DeleteUsuario(int id)
         {
             var usuario = await _context.Usuario.FindAsync(id);
             if (usuario == null)
@@ -205,17 +113,15 @@ namespace Pedidos.Controllers
             return usuario;
         }
 
-
-
-
         private bool UsuarioExists(int id)
         {
             return _context.Usuario.Any(e => e.Id == id);
         }
-
-
-
-
+        /// <summary>
+        /// Gets Usuario token 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public Usuario GetById(int id)
         {
@@ -239,4 +145,3 @@ namespace Pedidos.Controllers
         }
     }
 }
-
