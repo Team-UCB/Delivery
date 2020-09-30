@@ -20,8 +20,11 @@ namespace Pedidos.Controllers
             _context = context;
         }
 
-
-        // GET: api/Localizacions/columna/direccion
+        /// <summary>
+        /// Gets All the Chats from the BDB
+        /// </summary>
+        /// <returns></returns>
+        // GET: api/Chats/columna/direccion
         [Helpers.Authorize]
         [HttpGet]
         public async Task<ActionResult<PageAndSortResponse<Chat>>> GetChat([FromQuery] PageAndSortRequest param)
@@ -70,6 +73,11 @@ namespace Pedidos.Controllers
         //    return await _context.Chat.ToListAsync();
         //}
 
+
+        /// <summary>
+        /// Get a Chat specific for Id from the BDB
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Chats/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Chat>> GetChat(long id)
@@ -84,6 +92,11 @@ namespace Pedidos.Controllers
             return chat;
         }
 
+        /// <summary>
+        /// Modifies an existing Chat
+        /// </summary>
+        /// <param name="chat"></param>
+        /// <returns></returns>
         // PUT: api/Chats/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.

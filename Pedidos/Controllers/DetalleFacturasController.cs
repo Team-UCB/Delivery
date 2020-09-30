@@ -20,6 +20,10 @@ namespace Pedidos.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Gets All the DetalleFactura from the BDB
+        /// </summary>
+        /// <returns></returns>
         // GET: api/DetalleFacturas/columna/direccion
         [Helpers.Authorize]
         [HttpGet]
