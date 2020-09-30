@@ -4,5 +4,125 @@
         <name>Pedidos</name>
     </assembly>
     <members>
+        <member name="M:Pedidos.Controllers.CategoriaProductosController.GetCategoriaProductos(Pedidos.Models.PageAndSortRequest)">
+            <summary>
+            Gets all the data CategoriaProducto from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.CategoriaProductosController.GetCategoriaProducto(System.Int64)">
+            <summary>
+             Gets an specific data CategoriaProducto from the BDB by id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.CategoriaProductosController.PutCategoriaProducto(System.Int64,Pedidos.Models.CategoriaProducto)">
+            <summary>
+            Send data to a server to update a resource about CategoriaProducto.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.CategoriaProductosController.PostCategoriaProducto(Pedidos.Models.CategoriaProducto)">
+            <summary>
+            Send data to a server to create a resource about CategoriaProducto.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.CategoriaProductosController.DeleteCategoriaProducto(System.Int64)">
+            <summary>
+            Deletes the specified resource about CategoriaProducto.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.OfertasController.GetOfertas(Pedidos.Models.PageAndSortRequest)">
+            <summary>
+            Gets all the data Ofertas from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.OfertasController.GetOferta(System.Int64)">
+            <summary>
+             Gets an specific data Oferta from the BDB by id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.OfertasController.PutOferta(System.Int64,Pedidos.Models.Oferta)">
+            <summary>
+            Send data to a server to update a resource about Oferta.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.OfertasController.PostOferta(Pedidos.Models.Oferta)">
+            <summary>
+            Send data to a server to create a resource about Oferta.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.OfertasController.DeleteOferta(System.Int64)">
+            <summary>
+            Deletes the specified resource about Oferta.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.ProductosController.GetProducto(Pedidos.Models.PageAndSortRequest)">
+            <summary>
+            Gets all the data Productos from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.ProductosController.GetProducto(System.Int64)">
+            <summary>
+             Gets an specific data Producto from the BDB by id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.ProductosController.PutProducto(System.Int64,Pedidos.Models.Producto)">
+            <summary>
+            Send data to a server to update a resource about Producto.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.ProductosController.PostProducto(Pedidos.Models.Producto)">
+            <summary>
+            Send data to a server to create a resource about Producto.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.ProductosController.DeleteProducto(System.Int64)">
+            <summary>
+            Deletes the specified resource about Producto.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.TransportadoresController.GetTransportador(Pedidos.Models.PageAndSortRequest)">
+            <summary>
+            Gets all the data Transportadores from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.TransportadoresController.GetTransportador(System.Int64)">
+            <summary>
+             Gets an specific data Transportador from the BDB by id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.TransportadoresController.PutTransportador(System.Int64,Pedidos.Models.Transportador)">
+            <summary>
+            Send data to a server to update a resource about Transportador.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.TransportadoresController.PostTransportador(Pedidos.Models.Transportador)">
+            <summary>
+            Send data to a server to create a resource about Transportador.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.TransportadoresController.DeleteTransportador(System.Int64)">
+            <summary>
+            Deletes the specified resource about Transportador.
+            </summary>
+            <returns></returns>
+        </member>
     </members>
 </doc>

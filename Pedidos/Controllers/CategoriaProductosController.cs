@@ -19,8 +19,11 @@ namespace Pedidos.Controllers
         {
             _context = context;
         }
-
-        // GET: api/Localizacions/columna/direccion
+        /// <summary>
+        /// Gets all the data CategoriaProducto from the BDB
+        /// </summary>
+        /// <returns></returns>
+        // GET: api/CategoriaProductos/columna/direccion
         // [Helpers.Authorize]
         [HttpGet]
         public async Task<ActionResult<PageAndSortResponse<CategoriaProducto>>> GetCategoriaProductos([FromQuery] PageAndSortRequest param)
@@ -54,6 +57,10 @@ namespace Pedidos.Controllers
 
             return result;
         }
+        /// <summary>
+        ///  Gets an specific data CategoriaProducto from the BDB by id
+        /// </summary>
+        /// <returns></returns>
         // GET: api/CategoriaProductos/5
         [HttpGet("{id}")]
         public async Task<ActionResult<CategoriaProducto>> GetCategoriaProducto(long id)
@@ -67,7 +74,10 @@ namespace Pedidos.Controllers
 
             return categoriaProducto;
         }
-
+        /// <summary>
+        /// Send data to a server to update a resource about CategoriaProducto.
+        /// </summary>
+        /// <returns></returns>
         // PUT: api/CategoriaProductos/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -99,7 +109,10 @@ namespace Pedidos.Controllers
 
             return NoContent();
         }
-
+        /// <summary>
+        /// Send data to a server to create a resource about CategoriaProducto.
+        /// </summary>
+        /// <returns></returns>
         // POST: api/CategoriaProductos
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -111,7 +124,10 @@ namespace Pedidos.Controllers
 
             return CreatedAtAction("GetCategoriaProducto", new { id = categoriaProducto.Id }, categoriaProducto);
         }
-
+        /// <summary>
+        /// Deletes the specified resource about CategoriaProducto.
+        /// </summary>
+        /// <returns></returns>
         // DELETE: api/CategoriaProductos/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<CategoriaProducto>> DeleteCategoriaProducto(long id)
