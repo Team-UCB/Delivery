@@ -36,19 +36,7 @@ namespace Pedidos.Controllers
             return await _context.Usuario.ToListAsync();
         }
 
-        // GET: api/Usuarios/5
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<Usuario>> GetUsuario(int id)
-        //{
-        //    var usuario = await _context.Usuario.FindAsync(id);
-
-        //    if (usuario == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return usuario;
-        //}
+        
 
         // GET: api/Usuarios/Nombre/Clave
         [HttpGet("{nombre_usuario}/{contrasena}")]
@@ -129,6 +117,11 @@ namespace Pedidos.Controllers
         {
             return _context.Usuario.Any(e => e.Id == id);
         }
+        /// <summary>
+        /// Gets Usuario token 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public Usuario GetById(int id)
         {
