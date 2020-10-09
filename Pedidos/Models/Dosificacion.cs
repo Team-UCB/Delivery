@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
+#nullable disable
+
 namespace Pedidos.Models
 {
     public partial class Dosificacion
     {
         public Dosificacion()
         {
-            Factura = new HashSet<Factura>();
+            Facturas = new HashSet<Factura>();
         }
 
         public long Id { get; set; }
@@ -18,7 +20,9 @@ namespace Pedidos.Models
         public string Leyenda { get; set; }
         public DateTime FechaActivacion { get; set; }
         public long Activa { get; set; }
+        public string ActividadPrincipal { get; set; }
+        public string ActividadSecundaria { get; set; }
 
-        public virtual ICollection<Factura> Factura { get; set; }
+        public virtual ICollection<Factura> Facturas { get; set; }
     }
 }

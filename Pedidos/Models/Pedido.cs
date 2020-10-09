@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 
+#nullable disable
+
 namespace Pedidos.Models
 {
     public partial class Pedido
     {
         public Pedido()
         {
-            Calificacion = new HashSet<Calificacion>();
-            DetallePedido = new HashSet<DetallePedido>();
-            Factura = new HashSet<Factura>();
+            Calificacions = new HashSet<Calificacion>();
+            DetallePedidos = new HashSet<DetallePedido>();
+            Facturas = new HashSet<Factura>();
         }
 
         public long Id { get; set; }
@@ -29,8 +31,8 @@ namespace Pedidos.Models
         public virtual Cliente IdClienteNavigation { get; set; }
         public virtual Transportador IdTransporteNavigation { get; set; }
         public virtual Vendedor IdVendedorNavigation { get; set; }
-        public virtual ICollection<Calificacion> Calificacion { get; set; }
-        public virtual ICollection<DetallePedido> DetallePedido { get; set; }
-        public virtual ICollection<Factura> Factura { get; set; }
+        public virtual ICollection<Calificacion> Calificacions { get; set; }
+        public virtual ICollection<DetallePedido> DetallePedidos { get; set; }
+        public virtual ICollection<Factura> Facturas { get; set; }
     }
 }

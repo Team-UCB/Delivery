@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
+#nullable disable
+
 namespace Pedidos.Models
 {
     public partial class DetallePedido
     {
         public DetallePedido()
         {
-            DetalleFactura = new HashSet<DetalleFactura>();
+            DetalleFacturas = new HashSet<DetalleFactura>();
         }
 
         public long Id { get; set; }
@@ -18,6 +20,6 @@ namespace Pedidos.Models
 
         public virtual Pedido IdPedidoNavigation { get; set; }
         public virtual Producto IdProductoNavigation { get; set; }
-        public virtual ICollection<DetalleFactura> DetalleFactura { get; set; }
+        public virtual ICollection<DetalleFactura> DetalleFacturas { get; set; }
     }
 }

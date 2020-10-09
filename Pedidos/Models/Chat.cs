@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
+#nullable disable
+
 namespace Pedidos.Models
 {
     public partial class Chat
     {
         public Chat()
         {
-            Mensajes = new HashSet<Mensajes>();
+            Mensajes = new HashSet<Mensaje>();
         }
 
         public long Id { get; set; }
@@ -15,6 +17,6 @@ namespace Pedidos.Models
         public long IdDestino { get; set; }
         public string Estado { get; set; }
 
-        public virtual ICollection<Mensajes> Mensajes { get; set; }
+        public virtual ICollection<Mensaje> Mensajes { get; set; }
     }
 }

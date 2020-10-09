@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
+#nullable disable
+
 namespace Pedidos.Models
 {
     public partial class PedidosPollomonContext : DbContext
@@ -15,31 +17,33 @@ namespace Pedidos.Models
         {
         }
 
-        public virtual DbSet<Calificacion> Calificacion { get; set; }
-        public virtual DbSet<CategoriaProducto> CategoriaProducto { get; set; }
-        public virtual DbSet<Chat> Chat { get; set; }
-        public virtual DbSet<Cliente> Cliente { get; set; }
-        public virtual DbSet<DetalleFactura> DetalleFactura { get; set; }
-        public virtual DbSet<DetallePedido> DetallePedido { get; set; }
-        public virtual DbSet<Dosificacion> Dosificacion { get; set; }
-        public virtual DbSet<Factura> Factura { get; set; }
-        public virtual DbSet<Fotos> Fotos { get; set; }
-        public virtual DbSet<Mensajes> Mensajes { get; set; }
-        public virtual DbSet<Oferta> Oferta { get; set; }
-        public virtual DbSet<Pagina> Pagina { get; set; }
-        public virtual DbSet<Pedido> Pedido { get; set; }
-        public virtual DbSet<Producto> Producto { get; set; }
-        public virtual DbSet<Rol> Rol { get; set; }
-        public virtual DbSet<Rubro> Rubro { get; set; }
-        public virtual DbSet<Transportador> Transportador { get; set; }
-        public virtual DbSet<Usuario> Usuario { get; set; }
-        public virtual DbSet<Vendedor> Vendedor { get; set; }
+        public virtual DbSet<Calificacion> Calificacions { get; set; }
+        public virtual DbSet<CategoriaProducto> CategoriaProductos { get; set; }
+        public virtual DbSet<Chat> Chats { get; set; }
+        public virtual DbSet<Cliente> Clientes { get; set; }
+        public virtual DbSet<DetalleFactura> DetalleFacturas { get; set; }
+        public virtual DbSet<DetallePedido> DetallePedidos { get; set; }
+        public virtual DbSet<Direccion> Direccions { get; set; }
+        public virtual DbSet<Dosificacion> Dosificacions { get; set; }
+        public virtual DbSet<Factura> Facturas { get; set; }
+        public virtual DbSet<Foto> Fotos { get; set; }
+        public virtual DbSet<Mensaje> Mensajes { get; set; }
+        public virtual DbSet<Ofertum> Oferta { get; set; }
+        public virtual DbSet<Pagina> Paginas { get; set; }
+        public virtual DbSet<Parametro> Parametros { get; set; }
+        public virtual DbSet<Pedido> Pedidos { get; set; }
+        public virtual DbSet<Producto> Productos { get; set; }
+        public virtual DbSet<Rol> Rols { get; set; }
+        public virtual DbSet<Rubro> Rubros { get; set; }
+        public virtual DbSet<Transportador> Transportadors { get; set; }
+        public virtual DbSet<Usuario> Usuarios { get; set; }
+        public virtual DbSet<Vendedor> Vendedors { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("workstation id=PedidosPollomon.mssql.somee.com;packet size=4096;user id=pollomon_SQLLogin_1;pwd=akoluaza31;data source=PedidosPollomon.mssql.somee.com;persist security info=False;initial catalog=PedidosPollomon");
             }
         }
@@ -48,8 +52,9 @@ namespace Pedidos.Models
         {
             modelBuilder.Entity<Calificacion>(entity =>
             {
-                entity.HasIndex(e => e.IdPedido)
-                    .HasName("fkIdx_pedido_calificacion");
+                entity.ToTable("Calificacion");
+
+                entity.HasIndex(e => e.IdPedido, "fkIdx_pedido_calificacion");
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
@@ -61,20 +66,20 @@ namespace Pedidos.Models
 
                 entity.Property(e => e.Observaciones)
                     .IsRequired()
-                    .HasColumnName("observaciones")
                     .HasMaxLength(500)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("observaciones");
 
                 entity.Property(e => e.Puntaje).HasColumnName("puntaje");
 
                 entity.Property(e => e.Tipo)
                     .IsRequired()
-                    .HasColumnName("tipo")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("tipo");
 
                 entity.HasOne(d => d.IdPedidoNavigation)
-                    .WithMany(p => p.Calificacion)
+                    .WithMany(p => p.Calificacions)
                     .HasForeignKey(d => d.IdPedido)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_pedido_calificacion");
@@ -82,36 +87,40 @@ namespace Pedidos.Models
 
             modelBuilder.Entity<CategoriaProducto>(entity =>
             {
+                entity.ToTable("CategoriaProducto");
+
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Descripcion)
                     .IsRequired()
-                    .HasColumnName("descripcion")
                     .HasMaxLength(500)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("descripcion");
 
                 entity.Property(e => e.Lugar)
                     .IsRequired()
-                    .HasColumnName("lugar")
                     .HasMaxLength(150)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("lugar");
 
                 entity.Property(e => e.Nombre)
                     .IsRequired()
-                    .HasColumnName("nombre")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("nombre");
             });
 
             modelBuilder.Entity<Chat>(entity =>
             {
+                entity.ToTable("Chat");
+
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Estado)
                     .IsRequired()
-                    .HasColumnName("estado")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("estado");
 
                 entity.Property(e => e.IdDestino).HasColumnName("id_destino");
 
@@ -120,83 +129,67 @@ namespace Pedidos.Models
 
             modelBuilder.Entity<Cliente>(entity =>
             {
+                entity.ToTable("Cliente");
+
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Celular)
                     .IsRequired()
-                    .HasColumnName("celular")
                     .HasMaxLength(10)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Direccion)
-                    .IsRequired()
-                    .HasColumnName("direccion")
-                    .HasMaxLength(500)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Latitud)
-                    .HasColumnName("latitud")
-                    .HasColumnType("decimal(18, 6)");
-
-                entity.Property(e => e.Longitud)
-                    .HasColumnName("longitud")
-                    .HasColumnType("decimal(18, 6)");
+                    .IsUnicode(false)
+                    .HasColumnName("celular");
 
                 entity.Property(e => e.NombresApellidos)
                     .IsRequired()
-                    .HasColumnName("nombres_apellidos")
                     .HasMaxLength(500)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Referencia)
-                    .IsRequired()
-                    .HasColumnName("referencia")
-                    .HasMaxLength(500)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("nombres_apellidos");
 
                 entity.Property(e => e.Telefono)
                     .IsRequired()
-                    .HasColumnName("telefono")
                     .HasMaxLength(10)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("telefono");
             });
 
             modelBuilder.Entity<DetalleFactura>(entity =>
             {
-                entity.HasIndex(e => e.IdDetallePedido)
-                    .HasName("fkIdx_detallepedido_factura");
+                entity.ToTable("DetalleFactura");
 
-                entity.HasIndex(e => e.IdFactura)
-                    .HasName("fkIdx_factura_detallefactura");
+                entity.HasIndex(e => e.IdDetallePedido, "fkIdx_detallepedido_factura");
+
+                entity.HasIndex(e => e.IdFactura, "fkIdx_factura_detallefactura");
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Cantidad)
+                    .HasColumnType("decimal(18, 1)")
                     .HasColumnName("cantidad")
-                    .HasColumnType("decimal(18, 1)");
+                    .HasAnnotation("Relational:ColumnType", "decimal(18, 1)");
 
                 entity.Property(e => e.Descripcion)
                     .IsRequired()
-                    .HasColumnName("descripcion")
                     .HasMaxLength(2000)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("descripcion");
 
                 entity.Property(e => e.IdDetallePedido).HasColumnName("id_detalle_pedido");
 
                 entity.Property(e => e.IdFactura).HasColumnName("id_factura");
 
                 entity.Property(e => e.Monto)
+                    .HasColumnType("decimal(18, 1)")
                     .HasColumnName("monto")
-                    .HasColumnType("decimal(18, 1)");
+                    .HasAnnotation("Relational:ColumnType", "decimal(18, 1)");
 
                 entity.HasOne(d => d.IdDetallePedidoNavigation)
-                    .WithMany(p => p.DetalleFactura)
+                    .WithMany(p => p.DetalleFacturas)
                     .HasForeignKey(d => d.IdDetallePedido)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_detallepedido_factura");
 
                 entity.HasOne(d => d.IdFacturaNavigation)
-                    .WithMany(p => p.DetalleFactura)
+                    .WithMany(p => p.DetalleFacturas)
                     .HasForeignKey(d => d.IdFactura)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_factura_detallefactura");
@@ -204,64 +197,122 @@ namespace Pedidos.Models
 
             modelBuilder.Entity<DetallePedido>(entity =>
             {
-                entity.HasIndex(e => e.IdPedido)
-                    .HasName("fkIdx_pedido_detallepedido");
+                entity.ToTable("DetallePedido");
 
-                entity.HasIndex(e => e.IdProducto)
-                    .HasName("fkIdx_producto_detallepedido");
+                entity.HasIndex(e => e.IdPedido, "fkIdx_pedido_detallepedido");
+
+                entity.HasIndex(e => e.IdProducto, "fkIdx_producto_detallepedido");
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Cantidad)
+                    .HasColumnType("decimal(18, 1)")
                     .HasColumnName("cantidad")
-                    .HasColumnType("decimal(18, 1)");
+                    .HasAnnotation("Relational:ColumnType", "decimal(18, 1)");
 
                 entity.Property(e => e.IdPedido).HasColumnName("id_pedido");
 
                 entity.Property(e => e.IdProducto).HasColumnName("id_producto");
 
                 entity.Property(e => e.SubMonto)
+                    .HasColumnType("decimal(18, 1)")
                     .HasColumnName("sub_monto")
-                    .HasColumnType("decimal(18, 1)");
+                    .HasAnnotation("Relational:ColumnType", "decimal(18, 1)");
 
                 entity.HasOne(d => d.IdPedidoNavigation)
-                    .WithMany(p => p.DetallePedido)
+                    .WithMany(p => p.DetallePedidos)
                     .HasForeignKey(d => d.IdPedido)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_pedido_detallepedido");
 
                 entity.HasOne(d => d.IdProductoNavigation)
-                    .WithMany(p => p.DetallePedido)
+                    .WithMany(p => p.DetallePedidos)
                     .HasForeignKey(d => d.IdProducto)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_producto_detallepedido");
             });
 
+            modelBuilder.Entity<Direccion>(entity =>
+            {
+                entity.ToTable("Direccion");
+
+                entity.HasIndex(e => e.IdCliente, "fkIdx_cliente_direccion");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Descripcion)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .IsUnicode(false)
+                    .HasColumnName("descripcion");
+
+                entity.Property(e => e.IdCliente).HasColumnName("id_cliente");
+
+                entity.Property(e => e.Latitud)
+                    .HasColumnType("decimal(18, 6)")
+                    .HasColumnName("latitud")
+                    .HasAnnotation("Relational:ColumnType", "decimal(18, 6)");
+
+                entity.Property(e => e.Longitud)
+                    .HasColumnType("decimal(18, 6)")
+                    .HasColumnName("longitud")
+                    .HasAnnotation("Relational:ColumnType", "decimal(18, 6)");
+
+                entity.Property(e => e.Predeterminada).HasColumnName("predeterminada");
+
+                entity.Property(e => e.Referencia)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .IsUnicode(false)
+                    .HasColumnName("referencia");
+
+                entity.HasOne(d => d.IdClienteNavigation)
+                    .WithMany(p => p.Direccions)
+                    .HasForeignKey(d => d.IdCliente)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_cliente_direccion");
+            });
+
             modelBuilder.Entity<Dosificacion>(entity =>
             {
+                entity.ToTable("Dosificacion");
+
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Activa).HasColumnName("activa");
 
+                entity.Property(e => e.ActividadPrincipal)
+                    .IsRequired()
+                    .HasMaxLength(2000)
+                    .IsUnicode(false)
+                    .HasColumnName("actividad_principal");
+
+                entity.Property(e => e.ActividadSecundaria)
+                    .HasMaxLength(2000)
+                    .IsUnicode(false)
+                    .HasColumnName("actividad_secundaria");
+
                 entity.Property(e => e.FechaActivacion)
+                    .HasColumnType("datetime")
                     .HasColumnName("fecha_activacion")
-                    .HasColumnType("datetime");
+                    .HasAnnotation("Relational:ColumnType", "datetime");
 
                 entity.Property(e => e.FechaLimiteEmision)
+                    .HasColumnType("datetime")
                     .HasColumnName("fecha_limite_emision")
-                    .HasColumnType("datetime");
+                    .HasAnnotation("Relational:ColumnType", "datetime");
 
                 entity.Property(e => e.Leyenda)
                     .IsRequired()
-                    .HasColumnName("leyenda")
                     .HasMaxLength(2000)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("leyenda");
 
                 entity.Property(e => e.Llave)
                     .IsRequired()
-                    .HasColumnName("llave")
                     .HasMaxLength(2000)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("llave");
 
                 entity.Property(e => e.NroAutorizacion).HasColumnName("nro_autorizacion");
 
@@ -270,29 +321,30 @@ namespace Pedidos.Models
 
             modelBuilder.Entity<Factura>(entity =>
             {
-                entity.HasIndex(e => e.IdDosificacion)
-                    .HasName("fkIdx_dosificacion_factura");
+                entity.ToTable("Factura");
 
-                entity.HasIndex(e => e.IdPedido)
-                    .HasName("fkIdx_pedido_factura");
+                entity.HasIndex(e => e.IdDosificacion, "fkIdx_dosificacion_factura");
+
+                entity.HasIndex(e => e.IdPedido, "fkIdx_pedido_factura");
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.CodigoControl)
                     .IsRequired()
-                    .HasColumnName("codigo_control")
                     .HasMaxLength(100)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("codigo_control");
 
                 entity.Property(e => e.Estado)
                     .IsRequired()
-                    .HasColumnName("estado")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("estado");
 
                 entity.Property(e => e.FechaEmision)
+                    .HasColumnType("datetime")
                     .HasColumnName("fecha_emision")
-                    .HasColumnType("datetime");
+                    .HasAnnotation("Relational:ColumnType", "datetime");
 
                 entity.Property(e => e.IdDosificacion).HasColumnName("id_dosificacion");
 
@@ -302,43 +354,42 @@ namespace Pedidos.Models
 
                 entity.Property(e => e.Observaciones)
                     .IsRequired()
-                    .HasColumnName("observaciones")
                     .HasMaxLength(2000)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("observaciones");
 
                 entity.HasOne(d => d.IdDosificacionNavigation)
-                    .WithMany(p => p.Factura)
+                    .WithMany(p => p.Facturas)
                     .HasForeignKey(d => d.IdDosificacion)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_dosificacion_factura");
 
                 entity.HasOne(d => d.IdPedidoNavigation)
-                    .WithMany(p => p.Factura)
+                    .WithMany(p => p.Facturas)
                     .HasForeignKey(d => d.IdPedido)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_pedido_factura");
             });
 
-            modelBuilder.Entity<Fotos>(entity =>
+            modelBuilder.Entity<Foto>(entity =>
             {
-                entity.HasIndex(e => e.IdProducto)
-                    .HasName("fkIdx_producto_fotos");
+                entity.HasIndex(e => e.IdProducto, "fkIdx_producto_fotos");
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Descripcion)
                     .IsRequired()
-                    .HasColumnName("descripcion")
                     .HasMaxLength(150)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("descripcion");
 
                 entity.Property(e => e.IdProducto).HasColumnName("id_producto");
 
                 entity.Property(e => e.PathImg)
                     .IsRequired()
-                    .HasColumnName("path_img")
                     .HasMaxLength(500)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("path_img");
 
                 entity.HasOne(d => d.IdProductoNavigation)
                     .WithMany(p => p.Fotos)
@@ -347,24 +398,24 @@ namespace Pedidos.Models
                     .HasConstraintName("FK_producto_fotos");
             });
 
-            modelBuilder.Entity<Mensajes>(entity =>
+            modelBuilder.Entity<Mensaje>(entity =>
             {
-                entity.HasIndex(e => e.IdChat)
-                    .HasName("fkIdx_chat_mensajes");
+                entity.HasIndex(e => e.IdChat, "fkIdx_chat_mensajes");
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.FechaHora)
+                    .HasColumnType("datetime")
                     .HasColumnName("fecha_hora")
-                    .HasColumnType("datetime");
+                    .HasAnnotation("Relational:ColumnType", "datetime");
 
                 entity.Property(e => e.IdChat).HasColumnName("id_chat");
 
                 entity.Property(e => e.Text)
                     .IsRequired()
-                    .HasColumnName("text")
                     .HasMaxLength(500)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("text");
 
                 entity.HasOne(d => d.IdChatNavigation)
                     .WithMany(p => p.Mensajes)
@@ -373,26 +424,28 @@ namespace Pedidos.Models
                     .HasConstraintName("FK_chat_mensajes");
             });
 
-            modelBuilder.Entity<Oferta>(entity =>
+            modelBuilder.Entity<Ofertum>(entity =>
             {
-                entity.HasIndex(e => e.IdProducto)
-                    .HasName("fkIdx_producto_oferta");
+                entity.HasIndex(e => e.IdProducto, "fkIdx_producto_oferta");
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.FechaFin)
+                    .HasColumnType("datetime")
                     .HasColumnName("fecha_fin")
-                    .HasColumnType("datetime");
+                    .HasAnnotation("Relational:ColumnType", "datetime");
 
                 entity.Property(e => e.FechaInicio)
+                    .HasColumnType("datetime")
                     .HasColumnName("fecha_inicio")
-                    .HasColumnType("datetime");
+                    .HasAnnotation("Relational:ColumnType", "datetime");
 
                 entity.Property(e => e.IdProducto).HasColumnName("id_producto");
 
                 entity.Property(e => e.PrecioOferta)
+                    .HasColumnType("decimal(18, 1)")
                     .HasColumnName("precio_oferta")
-                    .HasColumnType("decimal(18, 1)");
+                    .HasAnnotation("Relational:ColumnType", "decimal(18, 1)");
 
                 entity.HasOne(d => d.IdProductoNavigation)
                     .WithMany(p => p.Oferta)
@@ -403,68 +456,102 @@ namespace Pedidos.Models
 
             modelBuilder.Entity<Pagina>(entity =>
             {
+                entity.ToTable("Pagina");
+
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Contenido)
                     .IsRequired()
+                    .HasColumnType("text")
                     .HasColumnName("contenido")
-                    .HasColumnType("text");
+                    .HasAnnotation("Relational:ColumnType", "text");
+
+                entity.Property(e => e.FechaActualizacion)
+                    .HasColumnType("datetime")
+                    .HasColumnName("fecha_actualizacion")
+                    .HasAnnotation("Relational:ColumnType", "datetime");
+
+                entity.Property(e => e.FechaCreacion)
+                    .HasColumnType("datetime")
+                    .HasColumnName("fecha_creacion")
+                    .HasDefaultValueSql("(getdate())")
+                    .HasAnnotation("Relational:ColumnType", "datetime");
+
+                entity.Property(e => e.IdUsuario).HasColumnName("id_usuario");
 
                 entity.Property(e => e.Nombre)
                     .IsRequired()
-                    .HasColumnName("nombre")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("nombre");
 
                 entity.Property(e => e.Publicado).HasColumnName("publicado");
 
-                entity.Property(e => e.Tipo)
+                entity.Property(e => e.Tipo).HasColumnName("tipo");
+            });
+
+            modelBuilder.Entity<Parametro>(entity =>
+            {
+                entity.ToTable("Parametro");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Nombre)
                     .IsRequired()
-                    .HasColumnName("tipo")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("nombre");
+
+                entity.Property(e => e.Valor)
+                    .IsRequired()
+                    .HasColumnType("text")
+                    .HasColumnName("valor")
+                    .HasAnnotation("Relational:ColumnType", "text");
             });
 
             modelBuilder.Entity<Pedido>(entity =>
             {
-                entity.HasIndex(e => e.IdCliente)
-                    .HasName("fkIdx_cliente_pedido");
+                entity.ToTable("Pedido");
 
-                entity.HasIndex(e => e.IdTransporte)
-                    .HasName("fkIdx_transporte_pedido");
+                entity.HasIndex(e => e.IdCliente, "fkIdx_cliente_pedido");
 
-                entity.HasIndex(e => e.IdVendedor)
-                    .HasName("fkIdx_vendedor_pedido");
+                entity.HasIndex(e => e.IdTransporte, "fkIdx_transporte_pedido");
+
+                entity.HasIndex(e => e.IdVendedor, "fkIdx_vendedor_pedido");
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.CodigoQrFactura)
                     .IsRequired()
-                    .HasColumnName("codigo_qr_factura")
                     .HasMaxLength(500)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("codigo_qr_factura");
 
                 entity.Property(e => e.Estado)
                     .IsRequired()
-                    .HasColumnName("estado")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("estado");
 
                 entity.Property(e => e.FechaAtencion)
+                    .HasColumnType("datetime")
                     .HasColumnName("fecha_atencion")
-                    .HasColumnType("datetime");
+                    .HasAnnotation("Relational:ColumnType", "datetime");
 
                 entity.Property(e => e.FechaEntrega)
+                    .HasColumnType("datetime")
                     .HasColumnName("fecha_entrega")
-                    .HasColumnType("datetime");
+                    .HasAnnotation("Relational:ColumnType", "datetime");
 
                 entity.Property(e => e.FechaIngreso)
+                    .HasColumnType("datetime")
                     .HasColumnName("fecha_ingreso")
-                    .HasColumnType("datetime");
+                    .HasAnnotation("Relational:ColumnType", "datetime");
 
                 entity.Property(e => e.FechaSalida)
+                    .HasColumnType("datetime")
                     .HasColumnName("fecha_salida")
-                    .HasColumnType("datetime");
+                    .HasAnnotation("Relational:ColumnType", "datetime");
 
                 entity.Property(e => e.IdCliente).HasColumnName("id_cliente");
 
@@ -473,33 +560,35 @@ namespace Pedidos.Models
                 entity.Property(e => e.IdVendedor).HasColumnName("id_vendedor");
 
                 entity.Property(e => e.MontoCliente)
+                    .HasColumnType("decimal(18, 1)")
                     .HasColumnName("monto_cliente")
-                    .HasColumnType("decimal(18, 1)");
+                    .HasAnnotation("Relational:ColumnType", "decimal(18, 1)");
 
                 entity.Property(e => e.MontoEnvio)
+                    .HasColumnType("decimal(18, 1)")
                     .HasColumnName("monto_envio")
-                    .HasColumnType("decimal(18, 1)");
+                    .HasAnnotation("Relational:ColumnType", "decimal(18, 1)");
 
                 entity.Property(e => e.TipoPago)
                     .IsRequired()
-                    .HasColumnName("tipo_pago")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("tipo_pago");
 
                 entity.HasOne(d => d.IdClienteNavigation)
-                    .WithMany(p => p.Pedido)
+                    .WithMany(p => p.Pedidos)
                     .HasForeignKey(d => d.IdCliente)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_cliente_pedido");
 
                 entity.HasOne(d => d.IdTransporteNavigation)
-                    .WithMany(p => p.Pedido)
+                    .WithMany(p => p.Pedidos)
                     .HasForeignKey(d => d.IdTransporte)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_transporte_pedido");
 
                 entity.HasOne(d => d.IdVendedorNavigation)
-                    .WithMany(p => p.Pedido)
+                    .WithMany(p => p.Pedidos)
                     .HasForeignKey(d => d.IdVendedor)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_vendedor_pedido");
@@ -507,22 +596,24 @@ namespace Pedidos.Models
 
             modelBuilder.Entity<Producto>(entity =>
             {
-                entity.HasIndex(e => e.IdCategoria)
-                    .HasName("fkIdx_categoria_producto");
+                entity.ToTable("Producto");
 
-                entity.HasIndex(e => e.IdVendedor)
-                    .HasName("fkIdx_vendedor_producto");
+                entity.HasIndex(e => e.IdCategoria, "fkIdx_categoria_producto");
+
+                entity.HasIndex(e => e.IdVendedor, "fkIdx_vendedor_producto");
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Cantidad)
+                    .HasColumnType("decimal(18, 1)")
                     .HasColumnName("cantidad")
-                    .HasColumnType("decimal(18, 1)");
+                    .HasAnnotation("Relational:ColumnType", "decimal(18, 1)");
 
                 entity.Property(e => e.Especificaciones)
                     .IsRequired()
+                    .HasColumnType("text")
                     .HasColumnName("especificaciones")
-                    .HasColumnType("text");
+                    .HasAnnotation("Relational:ColumnType", "text");
 
                 entity.Property(e => e.IdCategoria).HasColumnName("id_categoria");
 
@@ -530,38 +621,40 @@ namespace Pedidos.Models
 
                 entity.Property(e => e.Marca)
                     .IsRequired()
-                    .HasColumnName("marca")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("marca");
 
                 entity.Property(e => e.Modelo)
                     .IsRequired()
-                    .HasColumnName("modelo")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("modelo");
 
                 entity.Property(e => e.Nombre)
                     .IsRequired()
-                    .HasColumnName("nombre")
                     .HasMaxLength(500)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("nombre");
 
                 entity.Property(e => e.PrecioMayor)
+                    .HasColumnType("decimal(18, 1)")
                     .HasColumnName("precio_mayor")
-                    .HasColumnType("decimal(18, 1)");
+                    .HasAnnotation("Relational:ColumnType", "decimal(18, 1)");
 
                 entity.Property(e => e.PrecioUnitario)
+                    .HasColumnType("decimal(18, 1)")
                     .HasColumnName("precio_unitario")
-                    .HasColumnType("decimal(18, 1)");
+                    .HasAnnotation("Relational:ColumnType", "decimal(18, 1)");
 
                 entity.HasOne(d => d.IdCategoriaNavigation)
-                    .WithMany(p => p.Producto)
+                    .WithMany(p => p.Productos)
                     .HasForeignKey(d => d.IdCategoria)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_categoria_producto");
 
                 entity.HasOne(d => d.IdVendedorNavigation)
-                    .WithMany(p => p.Producto)
+                    .WithMany(p => p.Productos)
                     .HasForeignKey(d => d.IdVendedor)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_vendedor_producto");
@@ -569,104 +662,122 @@ namespace Pedidos.Models
 
             modelBuilder.Entity<Rol>(entity =>
             {
+                entity.ToTable("Rol");
+
                 entity.Property(e => e.Id).HasColumnName("id");
 
-                entity.Property(e => e.Descripcion)
+                entity.Property(e => e.Nombre)
                     .IsRequired()
-                    .HasColumnName("descripcion")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("nombre");
             });
 
             modelBuilder.Entity<Rubro>(entity =>
             {
+                entity.ToTable("Rubro");
+
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Descripcion)
                     .IsRequired()
-                    .HasColumnName("descripcion")
                     .HasMaxLength(250)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("descripcion");
+
+                entity.Property(e => e.IdPadre).HasColumnName("id_padre");
 
                 entity.Property(e => e.Nombre)
                     .IsRequired()
-                    .HasColumnName("nombre")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("nombre");
             });
 
             modelBuilder.Entity<Transportador>(entity =>
             {
+                entity.ToTable("Transportador");
+
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Celular)
                     .IsRequired()
-                    .HasColumnName("celular")
                     .HasMaxLength(10)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("celular");
 
                 entity.Property(e => e.DescripcionVehiculo)
                     .IsRequired()
-                    .HasColumnName("descripcion_vehiculo")
                     .HasMaxLength(250)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("descripcion_vehiculo");
 
                 entity.Property(e => e.Estado)
                     .IsRequired()
-                    .HasColumnName("estado")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("estado");
 
                 entity.Property(e => e.Latitud)
+                    .HasColumnType("decimal(18, 6)")
                     .HasColumnName("latitud")
-                    .HasColumnType("decimal(18, 6)");
+                    .HasAnnotation("Relational:ColumnType", "decimal(18, 6)");
 
                 entity.Property(e => e.Longitud)
+                    .HasColumnType("decimal(18, 6)")
                     .HasColumnName("longitud")
-                    .HasColumnType("decimal(18, 6)");
+                    .HasAnnotation("Relational:ColumnType", "decimal(18, 6)");
 
                 entity.Property(e => e.NombreCompleto)
                     .IsRequired()
-                    .HasColumnName("nombre_completo")
                     .HasMaxLength(250)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("nombre_completo");
 
                 entity.Property(e => e.TipoVehiculo)
                     .IsRequired()
-                    .HasColumnName("tipo_vehiculo")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("tipo_vehiculo");
             });
 
             modelBuilder.Entity<Usuario>(entity =>
             {
-                entity.HasIndex(e => e.IdRol)
-                    .HasName("fkIdx_rol_usuario");
+                entity.ToTable("Usuario");
+
+                entity.HasIndex(e => e.IdRol, "fkIdx_rol_usuario");
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Clave)
                     .IsRequired()
-                    .HasColumnName("clave")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("clave");
+
+                entity.Property(e => e.Entidad)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("entidad");
 
                 entity.Property(e => e.Estado)
                     .IsRequired()
-                    .HasColumnName("estado")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("estado");
+
+                entity.Property(e => e.IdRef).HasColumnName("id_ref");
 
                 entity.Property(e => e.IdRol).HasColumnName("id_rol");
 
                 entity.Property(e => e.Nombre)
                     .IsRequired()
-                    .HasColumnName("nombre")
                     .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("nombre");
 
                 entity.HasOne(d => d.IdRolNavigation)
-                    .WithMany(p => p.Usuario)
+                    .WithMany(p => p.Usuarios)
                     .HasForeignKey(d => d.IdRol)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_rol_usuario");
@@ -674,57 +785,58 @@ namespace Pedidos.Models
 
             modelBuilder.Entity<Vendedor>(entity =>
             {
-                entity.HasIndex(e => e.IdRubro)
-                    .HasName("fkIdx_rubro_vendedor");
+                entity.ToTable("Vendedor");
+
+                entity.HasIndex(e => e.IdRubro, "fkIdx_rubro_vendedor");
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Celular)
                     .IsRequired()
-                    .HasColumnName("celular")
                     .HasMaxLength(10)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("celular");
 
                 entity.Property(e => e.Correo)
                     .IsRequired()
-                    .HasColumnName("correo")
                     .HasMaxLength(150)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("correo");
 
                 entity.Property(e => e.Direccion)
                     .IsRequired()
-                    .HasColumnName("direccion")
                     .HasMaxLength(250)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("direccion");
 
                 entity.Property(e => e.IdRubro).HasColumnName("id_rubro");
 
                 entity.Property(e => e.NombreEmpresa)
                     .IsRequired()
-                    .HasColumnName("nombre_empresa")
                     .HasMaxLength(250)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("nombre_empresa");
 
                 entity.Property(e => e.PathLogo)
                     .IsRequired()
-                    .HasColumnName("path_logo")
                     .HasMaxLength(250)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("path_logo");
 
                 entity.Property(e => e.PersonaContacto)
                     .IsRequired()
-                    .HasColumnName("persona_contacto")
                     .HasMaxLength(250)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("persona_contacto");
 
                 entity.Property(e => e.Telefono)
                     .IsRequired()
-                    .HasColumnName("telefono")
                     .HasMaxLength(10)
-                    .IsUnicode(false);
+                    .IsUnicode(false)
+                    .HasColumnName("telefono");
 
                 entity.HasOne(d => d.IdRubroNavigation)
-                    .WithMany(p => p.Vendedor)
+                    .WithMany(p => p.Vendedors)
                     .HasForeignKey(d => d.IdRubro)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_rubro_vendedor");

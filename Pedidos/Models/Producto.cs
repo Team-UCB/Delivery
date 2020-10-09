@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 
+#nullable disable
+
 namespace Pedidos.Models
 {
     public partial class Producto
-    {   
+    {
         public Producto()
         {
-            DetallePedido = new HashSet<DetallePedido>();
-            Fotos = new HashSet<Fotos>();
-            Oferta = new HashSet<Oferta>();
+            DetallePedidos = new HashSet<DetallePedido>();
+            Fotos = new HashSet<Foto>();
+            Oferta = new HashSet<Ofertum>();
         }
 
         public long Id { get; set; }
@@ -25,8 +27,8 @@ namespace Pedidos.Models
 
         public virtual CategoriaProducto IdCategoriaNavigation { get; set; }
         public virtual Vendedor IdVendedorNavigation { get; set; }
-        public virtual ICollection<DetallePedido> DetallePedido { get; set; }
-        public virtual ICollection<Fotos> Fotos { get; set; }
-        public virtual ICollection<Oferta> Oferta { get; set; }
+        public virtual ICollection<DetallePedido> DetallePedidos { get; set; }
+        public virtual ICollection<Foto> Fotos { get; set; }
+        public virtual ICollection<Ofertum> Oferta { get; set; }
     }
 }

@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
+#nullable disable
+
 namespace Pedidos.Models
 {
     public partial class CategoriaProducto
     {
         public CategoriaProducto()
         {
-            Producto = new HashSet<Producto>();
+            Productos = new HashSet<Producto>();
         }
 
         public long Id { get; set; }
@@ -15,6 +17,6 @@ namespace Pedidos.Models
         public string Descripcion { get; set; }
         public string Lugar { get; set; }
 
-        public virtual ICollection<Producto> Producto { get; set; }
+        public virtual ICollection<Producto> Productos { get; set; }
     }
 }
