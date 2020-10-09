@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
+#nullable disable
+
 namespace Pedidos.Models
 {
-    public partial class Oferta
+    public partial class Ofertum
     {
         public long Id { get; set; }
         public DateTime FechaInicio { get; set; }

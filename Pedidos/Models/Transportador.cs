@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
+#nullable disable
+
 namespace Pedidos.Models
 {
     public partial class Transportador
     {
         public Transportador()
         {
-            Pedido = new HashSet<Pedido>();
+            Pedidos = new HashSet<Pedido>();
         }
 
         public long Id { get; set; }
@@ -19,6 +21,6 @@ namespace Pedidos.Models
         public decimal Latitud { get; set; }
         public decimal Longitud { get; set; }
 
-        public virtual ICollection<Pedido> Pedido { get; set; }
+        public virtual ICollection<Pedido> Pedidos { get; set; }
     }
 }

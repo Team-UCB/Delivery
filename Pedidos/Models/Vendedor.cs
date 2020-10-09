@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 
+#nullable disable
+
 namespace Pedidos.Models
 {
     public partial class Vendedor
     {
         public Vendedor()
         {
-            Pedido = new HashSet<Pedido>();
-            Producto = new HashSet<Producto>();
+            Pedidos = new HashSet<Pedido>();
+            Productos = new HashSet<Producto>();
         }
 
         public long Id { get; set; }
@@ -22,7 +24,7 @@ namespace Pedidos.Models
         public long IdRubro { get; set; }
 
         public virtual Rubro IdRubroNavigation { get; set; }
-        public virtual ICollection<Pedido> Pedido { get; set; }
-        public virtual ICollection<Producto> Producto { get; set; }
+        public virtual ICollection<Pedido> Pedidos { get; set; }
+        public virtual ICollection<Producto> Productos { get; set; }
     }
 }

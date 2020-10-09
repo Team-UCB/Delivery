@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
+#nullable disable
+
 namespace Pedidos.Models
 {
-    public partial class Mensajes
+    public partial class Mensaje
     {
         public long Id { get; set; }
         public DateTime FechaHora { get; set; }

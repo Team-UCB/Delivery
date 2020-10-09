@@ -485,6 +485,9 @@ C:\Users\lopez\source\repos\Team-UCB\Delivery\Pedidos\obj\Debug\netcoreapp3.1\Pe
 C:\Users\lopez\source\repos\Team-UCB\Delivery\Pedidos\obj\Debug\netcoreapp3.1\Pedidos.xml
 C:\Users\lopez\source\repos\Team-UCB\Delivery\Pedidos\obj\Debug\netcoreapp3.1\Pedidos.pdb
 C:\Users\lopez\source\repos\Team-UCB\Delivery\Pedidos\obj\Debug\netcoreapp3.1\Pedidos.genruntimeconfig.cache
+C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\runtimes\alpine-x64\native\libe_sqlite3.so
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -552,7 +555,6 @@ C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\SQLitePCLRa
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\SQLitePCLRaw.provider.dynamic_cdecl.dll
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\System.Composition.AttributedModel.dll
@@ -616,7 +618,6 @@ C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\ja\Microsof
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
@@ -631,7 +632,6 @@ C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\runtimes\wi
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\runtimes\alpine-x64\native\libe_sqlite3.so
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\runtimes\linux-arm\native\libe_sqlite3.so
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\runtimes\linux-arm64\native\libe_sqlite3.so
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\runtimes\linux-armel\native\libe_sqlite3.so
@@ -647,7 +647,6 @@ C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\runtimes\un
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\leona\source\repos\Delivery\Pedidos\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\leona\source\repos\Delivery\Pedidos\obj\Debug\netcoreapp3.1\Pedidos.csprojAssemblyReference.cache
 C:\Users\leona\source\repos\Delivery\Pedidos\obj\Debug\netcoreapp3.1\staticwebassets\Pedidos.StaticWebAssets.Manifest.cache
 C:\Users\leona\source\repos\Delivery\Pedidos\obj\Debug\netcoreapp3.1\staticwebassets\Pedidos.StaticWebAssets.xml
 C:\Users\leona\source\repos\Delivery\Pedidos\obj\Debug\netcoreapp3.1\Pedidos.MvcApplicationPartsAssemblyInfo.cs
@@ -659,3 +658,4 @@ C:\Users\leona\source\repos\Delivery\Pedidos\obj\Debug\netcoreapp3.1\Pedidos.csp
 C:\Users\leona\source\repos\Delivery\Pedidos\obj\Debug\netcoreapp3.1\Pedidos.dll
 C:\Users\leona\source\repos\Delivery\Pedidos\obj\Debug\netcoreapp3.1\Pedidos.xml
 C:\Users\leona\source\repos\Delivery\Pedidos\obj\Debug\netcoreapp3.1\Pedidos.pdb
+C:\Users\leona\source\repos\Delivery\Pedidos\obj\Debug\netcoreapp3.1\Pedidos.csprojAssemblyReference.cache

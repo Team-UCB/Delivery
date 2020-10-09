@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
+#nullable disable
+
 namespace Pedidos.Models
 {
     public partial class Pagina
@@ -9,6 +11,9 @@ namespace Pedidos.Models
         public string Nombre { get; set; }
         public string Contenido { get; set; }
         public bool Publicado { get; set; }
-        public string Tipo { get; set; }
+        public long Tipo { get; set; }
+        public DateTime FechaCreacion { get; set; }
+        public DateTime? FechaActualizacion { get; set; }
+        public long? IdUsuario { get; set; }
     }
 }

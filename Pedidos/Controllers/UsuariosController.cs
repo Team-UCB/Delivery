@@ -20,14 +20,12 @@ namespace Pedidos.Controllers
     public class UsuariosController : ControllerBase
     {
         private readonly PedidosPollomonContext _context;
-
         private readonly AppSettings _appSettings;
         public UsuariosController(PedidosPollomonContext context, IOptions<AppSettings> appSettings)
         {
             _context = context;
             _appSettings = appSettings.Value;
         }
-
 
         /// <summary>
         /// Gets All the Usuarios from the BDB
@@ -40,11 +38,11 @@ namespace Pedidos.Controllers
         {
             IEnumerable<Usuario> listaUsuario = null;
             if (param.Direccion.ToLower() == "asc")
-                listaUsuario = await _context.Usuario.OrderBy(p => EF.Property<object>(p, param.Columna)).ToListAsync();
+                listaUsuario = await _context.Usuarios.OrderBy(p => EF.Property<object>(p, param.Columna)).ToListAsync();
             else if (param.Direccion.ToLower() == "desc")
-                listaUsuario = await _context.Usuario.OrderByDescending(p => EF.Property<object>(p, param.Columna)).ToListAsync();
+                listaUsuario = await _context.Usuarios.OrderByDescending(p => EF.Property<object>(p, param.Columna)).ToListAsync();
             else
-                listaUsuario = await _context.Usuario.OrderBy(p => p.Id).ToListAsync();
+                listaUsuario = await _context.Usuarios.OrderBy(p => p.Id).ToListAsync();
 
             if (listaUsuario == null)
             {
@@ -68,39 +66,6 @@ namespace Pedidos.Controllers
             return result;
         }
 
-
-
-
-
-
-
-
-        //// GET: api/Usuarios
-        //[Helpers.Authorize]
-        //[HttpGet]
-        //public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
-        //{
-        //    return await _context.Usuario.ToListAsync();
-        //}
-
-        // GET: api/Usuarios/5
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<Usuario>> GetUsuario(int id)
-        //{
-        //    var usuario = await _context.Usuario.FindAsync(id);
-
-        //    if (usuario == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return usuario;
-        //}
-
-
-
-
-
         /// <summary>
         /// Get an existing Usuario
         /// </summary>
@@ -111,7 +76,7 @@ namespace Pedidos.Controllers
         [HttpGet("{Nombre}/{Clave}")]
         public ActionResult<Usuario> GetUsuario(string Nombre, string Clave)
         {
-            var usuario = _context.Usuario.FirstOrDefault(ele => ele.Nombre == Nombre && ele.Clave == Clave);
+            var usuario = _context.Usuarios.FirstOrDefault(ele => ele.Nombre == Nombre && ele.Clave == Clave);
             if (usuario == null)
             {
                 return NotFound();
@@ -120,9 +85,6 @@ namespace Pedidos.Controllers
             usuario.Token = token;
             return usuario;
         }
-
-
-
 
         /// <summary>
         /// Modifies an existing Usuario
@@ -162,8 +124,6 @@ namespace Pedidos.Controllers
             return CreatedAtAction("GetUsuario", new { id = usuario.Id }, usuario);
         }
 
-
-
         /// <summary>
         /// Creates a new usuario 
         /// </summary>
@@ -176,13 +136,11 @@ namespace Pedidos.Controllers
         public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
 
-            _context.Usuario.Add(usuario);
+            _context.Usuarios.Add(usuario);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetUsuario", new { id = usuario.Id }, usuario);
         }
-
-
 
         /// <summary>
         /// Removes a usuario from BDB
@@ -193,27 +151,22 @@ namespace Pedidos.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Usuario>> DeleteUsuario(long id)
         {
-            var usuario = await _context.Usuario.FindAsync(id);
+            var usuario = await _context.Usuarios.FindAsync(id);
             if (usuario == null)
             {
                 return NotFound();
             }
 
-            _context.Usuario.Remove(usuario);
+            _context.Usuarios.Remove(usuario);
             await _context.SaveChangesAsync();
 
             return usuario;
         }
 
-
-
-
         private bool UsuarioExists(int id)
         {
-            return _context.Usuario.Any(e => e.Id == id);
+            return _context.Usuarios.Any(e => e.Id == id);
         }
-
-
 
         /// <summary>
         /// Gets Usuario token 
@@ -223,7 +176,7 @@ namespace Pedidos.Controllers
         [HttpGet("{id}")]
         public Usuario GetById(int id)
         {
-            return _context.Usuario.FirstOrDefault(x => x.Id == id);
+            return _context.Usuarios.FirstOrDefault(x => x.Id == id);
         }
 
         private string generateJwtToken(Usuario user)
@@ -243,4 +196,3 @@ namespace Pedidos.Controllers
         }
     }
 }
-

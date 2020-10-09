@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
+#nullable disable
+
 namespace Pedidos.Models
 {
-    public partial class Fotos
+    public partial class Foto
     {
         public long Id { get; set; }
         public string Descripcion { get; set; }

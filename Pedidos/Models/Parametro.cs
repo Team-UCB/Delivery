@@ -5,16 +5,10 @@ using System.Collections.Generic;
 
 namespace Pedidos.Models
 {
-    public partial class Rol
+    public partial class Parametro
     {
-        public Rol()
-        {
-            Usuarios = new HashSet<Usuario>();
-        }
-
         public long Id { get; set; }
         public string Nombre { get; set; }
-
-        public virtual ICollection<Usuario> Usuarios { get; set; }
+        public string Valor { get; set; }
     }
 }

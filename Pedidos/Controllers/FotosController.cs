@@ -20,39 +20,67 @@ namespace Pedidos.Controllers
             _context = context;
         }
 
-        // GET: api/Fotos
+        // GET: api/Fotos/columna/direccion
+        [Helpers.Authorize]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Fotos>>> GetFotos()
+        public async Task<ActionResult<PageAndSortResponse<Foto>>> GetFoto([FromQuery] PageAndSortRequest param)
         {
-            return await _context.Fotos.ToListAsync();
-        }
+            IEnumerable<Foto> listaOfertas = null;
+            if (param.Direccion.ToLower() == "asc")
+                listaOfertas = await _context.Fotos.OrderBy(p => EF.Property<object>(p, param.Columna)).ToListAsync();
+            else if (param.Direccion.ToLower() == "desc")
+                listaOfertas = await _context.Fotos.OrderByDescending(p => EF.Property<object>(p, param.Columna)).ToListAsync();
+            else
+                listaOfertas = await _context.Fotos.OrderBy(p => p.Id).ToListAsync();
 
-        // GET: api/Fotos/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Fotos>> GetFotos(long id)
-        {
-            var fotos = await _context.Fotos.FindAsync(id);
-
-            if (fotos == null)
+            if (listaOfertas == null)
             {
                 return NotFound();
             }
 
-            return fotos;
+            int total = 0;
+            if (!string.IsNullOrEmpty(param.Filtro))
+            {
+                listaOfertas = listaOfertas.Where(ele => ele.Descripcion.Equals(param.Filtro));
+            }
+            total = listaOfertas.Count();
+            listaOfertas = listaOfertas.Skip((param.Pagina - 1) * param.TamPagina).Take(param.TamPagina);
+
+            var result = new PageAndSortResponse<Foto>
+            {
+                Datos = listaOfertas,
+                TotalFilas = total
+            };
+
+            return result;
+        }
+
+        // GET: api/Fotos/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Foto>> GetFoto(long id)
+        {
+            var foto = await _context.Fotos.FindAsync(id);
+
+            if (foto == null)
+            {
+                return NotFound();
+            }
+
+            return foto;
         }
 
         // PUT: api/Fotos/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutFotos(long id, Fotos fotos)
+        public async Task<IActionResult> PutFoto(long id, Foto foto)
         {
-            if (id != fotos.Id)
+            if (id != foto.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(fotos).State = EntityState.Modified;
+            _context.Entry(foto).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +88,7 @@ namespace Pedidos.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!FotosExists(id))
+                if (!FotoExists(id))
                 {
                     return NotFound();
                 }
@@ -77,31 +105,31 @@ namespace Pedidos.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Fotos>> PostFotos(Fotos fotos)
+        public async Task<ActionResult<Foto>> PostFoto(Foto foto)
         {
-            _context.Fotos.Add(fotos);
+            _context.Fotos.Add(foto);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetFotos", new { id = fotos.Id }, fotos);
+            return CreatedAtAction("GetFoto", new { id = foto.Id }, foto);
         }
 
         // DELETE: api/Fotos/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Fotos>> DeleteFotos(long id)
+        public async Task<ActionResult<Foto>> DeleteFoto(long id)
         {
-            var fotos = await _context.Fotos.FindAsync(id);
-            if (fotos == null)
+            var foto = await _context.Fotos.FindAsync(id);
+            if (foto == null)
             {
                 return NotFound();
             }
 
-            _context.Fotos.Remove(fotos);
+            _context.Fotos.Remove(foto);
             await _context.SaveChangesAsync();
 
-            return fotos;
+            return foto;
         }
 
-        private bool FotosExists(long id)
+        private bool FotoExists(long id)
         {
             return _context.Fotos.Any(e => e.Id == id);
         }

@@ -11,48 +11,48 @@ namespace Pedidos.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FacturasController : ControllerBase
+    public class ParametrosController : ControllerBase
     {
         private readonly PedidosPollomonContext _context;
 
-        public FacturasController(PedidosPollomonContext context)
+        public ParametrosController(PedidosPollomonContext context)
         {
             _context = context;
         }
 
-        // GET: api/Facturas
+        // GET: api/Parametros
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Factura>>> GetFactura()
+        public async Task<ActionResult<IEnumerable<Parametro>>> GetParametros()
         {
-            return await _context.Factura.ToListAsync();
+            return await _context.Parametros.ToListAsync();
         }
 
-        // GET: api/Facturas/5
+        // GET: api/Parametros/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Factura>> GetFactura(long id)
+        public async Task<ActionResult<Parametro>> GetParametro(long id)
         {
-            var factura = await _context.Factura.FindAsync(id);
+            var parametro = await _context.Parametros.FindAsync(id);
 
-            if (factura == null)
+            if (parametro == null)
             {
                 return NotFound();
             }
 
-            return factura;
+            return parametro;
         }
 
-        // PUT: api/Facturas/5
+        // PUT: api/Parametros/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutFactura(long id, Factura factura)
+        public async Task<IActionResult> PutParametro(long id, Parametro parametro)
         {
-            if (id != factura.Id)
+            if (id != parametro.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(factura).State = EntityState.Modified;
+            _context.Entry(parametro).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace Pedidos.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!FacturaExists(id))
+                if (!ParametroExists(id))
                 {
                     return NotFound();
                 }
@@ -73,37 +73,37 @@ namespace Pedidos.Controllers
             return NoContent();
         }
 
-        // POST: api/Facturas
+        // POST: api/Parametros
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Factura>> PostFactura(Factura factura)
+        public async Task<ActionResult<Parametro>> PostParametro(Parametro parametro)
         {
-            _context.Factura.Add(factura);
+            _context.Parametros.Add(parametro);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetFactura", new { id = factura.Id }, factura);
+            return CreatedAtAction("GetParametro", new { id = parametro.Id }, parametro);
         }
 
-        // DELETE: api/Facturas/5
+        // DELETE: api/Parametros/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Factura>> DeleteFactura(long id)
+        public async Task<ActionResult<Parametro>> DeleteParametro(long id)
         {
-            var factura = await _context.Factura.FindAsync(id);
-            if (factura == null)
+            var parametro = await _context.Parametros.FindAsync(id);
+            if (parametro == null)
             {
                 return NotFound();
             }
 
-            _context.Factura.Remove(factura);
+            _context.Parametros.Remove(parametro);
             await _context.SaveChangesAsync();
 
-            return factura;
+            return parametro;
         }
 
-        private bool FacturaExists(long id)
+        private bool ParametroExists(long id)
         {
-            return _context.Factura.Any(e => e.Id == id);
+            return _context.Parametros.Any(e => e.Id == id);
         }
     }
 }
