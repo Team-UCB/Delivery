@@ -135,10 +135,14 @@ namespace Pedidos.Controllers
         [HttpPost]
         public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
-
+            if (usuario.IdRol==0){
+                usuario.IdRol = 2;
+            }
+            if (usuario.Estado==null){
+                usuario.Estado = "activo";
+            }
             _context.Usuarios.Add(usuario);
             await _context.SaveChangesAsync();
-
             return CreatedAtAction("GetUsuario", new { id = usuario.Id }, usuario);
         }
 
