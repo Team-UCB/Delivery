@@ -11,31 +11,31 @@ namespace Pedidos.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductosController : ControllerBase
+    public class DetalleFacturasController : ControllerBase
     {
         private readonly PedidosPollomonContext _context;
 
-        public ProductosController(PedidosPollomonContext context)
+        public DetalleFacturasController(PedidosPollomonContext context)
         {
             _context = context;
         }
 
         /// <summary>
-        /// Gets all the data Productos from the BDB
+        /// Gets All the Detalle Factura from the BDB
         /// </summary>
         /// <returns></returns>
-        // GET: api/Produtos/columna/direccion
+        // GET: api/DetalleFacturas/columna/direccion
         [Helpers.Authorize]
         [HttpGet]
-        public async Task<ActionResult<PageAndSortResponse<Producto>>> GetFoto([FromQuery] PageAndSortRequest param)
+        public async Task<ActionResult<PageAndSortResponse<DetalleFactura>>> GetDetalleFactura([FromQuery] PageAndSortRequest param)
         {
-            IEnumerable<Producto> listaOfertas = null;
+            IEnumerable<DetalleFactura> listaOfertas = null;
             if (param.Direccion.ToLower() == "asc")
-                listaOfertas = await _context.Productos.OrderBy(p => EF.Property<object>(p, param.Columna)).ToListAsync();
+                listaOfertas = await _context.DetalleFacturas.OrderBy(p => EF.Property<object>(p, param.Columna)).ToListAsync();
             else if (param.Direccion.ToLower() == "desc")
-                listaOfertas = await _context.Productos.OrderByDescending(p => EF.Property<object>(p, param.Columna)).ToListAsync();
+                listaOfertas = await _context.DetalleFacturas.OrderByDescending(p => EF.Property<object>(p, param.Columna)).ToListAsync();
             else
-                listaOfertas = await _context.Productos.OrderBy(p => p.Id).ToListAsync();
+                listaOfertas = await _context.DetalleFacturas.OrderBy(p => p.Id).ToListAsync();
 
             if (listaOfertas == null)
             {
@@ -45,12 +45,12 @@ namespace Pedidos.Controllers
             int total = 0;
             if (!string.IsNullOrEmpty(param.Filtro))
             {
-                listaOfertas = listaOfertas.Where(ele => ele.Nombre.Equals(param.Filtro));
+                listaOfertas = listaOfertas.Where(ele => ele.Descripcion.Equals(param.Filtro));
             }
             total = listaOfertas.Count();
             listaOfertas = listaOfertas.Skip((param.Pagina - 1) * param.TamPagina).Take(param.TamPagina);
 
-            var result = new PageAndSortResponse<Producto>
+            var result = new PageAndSortResponse<DetalleFactura>
             {
                 Datos = listaOfertas,
                 TotalFilas = total
@@ -60,39 +60,41 @@ namespace Pedidos.Controllers
         }
 
         /// <summary>
-        ///  Gets an specific data Producto from the BDB by id
+        /// Get a Detalle Factura specific for Id from the BDB
         /// </summary>
         /// <returns></returns>
-        // GET: api/Productos/5
+        // GET: api/DetalleFacturas/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Producto>> GetProducto(long id)
+        public async Task<ActionResult<DetalleFactura>> GetDetalleFactura(long id)
         {
-            var producto = await _context.Productos.FindAsync(id);
+            var detalleFactura = await _context.DetalleFacturas.FindAsync(id);
 
-            if (producto == null)
+            if (detalleFactura == null)
             {
                 return NotFound();
             }
 
-            return producto;
+            return detalleFactura;
         }
 
         /// <summary>
-        /// Send data to a server to update a resource about Producto.
+        /// Modifies an existing Detalle Factura
         /// </summary>
+        /// <param name="id"></param>
+        /// <param name="detalleFactura"></param>
         /// <returns></returns>
-        // PUT: api/Productos/5
+        // PUT: api/DetalleFacturas/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProducto(long id, Producto producto)
+        public async Task<IActionResult> PutDetalleFactura(long id, DetalleFactura detalleFactura)
         {
-            if (id != producto.Id)
+            if (id != detalleFactura.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(producto).State = EntityState.Modified;
+            _context.Entry(detalleFactura).State = EntityState.Modified;
 
             try
             {
@@ -100,7 +102,7 @@ namespace Pedidos.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProductoExists(id))
+                if (!DetalleFacturaExists(id))
                 {
                     return NotFound();
                 }
@@ -114,44 +116,46 @@ namespace Pedidos.Controllers
         }
 
         /// <summary>
-        /// Send data to a server to create a resource about Producto.
+        /// Creates a new Detalle Factura 
         /// </summary>
+        /// <param name="detalleFactura"></param>
         /// <returns></returns>
-        // POST: api/Productos
+        // POST: api/DetalleFacturas
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Producto>> PostProducto(Producto producto)
+        public async Task<ActionResult<DetalleFactura>> PostDetalleFactura(DetalleFactura detalleFactura)
         {
-            _context.Productos.Add(producto);
+            _context.DetalleFacturas.Add(detalleFactura);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetProducto", new { id = producto.Id }, producto);
+            return CreatedAtAction("GetDetalleFactura", new { id = detalleFactura.Id }, detalleFactura);
         }
 
         /// <summary>
-        /// Deletes the specified resource about Producto.
+        /// Removes a Detalle Factura from BDB
         /// </summary>
+        /// <param name="id"></param>
         /// <returns></returns>
-        // DELETE: api/Productos/5
+        // DELETE: api/DetalleFacturas/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Producto>> DeleteProducto(long id)
+        public async Task<ActionResult<DetalleFactura>> DeleteDetalleFactura(long id)
         {
-            var producto = await _context.Productos.FindAsync(id);
-            if (producto == null)
+            var detalleFactura = await _context.DetalleFacturas.FindAsync(id);
+            if (detalleFactura == null)
             {
                 return NotFound();
             }
 
-            _context.Productos.Remove(producto);
+            _context.DetalleFacturas.Remove(detalleFactura);
             await _context.SaveChangesAsync();
 
-            return producto;
+            return detalleFactura;
         }
 
-        private bool ProductoExists(long id)
+        private bool DetalleFacturaExists(long id)
         {
-            return _context.Productos.Any(e => e.Id == id);
+            return _context.DetalleFacturas.Any(e => e.Id == id);
         }
     }
 }

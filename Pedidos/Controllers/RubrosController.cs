@@ -11,33 +11,33 @@ namespace Pedidos.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ChatsController : ControllerBase
+    public class RubrosController : ControllerBase
     {
         private readonly PedidosPollomonContext _context;
 
-        public ChatsController(PedidosPollomonContext context)
+        public RubrosController(PedidosPollomonContext context)
         {
             _context = context;
         }
 
         /// <summary>
-        /// Gets all the data Chats from the BDB
+        /// Gets All the Rubros from the BDB
         /// </summary>
         /// <returns></returns>
-        // GET: api/Chats/columna/direccion
+        // GET: api/Rubros/columna/direccion
         [Helpers.Authorize]
         [HttpGet]
-        public async Task<ActionResult<PageAndSortResponse<Chat>>> GetChat([FromQuery] PageAndSortRequest param)
+        public async Task<ActionResult<PageAndSortResponse<Rubro>>> GetRubro([FromQuery] PageAndSortRequest param)
         {
-            IEnumerable<Chat> listaChat = null;
+            IEnumerable<Rubro> listaOfertas = null;
             if (param.Direccion.ToLower() == "asc")
-                listaChat = await _context.Chats.OrderBy(p => EF.Property<object>(p, param.Columna)).ToListAsync();
+                listaOfertas = await _context.Rubros.OrderBy(p => EF.Property<object>(p, param.Columna)).ToListAsync();
             else if (param.Direccion.ToLower() == "desc")
-                listaChat = await _context.Chats.OrderByDescending(p => EF.Property<object>(p, param.Columna)).ToListAsync();
+                listaOfertas = await _context.Rubros.OrderByDescending(p => EF.Property<object>(p, param.Columna)).ToListAsync();
             else
-                listaChat = await _context.Chats.OrderBy(p => p.Id).ToListAsync();
+                listaOfertas = await _context.Rubros.OrderBy(p => p.Id).ToListAsync();
 
-            if (listaChat == null)
+            if (listaOfertas == null)
             {
                 return NotFound();
             }
@@ -45,14 +45,14 @@ namespace Pedidos.Controllers
             int total = 0;
             if (!string.IsNullOrEmpty(param.Filtro))
             {
-                listaChat = listaChat.Where(ele => ele.Estado.Contains(param.Filtro));
+                listaOfertas = listaOfertas.Where(ele => ele.Nombre.Equals(param.Filtro));
             }
-            total = listaChat.Count();
-            listaChat = listaChat.Skip((param.Pagina - 1) * param.TamPagina).Take(param.TamPagina);
+            total = listaOfertas.Count();
+            listaOfertas = listaOfertas.Skip((param.Pagina - 1) * param.TamPagina).Take(param.TamPagina);
 
-            var result = new PageAndSortResponse<Chat>
+            var result = new PageAndSortResponse<Rubro>
             {
-                Datos = listaChat,
+                Datos = listaOfertas,
                 TotalFilas = total
             };
 
@@ -60,39 +60,41 @@ namespace Pedidos.Controllers
         }
 
         /// <summary>
-        ///  Gets an specific data Chat from the BDB by id
+        /// Get a Chat specific for Id from the BDB
         /// </summary>
         /// <returns></returns>
-        // GET: api/Chats/5
+        // GET: api/Rubros/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Chat>> GetChat(long id)
+        public async Task<ActionResult<Rubro>> GetRubro(long id)
         {
-            var chat = await _context.Chats.FindAsync(id);
+            var rubro = await _context.Rubros.FindAsync(id);
 
-            if (chat == null)
+            if (rubro == null)
             {
                 return NotFound();
             }
 
-            return chat;
+            return rubro;
         }
 
         /// <summary>
-        /// Send data to a server to update a resource about Chat.
+        /// Modifies an existing Rubro
         /// </summary>
+        /// <param name="id"></param>
+        /// <param name="rubro"></param>
         /// <returns></returns>
-        // PUT: api/Chats/5
+        // PUT: api/Rubros/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutChat(long id, Chat chat)
+        public async Task<IActionResult> PutRubro(long id, Rubro rubro)
         {
-            if (id != chat.Id)
+            if (id != rubro.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(chat).State = EntityState.Modified;
+            _context.Entry(rubro).State = EntityState.Modified;
 
             try
             {
@@ -100,7 +102,7 @@ namespace Pedidos.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ChatExists(id))
+                if (!RubroExists(id))
                 {
                     return NotFound();
                 }
@@ -114,44 +116,47 @@ namespace Pedidos.Controllers
         }
 
         /// <summary>
-        /// Send data to a server to create a resource about Chat.
+        /// Creates a new rubro 
         /// </summary>
+        /// <param name="rubro"></param>
         /// <returns></returns>
-        // POST: api/Chats
+        // POST: api/Rubros
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Chat>> PostChat(Chat chat)
+        public async Task<ActionResult<Rubro>> PostRubro(Rubro rubro)
         {
-            _context.Chats.Add(chat);
+            _context.Rubros.Add(rubro);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetChat", new { id = chat.Id }, chat);
+            return CreatedAtAction("GetRubro", new { id = rubro.Id }, rubro);
         }
 
+
         /// <summary>
-        /// Deletes the specified resource about Chat.
+        /// Removes a rubro from BDB
         /// </summary>
+        /// <param name="id"></param>
         /// <returns></returns>
-        // DELETE: api/Chats/5
+        // DELETE: api/Rubros/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Chat>> DeleteChat(long id)
+        public async Task<ActionResult<Rubro>> DeleteRubro(long id)
         {
-            var chat = await _context.Chats.FindAsync(id);
-            if (chat == null)
+            var rubro = await _context.Rubros.FindAsync(id);
+            if (rubro == null)
             {
                 return NotFound();
             }
 
-            _context.Chats.Remove(chat);
+            _context.Rubros.Remove(rubro);
             await _context.SaveChangesAsync();
 
-            return chat;
+            return rubro;
         }
 
-        private bool ChatExists(long id)
+        private bool RubroExists(long id)
         {
-            return _context.Chats.Any(e => e.Id == id);
+            return _context.Rubros.Any(e => e.Id == id);
         }
     }
 }

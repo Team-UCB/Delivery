@@ -11,33 +11,32 @@ namespace Pedidos.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ChatsController : ControllerBase
+    public class MensajesController : ControllerBase
     {
         private readonly PedidosPollomonContext _context;
 
-        public ChatsController(PedidosPollomonContext context)
+        public MensajesController(PedidosPollomonContext context)
         {
             _context = context;
         }
 
         /// <summary>
-        /// Gets all the data Chats from the BDB
+        /// Gets all the data Mensajes from the BDB
         /// </summary>
         /// <returns></returns>
-        // GET: api/Chats/columna/direccion
         [Helpers.Authorize]
         [HttpGet]
-        public async Task<ActionResult<PageAndSortResponse<Chat>>> GetChat([FromQuery] PageAndSortRequest param)
+        public async Task<ActionResult<PageAndSortResponse<Mensaje>>> GetMensaje([FromQuery] PageAndSortRequest param)
         {
-            IEnumerable<Chat> listaChat = null;
+            IEnumerable<Mensaje> listaMensaje = null;
             if (param.Direccion.ToLower() == "asc")
-                listaChat = await _context.Chats.OrderBy(p => EF.Property<object>(p, param.Columna)).ToListAsync();
+                listaMensaje = await _context.Mensajes.OrderBy(p => EF.Property<object>(p, param.Columna)).ToListAsync();
             else if (param.Direccion.ToLower() == "desc")
-                listaChat = await _context.Chats.OrderByDescending(p => EF.Property<object>(p, param.Columna)).ToListAsync();
+                listaMensaje = await _context.Mensajes.OrderByDescending(p => EF.Property<object>(p, param.Columna)).ToListAsync();
             else
-                listaChat = await _context.Chats.OrderBy(p => p.Id).ToListAsync();
+                listaMensaje = await _context.Mensajes.OrderBy(p => p.Id).ToListAsync();
 
-            if (listaChat == null)
+            if (listaMensaje == null)
             {
                 return NotFound();
             }
@@ -45,14 +44,14 @@ namespace Pedidos.Controllers
             int total = 0;
             if (!string.IsNullOrEmpty(param.Filtro))
             {
-                listaChat = listaChat.Where(ele => ele.Estado.Contains(param.Filtro));
+                listaMensaje = listaMensaje.Where(ele => ele.Text.Contains(param.Filtro));
             }
-            total = listaChat.Count();
-            listaChat = listaChat.Skip((param.Pagina - 1) * param.TamPagina).Take(param.TamPagina);
+            total = listaMensaje.Count();
+            listaMensaje = listaMensaje.Skip((param.Pagina - 1) * param.TamPagina).Take(param.TamPagina);
 
-            var result = new PageAndSortResponse<Chat>
+            var result = new PageAndSortResponse<Mensaje>
             {
-                Datos = listaChat,
+                Datos = listaMensaje,
                 TotalFilas = total
             };
 
@@ -60,39 +59,39 @@ namespace Pedidos.Controllers
         }
 
         /// <summary>
-        ///  Gets an specific data Chat from the BDB by id
+        ///  Gets an specific data Mensaje from the BDB by id
         /// </summary>
         /// <returns></returns>
-        // GET: api/Chats/5
+        // GET: api/Mensajes/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Chat>> GetChat(long id)
+        public async Task<ActionResult<Mensaje>> GetMensaje(long id)
         {
-            var chat = await _context.Chats.FindAsync(id);
+            var mensaje = await _context.Mensajes.FindAsync(id);
 
-            if (chat == null)
+            if (mensaje == null)
             {
                 return NotFound();
             }
 
-            return chat;
+            return mensaje;
         }
 
         /// <summary>
-        /// Send data to a server to update a resource about Chat.
+        /// Send data to a server to update a resource about Mensaje.
         /// </summary>
         /// <returns></returns>
-        // PUT: api/Chats/5
+        // PUT: api/Mensajes/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutChat(long id, Chat chat)
+        public async Task<IActionResult> PutMensaje(long id, Mensaje mensaje)
         {
-            if (id != chat.Id)
+            if (id != mensaje.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(chat).State = EntityState.Modified;
+            _context.Entry(mensaje).State = EntityState.Modified;
 
             try
             {
@@ -100,7 +99,7 @@ namespace Pedidos.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ChatExists(id))
+                if (!MensajeExists(id))
                 {
                     return NotFound();
                 }
@@ -114,44 +113,44 @@ namespace Pedidos.Controllers
         }
 
         /// <summary>
-        /// Send data to a server to create a resource about Chat.
+        /// Send data to a server to update a resource about Mensaje 
         /// </summary>
         /// <returns></returns>
-        // POST: api/Chats
+        // POST: api/Mensajes
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Chat>> PostChat(Chat chat)
+        public async Task<ActionResult<Mensaje>> PostMensaje(Mensaje mensaje)
         {
-            _context.Chats.Add(chat);
+            _context.Mensajes.Add(mensaje);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetChat", new { id = chat.Id }, chat);
+            return CreatedAtAction("GetMensaje", new { id = mensaje.Id }, mensaje);
         }
 
         /// <summary>
-        /// Deletes the specified resource about Chat.
+        /// Deletes the specified resource about Mensaje.
         /// </summary>
         /// <returns></returns>
-        // DELETE: api/Chats/5
+        // DELETE: api/Mensajes/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Chat>> DeleteChat(long id)
+        public async Task<ActionResult<Mensaje>> DeleteMensaje(long id)
         {
-            var chat = await _context.Chats.FindAsync(id);
-            if (chat == null)
+            var mensaje = await _context.Mensajes.FindAsync(id);
+            if (mensaje == null)
             {
                 return NotFound();
             }
 
-            _context.Chats.Remove(chat);
+            _context.Mensajes.Remove(mensaje);
             await _context.SaveChangesAsync();
 
-            return chat;
+            return mensaje;
         }
 
-        private bool ChatExists(long id)
+        private bool MensajeExists(long id)
         {
-            return _context.Chats.Any(e => e.Id == id);
+            return _context.Mensajes.Any(e => e.Id == id);
         }
     }
 }
