@@ -20,6 +20,10 @@ namespace Pedidos.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Gets All the Detalle Factura from the BDB
+        /// </summary>
+        /// <returns></returns>
         // GET: api/DetalleFacturas/columna/direccion
         [Helpers.Authorize]
         [HttpGet]
@@ -55,6 +59,10 @@ namespace Pedidos.Controllers
             return result;
         }
 
+        /// <summary>
+        /// Get a Detalle Factura specific for Id from the BDB
+        /// </summary>
+        /// <returns></returns>
         // GET: api/DetalleFacturas/5
         [HttpGet("{id}")]
         public async Task<ActionResult<DetalleFactura>> GetDetalleFactura(long id)
@@ -69,6 +77,12 @@ namespace Pedidos.Controllers
             return detalleFactura;
         }
 
+        /// <summary>
+        /// Modifies an existing Detalle Factura
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="detalleFactura"></param>
+        /// <returns></returns>
         // PUT: api/DetalleFacturas/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -101,6 +115,11 @@ namespace Pedidos.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Creates a new Detalle Factura 
+        /// </summary>
+        /// <param name="detalleFactura"></param>
+        /// <returns></returns>
         // POST: api/DetalleFacturas
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -113,6 +132,11 @@ namespace Pedidos.Controllers
             return CreatedAtAction("GetDetalleFactura", new { id = detalleFactura.Id }, detalleFactura);
         }
 
+        /// <summary>
+        /// Removes a Detalle Factura from BDB
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // DELETE: api/DetalleFacturas/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<DetalleFactura>> DeleteDetalleFactura(long id)

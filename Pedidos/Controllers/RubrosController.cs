@@ -11,31 +11,31 @@ namespace Pedidos.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FotosController : ControllerBase
+    public class RubrosController : ControllerBase
     {
         private readonly PedidosPollomonContext _context;
 
-        public FotosController(PedidosPollomonContext context)
+        public RubrosController(PedidosPollomonContext context)
         {
             _context = context;
         }
 
         /// <summary>
-        /// Gets All the Fotos from the BDB
+        /// Gets All the Rubros from the BDB
         /// </summary>
         /// <returns></returns>
-        // GET: api/Fotos/columna/direccion
+        // GET: api/Rubros/columna/direccion
         [Helpers.Authorize]
         [HttpGet]
-        public async Task<ActionResult<PageAndSortResponse<Foto>>> GetFoto([FromQuery] PageAndSortRequest param)
+        public async Task<ActionResult<PageAndSortResponse<Rubro>>> GetRubro([FromQuery] PageAndSortRequest param)
         {
-            IEnumerable<Foto> listaOfertas = null;
+            IEnumerable<Rubro> listaOfertas = null;
             if (param.Direccion.ToLower() == "asc")
-                listaOfertas = await _context.Fotos.OrderBy(p => EF.Property<object>(p, param.Columna)).ToListAsync();
+                listaOfertas = await _context.Rubros.OrderBy(p => EF.Property<object>(p, param.Columna)).ToListAsync();
             else if (param.Direccion.ToLower() == "desc")
-                listaOfertas = await _context.Fotos.OrderByDescending(p => EF.Property<object>(p, param.Columna)).ToListAsync();
+                listaOfertas = await _context.Rubros.OrderByDescending(p => EF.Property<object>(p, param.Columna)).ToListAsync();
             else
-                listaOfertas = await _context.Fotos.OrderBy(p => p.Id).ToListAsync();
+                listaOfertas = await _context.Rubros.OrderBy(p => p.Id).ToListAsync();
 
             if (listaOfertas == null)
             {
@@ -45,12 +45,12 @@ namespace Pedidos.Controllers
             int total = 0;
             if (!string.IsNullOrEmpty(param.Filtro))
             {
-                listaOfertas = listaOfertas.Where(ele => ele.Descripcion.Equals(param.Filtro));
+                listaOfertas = listaOfertas.Where(ele => ele.Nombre.Equals(param.Filtro));
             }
             total = listaOfertas.Count();
             listaOfertas = listaOfertas.Skip((param.Pagina - 1) * param.TamPagina).Take(param.TamPagina);
 
-            var result = new PageAndSortResponse<Foto>
+            var result = new PageAndSortResponse<Rubro>
             {
                 Datos = listaOfertas,
                 TotalFilas = total
@@ -60,41 +60,41 @@ namespace Pedidos.Controllers
         }
 
         /// <summary>
-        /// Get a Foto specific for Id from the BDB
+        /// Get a Chat specific for Id from the BDB
         /// </summary>
         /// <returns></returns>
-        // GET: api/Fotos/5
+        // GET: api/Rubros/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Foto>> GetFoto(long id)
+        public async Task<ActionResult<Rubro>> GetRubro(long id)
         {
-            var foto = await _context.Fotos.FindAsync(id);
+            var rubro = await _context.Rubros.FindAsync(id);
 
-            if (foto == null)
+            if (rubro == null)
             {
                 return NotFound();
             }
 
-            return foto;
+            return rubro;
         }
 
         /// <summary>
-        /// Modifies an existing Foto
+        /// Modifies an existing Rubro
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="foto"></param>
+        /// <param name="rubro"></param>
         /// <returns></returns>
-        // PUT: api/Fotos/5
+        // PUT: api/Rubros/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutFoto(long id, Foto foto)
+        public async Task<IActionResult> PutRubro(long id, Rubro rubro)
         {
-            if (id != foto.Id)
+            if (id != rubro.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(foto).State = EntityState.Modified;
+            _context.Entry(rubro).State = EntityState.Modified;
 
             try
             {
@@ -102,7 +102,7 @@ namespace Pedidos.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!FotoExists(id))
+                if (!RubroExists(id))
                 {
                     return NotFound();
                 }
@@ -116,46 +116,47 @@ namespace Pedidos.Controllers
         }
 
         /// <summary>
-        /// Creates a new Foto 
+        /// Creates a new rubro 
         /// </summary>
-        /// <param name="foto"></param>
+        /// <param name="rubro"></param>
         /// <returns></returns>
-        // POST: api/Fotos
+        // POST: api/Rubros
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Foto>> PostFoto(Foto foto)
+        public async Task<ActionResult<Rubro>> PostRubro(Rubro rubro)
         {
-            _context.Fotos.Add(foto);
+            _context.Rubros.Add(rubro);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetFoto", new { id = foto.Id }, foto);
+            return CreatedAtAction("GetRubro", new { id = rubro.Id }, rubro);
         }
 
+
         /// <summary>
-        /// Removes a Foto from BDB
+        /// Removes a rubro from BDB
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        // DELETE: api/Fotos/5
+        // DELETE: api/Rubros/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Foto>> DeleteFoto(long id)
+        public async Task<ActionResult<Rubro>> DeleteRubro(long id)
         {
-            var foto = await _context.Fotos.FindAsync(id);
-            if (foto == null)
+            var rubro = await _context.Rubros.FindAsync(id);
+            if (rubro == null)
             {
                 return NotFound();
             }
 
-            _context.Fotos.Remove(foto);
+            _context.Rubros.Remove(rubro);
             await _context.SaveChangesAsync();
 
-            return foto;
+            return rubro;
         }
 
-        private bool FotoExists(long id)
+        private bool RubroExists(long id)
         {
-            return _context.Fotos.Any(e => e.Id == id);
+            return _context.Rubros.Any(e => e.Id == id);
         }
     }
 }

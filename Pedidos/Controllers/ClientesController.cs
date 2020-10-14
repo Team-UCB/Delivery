@@ -11,33 +11,33 @@ namespace Pedidos.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FotosController : ControllerBase
+    public class ClientesController : ControllerBase
     {
         private readonly PedidosPollomonContext _context;
 
-        public FotosController(PedidosPollomonContext context)
+        public ClientesController(PedidosPollomonContext context)
         {
             _context = context;
         }
 
         /// <summary>
-        /// Gets All the Fotos from the BDB
+        /// Gets all the data Clientes from the BDB
         /// </summary>
         /// <returns></returns>
-        // GET: api/Fotos/columna/direccion
+        // GET: api/Clientes/columna/direccion
         [Helpers.Authorize]
         [HttpGet]
-        public async Task<ActionResult<PageAndSortResponse<Foto>>> GetFoto([FromQuery] PageAndSortRequest param)
+        public async Task<ActionResult<PageAndSortResponse<Cliente>>> GetCliente([FromQuery] PageAndSortRequest param)
         {
-            IEnumerable<Foto> listaOfertas = null;
+            IEnumerable<Cliente> listaCliente = null;
             if (param.Direccion.ToLower() == "asc")
-                listaOfertas = await _context.Fotos.OrderBy(p => EF.Property<object>(p, param.Columna)).ToListAsync();
+                listaCliente = await _context.Clientes.OrderBy(p => EF.Property<object>(p, param.Columna)).ToListAsync();
             else if (param.Direccion.ToLower() == "desc")
-                listaOfertas = await _context.Fotos.OrderByDescending(p => EF.Property<object>(p, param.Columna)).ToListAsync();
+                listaCliente = await _context.Clientes.OrderByDescending(p => EF.Property<object>(p, param.Columna)).ToListAsync();
             else
-                listaOfertas = await _context.Fotos.OrderBy(p => p.Id).ToListAsync();
+                listaCliente = await _context.Clientes.OrderBy(p => p.Id).ToListAsync();
 
-            if (listaOfertas == null)
+            if (listaCliente == null)
             {
                 return NotFound();
             }
@@ -45,14 +45,14 @@ namespace Pedidos.Controllers
             int total = 0;
             if (!string.IsNullOrEmpty(param.Filtro))
             {
-                listaOfertas = listaOfertas.Where(ele => ele.Descripcion.Equals(param.Filtro));
+                listaCliente = listaCliente.Where(ele => ele.NombresApellidos.Contains(param.Filtro));
             }
-            total = listaOfertas.Count();
-            listaOfertas = listaOfertas.Skip((param.Pagina - 1) * param.TamPagina).Take(param.TamPagina);
+            total = listaCliente.Count();
+            listaCliente = listaCliente.Skip((param.Pagina - 1) * param.TamPagina).Take(param.TamPagina);
 
-            var result = new PageAndSortResponse<Foto>
+            var result = new PageAndSortResponse<Cliente>
             {
-                Datos = listaOfertas,
+                Datos = listaCliente,
                 TotalFilas = total
             };
 
@@ -60,41 +60,39 @@ namespace Pedidos.Controllers
         }
 
         /// <summary>
-        /// Get a Foto specific for Id from the BDB
+        ///  Gets an specific data Cliente from the BDB by id
         /// </summary>
         /// <returns></returns>
-        // GET: api/Fotos/5
+        // GET: api/Clientes/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Foto>> GetFoto(long id)
+        public async Task<ActionResult<Cliente>> GetCliente(long id)
         {
-            var foto = await _context.Fotos.FindAsync(id);
+            var cliente = await _context.Clientes.FindAsync(id);
 
-            if (foto == null)
+            if (cliente == null)
             {
                 return NotFound();
             }
 
-            return foto;
+            return cliente;
         }
 
         /// <summary>
-        /// Modifies an existing Foto
+        /// Send data to a server to update a resource about Cliente.
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="foto"></param>
         /// <returns></returns>
-        // PUT: api/Fotos/5
+        // PUT: api/Clientes/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutFoto(long id, Foto foto)
+        public async Task<IActionResult> PutCliente(long id, Cliente cliente)
         {
-            if (id != foto.Id)
+            if (id != cliente.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(foto).State = EntityState.Modified;
+            _context.Entry(cliente).State = EntityState.Modified;
 
             try
             {
@@ -102,7 +100,7 @@ namespace Pedidos.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!FotoExists(id))
+                if (!ClienteExists(id))
                 {
                     return NotFound();
                 }
@@ -116,46 +114,44 @@ namespace Pedidos.Controllers
         }
 
         /// <summary>
-        /// Creates a new Foto 
+        /// Send data to a server to create a resource about Cliente.
         /// </summary>
-        /// <param name="foto"></param>
         /// <returns></returns>
-        // POST: api/Fotos
+        // POST: api/Clientes
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Foto>> PostFoto(Foto foto)
+        public async Task<ActionResult<Cliente>> PostCliente(Cliente cliente)
         {
-            _context.Fotos.Add(foto);
+            _context.Clientes.Add(cliente);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetFoto", new { id = foto.Id }, foto);
+            return CreatedAtAction("GetCliente", new { id = cliente.Id }, cliente);
         }
 
         /// <summary>
-        /// Removes a Foto from BDB
+        /// Deletes the specified resource about Cliente.
         /// </summary>
-        /// <param name="id"></param>
         /// <returns></returns>
-        // DELETE: api/Fotos/5
+        // DELETE: api/Clientes/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Foto>> DeleteFoto(long id)
+        public async Task<ActionResult<Cliente>> DeleteCliente(long id)
         {
-            var foto = await _context.Fotos.FindAsync(id);
-            if (foto == null)
+            var cliente = await _context.Clientes.FindAsync(id);
+            if (cliente == null)
             {
                 return NotFound();
             }
 
-            _context.Fotos.Remove(foto);
+            _context.Clientes.Remove(cliente);
             await _context.SaveChangesAsync();
 
-            return foto;
+            return cliente;
         }
 
-        private bool FotoExists(long id)
+        private bool ClienteExists(long id)
         {
-            return _context.Fotos.Any(e => e.Id == id);
+            return _context.Clientes.Any(e => e.Id == id);
         }
     }
 }

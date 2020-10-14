@@ -20,8 +20,12 @@ namespace Pedidos.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Gets all the data Productos from the BDB
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Produtos/columna/direccion
-        //[Helpers.Authorize]
+        [Helpers.Authorize]
         [HttpGet]
         public async Task<ActionResult<PageAndSortResponse<Producto>>> GetFoto([FromQuery] PageAndSortRequest param)
         {
@@ -55,6 +59,10 @@ namespace Pedidos.Controllers
             return result;
         }
 
+        /// <summary>
+        ///  Gets an specific data Producto from the BDB by id
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Productos/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Producto>> GetProducto(long id)
@@ -69,6 +77,10 @@ namespace Pedidos.Controllers
             return producto;
         }
 
+        /// <summary>
+        /// Send data to a server to update a resource about Producto.
+        /// </summary>
+        /// <returns></returns>
         // PUT: api/Productos/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -101,6 +113,10 @@ namespace Pedidos.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Send data to a server to create a resource about Producto.
+        /// </summary>
+        /// <returns></returns>
         // POST: api/Productos
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -113,6 +129,10 @@ namespace Pedidos.Controllers
             return CreatedAtAction("GetProducto", new { id = producto.Id }, producto);
         }
 
+        /// <summary>
+        /// Deletes the specified resource about Producto.
+        /// </summary>
+        /// <returns></returns>
         // DELETE: api/Productos/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Producto>> DeleteProducto(long id)
