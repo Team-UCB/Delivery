@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VTvHAdNDVUUtCYiOqlNd2E2bnycG0ByI+Q0t4GNePDF2nsbWDPR3MLPyGM+oKSw0oiSkCXJc5Ew67olGLgIODw==",
+  "dgSpecHash": "bRGrFjDFsgIq4m8122aS27Tf2oZ5WuoabTpRINJZAWqyN6lVV296/VOxjcve/prYMdGCwy/NRm1RQdrDumpfuQ==",
   "success": true,
-  "projectFilePath": "D:\\proyecto final paceño\\backend\\Pedidos\\Pedidos.csproj",
+  "projectFilePath": "D:\\proyecto de visual studio llano\\proyecto pedidos 12 10 20 bac\\Pedidos\\Pedidos.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\antlr3.runtime\\3.5.1\\antlr3.runtime.3.5.1.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
