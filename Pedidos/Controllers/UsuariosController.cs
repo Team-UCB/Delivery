@@ -32,7 +32,7 @@ namespace Pedidos.Controllers
         /// </summary>
         /// <returns></returns>
         // GET: api/Usuarios/columna/direccion
-        [Helpers.Authorize]
+        //[Helpers.Authorize]
         [HttpGet]
         public async Task<ActionResult<PageAndSortResponse<Usuario>>> GetUsuario([FromQuery] PageAndSortRequest param)
         {
@@ -52,7 +52,7 @@ namespace Pedidos.Controllers
             int total = 0;
             if (!string.IsNullOrEmpty(param.Filtro))
             {
-                listaUsuario = listaUsuario.Where(ele => ele.Nombre.Contains(param.Filtro));
+                listaUsuario = listaUsuario.Where(ele => ele.Estado.Contains(param.Filtro));
             }
             total = listaUsuario.Count();
             listaUsuario = listaUsuario.Skip((param.Pagina - 1) * param.TamPagina).Take(param.TamPagina);
@@ -135,10 +135,14 @@ namespace Pedidos.Controllers
         [HttpPost]
         public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
-
+            if (usuario.IdRol==0){
+                usuario.IdRol = 2;
+            }
+            if (usuario.Estado==null){
+                usuario.Estado = "activo";
+            }
             _context.Usuarios.Add(usuario);
             await _context.SaveChangesAsync();
-
             return CreatedAtAction("GetUsuario", new { id = usuario.Id }, usuario);
         }
 

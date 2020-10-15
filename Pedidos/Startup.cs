@@ -40,7 +40,6 @@ namespace Pedidos
 
             // configure strongly typed settings object
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
-            //services.Configure<AppSettings>(Configuration.AppSettings("Secreto"));
 
             // configure DI for application services
             services.AddScoped<UsuariosController>();
