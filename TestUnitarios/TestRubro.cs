@@ -39,16 +39,15 @@ namespace TestUnitarios
 
             Assert.IsNotNull(result);
         }
-        [TestMethod]
-        public async Task Del()
-        {
-            PedidosPollomonContext pedidospollomonContext = new PedidosPollomonContext();
-            RubrosController rubrosController = new RubrosController(pedidospollomonContext, "");
-            var result = await rubrosController.DeleteRubro(6);
+        //[TestMethod]
+        //public async Task Del()
+        //{
+        //    PedidosPollomonContext pedidospollomonContext = new PedidosPollomonContext();
+        //    RubrosController rubrosController = new RubrosController(pedidospollomonContext, "");
+        //    var result = await rubrosController.DeleteRubro(6);
 
-
-            Assert.IsNotNull(result);
-        }
+        //    Assert.IsNotNull(result);
+        //}
         [TestMethod]
         public async Task Get()
         {

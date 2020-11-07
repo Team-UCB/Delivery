@@ -9,6 +9,7 @@ C:\Users\leona\source\repos\Delivery\TestUnitarios\bin\Debug\netcoreapp3.1\TestU
 C:\Users\leona\source\repos\Delivery\TestUnitarios\bin\Debug\netcoreapp3.1\TestUnitarios.runtimeconfig.json
 C:\Users\leona\source\repos\Delivery\TestUnitarios\bin\Debug\netcoreapp3.1\TestUnitarios.runtimeconfig.dev.json
 C:\Users\leona\source\repos\Delivery\TestUnitarios\bin\Debug\netcoreapp3.1\TestUnitarios.dll
+C:\Users\leona\source\repos\Delivery\TestUnitarios\bin\Debug\netcoreapp3.1\TestUnitarios.pdb
 C:\Users\leona\source\repos\Delivery\TestUnitarios\bin\Debug\netcoreapp3.1\Antlr3.Runtime.dll
 C:\Users\leona\source\repos\Delivery\TestUnitarios\bin\Debug\netcoreapp3.1\Iesi.Collections.dll
 C:\Users\leona\source\repos\Delivery\TestUnitarios\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
@@ -239,10 +240,9 @@ C:\Users\leona\source\repos\Delivery\TestUnitarios\bin\Debug\netcoreapp3.1\runti
 C:\Users\leona\source\repos\Delivery\TestUnitarios\bin\Debug\netcoreapp3.1\Pedidos.dll
 C:\Users\leona\source\repos\Delivery\TestUnitarios\bin\Debug\netcoreapp3.1\Pedidos.pdb
 C:\Users\leona\source\repos\Delivery\TestUnitarios\bin\Debug\netcoreapp3.1\Pedidos.xml
+C:\Users\leona\source\repos\Delivery\TestUnitarios\bin\Debug\netcoreapp3.1\Pedidos.dll.config
 C:\Users\leona\source\repos\Delivery\TestUnitarios\obj\Debug\netcoreapp3.1\TestUnitarios.csprojAssemblyReference.cache
 C:\Users\leona\source\repos\Delivery\TestUnitarios\obj\Debug\netcoreapp3.1\TestUnitarios.AssemblyInfoInputs.cache
 C:\Users\leona\source\repos\Delivery\TestUnitarios\obj\Debug\netcoreapp3.1\TestUnitarios.csproj.CopyComplete
-C:\Users\leona\source\repos\Delivery\TestUnitarios\bin\Debug\netcoreapp3.1\TestUnitarios.pdb
 C:\Users\leona\source\repos\Delivery\TestUnitarios\obj\Debug\netcoreapp3.1\TestUnitarios.dll
 C:\Users\leona\source\repos\Delivery\TestUnitarios\obj\Debug\netcoreapp3.1\TestUnitarios.pdb
-C:\Users\leona\source\repos\Delivery\TestUnitarios\bin\Debug\netcoreapp3.1\Pedidos.dll.config

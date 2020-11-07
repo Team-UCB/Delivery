@@ -18,22 +18,16 @@ namespace Pedidos.Controllers
         private readonly PedidosPollomonContext _context;
         private readonly AppSettings _appSettings;
 
-        public FotosController(PedidosPollomonContext context, IOptions<AppSettings> appSettings)
+        public FotosController(PedidosPollomonContext context)
         {
             _context = context;
-            _appSettings = appSettings.Value;
         }
-        public FotosController(PedidosPollomonContext context, string secret)
-        {
-            _context = context;
-            _appSettings = new AppSettings { Secret = secret };
-        }
-        [Authorize]
-        [HttpGet]
-        public async Task<IEnumerable<Foto>> GetAllFotos()
-        {
-            return await _context.Fotos.ToListAsync();
-        }
+        //[Authorize]
+        //[HttpGet]
+        //public async Task<IEnumerable<Foto>> GetAllFotos()
+        //{
+        //    return await _context.Fotos.ToListAsync();
+        //}
 
         /// <summary>
         /// Gets All the Fotos from the BDB
