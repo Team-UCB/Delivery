@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Pedidos.Helpers;
 using Pedidos.Models;
 
 namespace Pedidos.Controllers
@@ -14,10 +16,24 @@ namespace Pedidos.Controllers
     public class RubrosController : ControllerBase
     {
         private readonly PedidosPollomonContext _context;
+        private readonly AppSettings _appSettings;
 
-        public RubrosController(PedidosPollomonContext context)
+        public RubrosController(PedidosPollomonContext context, IOptions<AppSettings> appSettings)
         {
             _context = context;
+            _appSettings = appSettings.Value;
+        }
+        public RubrosController(PedidosPollomonContext context, string secret)
+        {
+            _context = context;
+            _appSettings = new AppSettings { Secret = secret };
+        }
+
+        [Authorize]
+        [HttpGet]
+        public async Task<IEnumerable<Rubro>> GetAllRubros()
+        {
+            return await _context.Rubros.ToListAsync();
         }
 
         /// <summary>
@@ -111,8 +127,8 @@ namespace Pedidos.Controllers
                     throw;
                 }
             }
-
-            return NoContent();
+            return Ok();
+            //return NoContent();
         }
 
         /// <summary>
@@ -150,8 +166,8 @@ namespace Pedidos.Controllers
 
             _context.Rubros.Remove(rubro);
             await _context.SaveChangesAsync();
-
-            return rubro;
+            return Ok();
+            //return rubro;
         }
 
         private bool RubroExists(long id)

@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\proyecto de visual studio llano\\proyecto pedidos 12 10 20 bac\\Pedidos\\Pedidos.csproj": {}
+    "C:\\Users\\leona\\Source\\Repos\\Delivery\\Pedidos\\Pedidos.csproj": {}
   },
   "projects": {
-    "D:\\proyecto de visual studio llano\\proyecto pedidos 12 10 20 bac\\Pedidos\\Pedidos.csproj": {
+    "C:\\Users\\leona\\Source\\Repos\\Delivery\\Pedidos\\Pedidos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\proyecto de visual studio llano\\proyecto pedidos 12 10 20 bac\\Pedidos\\Pedidos.csproj",
+        "projectUniqueName": "C:\\Users\\leona\\Source\\Repos\\Delivery\\Pedidos\\Pedidos.csproj",
         "projectName": "Pedidos",
-        "projectPath": "D:\\proyecto de visual studio llano\\proyecto pedidos 12 10 20 bac\\Pedidos\\Pedidos.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "D:\\proyecto de visual studio llano\\proyecto pedidos 12 10 20 bac\\Pedidos\\obj\\",
+        "projectPath": "C:\\Users\\leona\\Source\\Repos\\Delivery\\Pedidos\\Pedidos.csproj",
+        "packagesPath": "C:\\Users\\leona\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\leona\\Source\\Repos\\Delivery\\Pedidos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "D:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\leona\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -106,7 +105,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
