@@ -65,16 +65,18 @@ namespace Pedidos.Controllers
         /// <returns></returns>
         // GET: api/Productos/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Producto>> GetProducto(long id)
+        public async Task<ActionResult<PageAndSortResponse<Producto>>> GetProducto(long id)
         {
-            var producto = await _context.Productos.FindAsync(id);
 
-            if (producto == null)
+            var productosVendedor = _context.Productos.Where(p => p.IdVendedor == id).ToList();
+            var result = new PageAndSortResponse<Producto>
             {
-                return NotFound();
-            }
+                Datos = productosVendedor,
+                TotalFilas = 1
+            };
 
-            return producto;
+         
+            return result;
         }
 
         /// <summary>
