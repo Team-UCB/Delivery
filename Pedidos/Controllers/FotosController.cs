@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Pedidos.Helpers;
 using Pedidos.Models;
 
 namespace Pedidos.Controllers
@@ -14,11 +16,18 @@ namespace Pedidos.Controllers
     public class FotosController : ControllerBase
     {
         private readonly PedidosPollomonContext _context;
+        private readonly AppSettings _appSettings;
 
         public FotosController(PedidosPollomonContext context)
         {
             _context = context;
         }
+        //[Authorize]
+        //[HttpGet]
+        //public async Task<IEnumerable<Foto>> GetAllFotos()
+        //{
+        //    return await _context.Fotos.ToListAsync();
+        //}
 
         /// <summary>
         /// Gets All the Fotos from the BDB
@@ -29,15 +38,15 @@ namespace Pedidos.Controllers
         [HttpGet]
         public async Task<ActionResult<PageAndSortResponse<Foto>>> GetFoto([FromQuery] PageAndSortRequest param)
         {
-            IEnumerable<Foto> listaOfertas = null;
+            IEnumerable<Foto> listaFotos = null;
             if (param.Direccion.ToLower() == "asc")
-                listaOfertas = await _context.Fotos.OrderBy(p => EF.Property<object>(p, param.Columna)).ToListAsync();
+                listaFotos = await _context.Fotos.OrderBy(p => EF.Property<object>(p, param.Columna)).ToListAsync();
             else if (param.Direccion.ToLower() == "desc")
-                listaOfertas = await _context.Fotos.OrderByDescending(p => EF.Property<object>(p, param.Columna)).ToListAsync();
+                listaFotos = await _context.Fotos.OrderByDescending(p => EF.Property<object>(p, param.Columna)).ToListAsync();
             else
-                listaOfertas = await _context.Fotos.OrderBy(p => p.Id).ToListAsync();
+                listaFotos = await _context.Fotos.OrderBy(p => p.Id).ToListAsync();
 
-            if (listaOfertas == null)
+            if (listaFotos == null)
             {
                 return NotFound();
             }
@@ -45,14 +54,14 @@ namespace Pedidos.Controllers
             int total = 0;
             if (!string.IsNullOrEmpty(param.Filtro))
             {
-                listaOfertas = listaOfertas.Where(ele => ele.Descripcion.Equals(param.Filtro));
+                listaFotos = listaFotos.Where(ele => ele.Descripcion.Equals(param.Filtro));
             }
-            total = listaOfertas.Count();
-            listaOfertas = listaOfertas.Skip((param.Pagina - 1) * param.TamPagina).Take(param.TamPagina);
+            total = listaFotos.Count();
+            listaFotos = listaFotos.Skip((param.Pagina - 1) * param.TamPagina).Take(param.TamPagina);
 
             var result = new PageAndSortResponse<Foto>
             {
-                Datos = listaOfertas,
+                Datos = listaFotos,
                 TotalFilas = total
             };
 
@@ -111,8 +120,8 @@ namespace Pedidos.Controllers
                     throw;
                 }
             }
-
-            return NoContent();
+            return Ok();
+            //return NoContent();
         }
 
         /// <summary>
@@ -150,7 +159,8 @@ namespace Pedidos.Controllers
             _context.Fotos.Remove(foto);
             await _context.SaveChangesAsync();
 
-            return foto;
+            return Ok();
+            //return foto;
         }
 
         private bool FotoExists(long id)
