@@ -18,8 +18,6 @@ namespace TestUnitarios
         {
             PedidosPollomonContext pedidosContext = new PedidosPollomonContext();
             PedidosController pedidosController = new PedidosController(pedidosContext);
-           
-
             var result = await pedidosController.PostPedido(new Pedido() {
                 FechaIngreso = DateTime.Now,
                 FechaAtencion = DateTime.Now,

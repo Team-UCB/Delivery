@@ -15,7 +15,6 @@ namespace Pedidos.Models
         public DateTime FechaCreacion { get; set; }
         public DateTime? FechaActualizacion { get; set; }
         public long? IdUsuario { get; set; }
-
         public virtual Producto IdProductoNavigation { get; set; }
     }
 }

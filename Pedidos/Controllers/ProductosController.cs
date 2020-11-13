@@ -36,7 +36,6 @@ namespace Pedidos.Controllers
                 listaOfertas = await _context.Productos.OrderByDescending(p => EF.Property<object>(p, param.Columna)).ToListAsync();
             else
                 listaOfertas = await _context.Productos.OrderBy(p => p.Id).ToListAsync();
-
             if (listaOfertas == null)
             {
                 return NotFound();

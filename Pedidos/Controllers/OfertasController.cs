@@ -46,7 +46,6 @@ namespace Pedidos.Controllers
             }
             total = listaOfertas.Count();
             listaOfertas = listaOfertas.Skip((param.Pagina - 1) * param.TamPagina).Take(param.TamPagina);
-
             var result = new PageAndSortResponse<Ofertum>
             {
                 Datos = listaOfertas,
