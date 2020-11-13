@@ -27,7 +27,7 @@ namespace Pedidos.Controllers
         // GET: api/Produtos/columna/direccion
         [Helpers.Authorize]
         [HttpGet]
-        public async Task<ActionResult<PageAndSortResponse<Producto>>> GetFoto([FromQuery] PageAndSortRequest param)
+        public async Task<ActionResult<PageAndSortResponse<Producto>>> GetProducto([FromQuery] PageAndSortRequest param)
         {
             IEnumerable<Producto> listaOfertas = null;
             if (param.Direccion.ToLower() == "asc")

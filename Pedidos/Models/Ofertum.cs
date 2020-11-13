@@ -12,6 +12,9 @@ namespace Pedidos.Models
         public DateTime FechaFin { get; set; }
         public decimal PrecioOferta { get; set; }
         public long IdProducto { get; set; }
+        public DateTime FechaCreacion { get; set; }
+        public DateTime? FechaActualizacion { get; set; }
+        public long? IdUsuario { get; set; }
 
         public virtual Producto IdProductoNavigation { get; set; }
     }
