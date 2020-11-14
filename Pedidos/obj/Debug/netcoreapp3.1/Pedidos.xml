@@ -286,7 +286,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.ProductosController.GetFoto(Pedidos.Models.PageAndSortRequest)">
+        <member name="M:Pedidos.Controllers.ProductosController.GetProducto(Pedidos.Models.PageAndSortRequest)">
             <summary>
             Gets all the data Productos from the BDB
             </summary>
