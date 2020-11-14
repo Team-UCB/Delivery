@@ -1,25 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\leona\\Source\\Repos\\Delivery\\TestUnitarios\\TestUnitarios.csproj": {}
+    "C:\\Users\\Usuario\\Documents\\UCB\\Semestre 8\\TALLER DE SISTEMAS DE INFORMACION\\Delivery WebCore - ClientApp\\WebCore\\TestUnitarios\\TestUnitarios.csproj": {}
   },
   "projects": {
-    "C:\\Users\\leona\\Source\\Repos\\Delivery\\Pedidos\\Pedidos.csproj": {
+    "C:\\Users\\Usuario\\Documents\\UCB\\Semestre 8\\TALLER DE SISTEMAS DE INFORMACION\\Delivery WebCore - ClientApp\\WebCore\\Pedidos\\Pedidos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\leona\\Source\\Repos\\Delivery\\Pedidos\\Pedidos.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\UCB\\Semestre 8\\TALLER DE SISTEMAS DE INFORMACION\\Delivery WebCore - ClientApp\\WebCore\\Pedidos\\Pedidos.csproj",
         "projectName": "Pedidos",
-        "projectPath": "C:\\Users\\leona\\Source\\Repos\\Delivery\\Pedidos\\Pedidos.csproj",
-        "packagesPath": "C:\\Users\\leona\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\leona\\Source\\Repos\\Delivery\\Pedidos\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\Documents\\UCB\\Semestre 8\\TALLER DE SISTEMAS DE INFORMACION\\Delivery WebCore - ClientApp\\WebCore\\Pedidos\\Pedidos.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\Documents\\UCB\\Semestre 8\\TALLER DE SISTEMAS DE INFORMACION\\Delivery WebCore - ClientApp\\WebCore\\Pedidos\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\leona\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -105,26 +101,22 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\leona\\Source\\Repos\\Delivery\\TestUnitarios\\TestUnitarios.csproj": {
+    "C:\\Users\\Usuario\\Documents\\UCB\\Semestre 8\\TALLER DE SISTEMAS DE INFORMACION\\Delivery WebCore - ClientApp\\WebCore\\TestUnitarios\\TestUnitarios.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\leona\\Source\\Repos\\Delivery\\TestUnitarios\\TestUnitarios.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Documents\\UCB\\Semestre 8\\TALLER DE SISTEMAS DE INFORMACION\\Delivery WebCore - ClientApp\\WebCore\\TestUnitarios\\TestUnitarios.csproj",
         "projectName": "TestUnitarios",
-        "projectPath": "C:\\Users\\leona\\Source\\Repos\\Delivery\\TestUnitarios\\TestUnitarios.csproj",
-        "packagesPath": "C:\\Users\\leona\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\leona\\Source\\Repos\\Delivery\\TestUnitarios\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\Documents\\UCB\\Semestre 8\\TALLER DE SISTEMAS DE INFORMACION\\Delivery WebCore - ClientApp\\WebCore\\TestUnitarios\\TestUnitarios.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\Documents\\UCB\\Semestre 8\\TALLER DE SISTEMAS DE INFORMACION\\Delivery WebCore - ClientApp\\WebCore\\TestUnitarios\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\leona\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -136,8 +128,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\leona\\Source\\Repos\\Delivery\\Pedidos\\Pedidos.csproj": {
-                "projectPath": "C:\\Users\\leona\\Source\\Repos\\Delivery\\Pedidos\\Pedidos.csproj"
+              "C:\\Users\\Usuario\\Documents\\UCB\\Semestre 8\\TALLER DE SISTEMAS DE INFORMACION\\Delivery WebCore - ClientApp\\WebCore\\Pedidos\\Pedidos.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\Documents\\UCB\\Semestre 8\\TALLER DE SISTEMAS DE INFORMACION\\Delivery WebCore - ClientApp\\WebCore\\Pedidos\\Pedidos.csproj"
               }
             }
           }
@@ -187,14 +179,11 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
