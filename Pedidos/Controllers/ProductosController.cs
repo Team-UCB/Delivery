@@ -27,7 +27,7 @@ namespace Pedidos.Controllers
         // GET: api/Produtos/columna/direccion
         [Helpers.Authorize]
         [HttpGet]
-        public async Task<ActionResult<PageAndSortResponse<Producto>>> GetFoto([FromQuery] PageAndSortRequest param)
+        public async Task<ActionResult<PageAndSortResponse<Producto>>> GetProducto([FromQuery] PageAndSortRequest param)
         {
             IEnumerable<Producto> listaOfertas = null;
             if (param.Direccion.ToLower() == "asc")
@@ -36,7 +36,6 @@ namespace Pedidos.Controllers
                 listaOfertas = await _context.Productos.OrderByDescending(p => EF.Property<object>(p, param.Columna)).ToListAsync();
             else
                 listaOfertas = await _context.Productos.OrderBy(p => p.Id).ToListAsync();
-
             if (listaOfertas == null)
             {
                 return NotFound();
