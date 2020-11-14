@@ -25,7 +25,7 @@ namespace Pedidos.Controllers
         /// </summary>
         /// <returns></returns>
         // GET: api/Direcciones/columna/direccion
-        [Helpers.Authorize]
+        //[Helpers.Authorize]
         [HttpGet]
         public async Task<ActionResult<PageAndSortResponse<Direccion>>> GetDireccion([FromQuery] PageAndSortRequest param)
         {
@@ -46,6 +46,7 @@ namespace Pedidos.Controllers
             if (!string.IsNullOrEmpty(param.Filtro))
             {
                 listaDireccion = listaDireccion.Where(ele => ele.Descripcion.Contains(param.Filtro));
+                
             }
             total = listaDireccion.Count();
             listaDireccion = listaDireccion.Skip((param.Pagina - 1) * param.TamPagina).Take(param.TamPagina);
