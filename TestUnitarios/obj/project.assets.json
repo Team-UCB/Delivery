@@ -9647,20 +9647,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Usuario\\.nuget\\packages\\": {}
+    "C:\\Users\\lopez\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\Documents\\UCB\\Semestre 8\\TALLER DE SISTEMAS DE INFORMACION\\Delivery WebCore - ClientApp\\WebCore\\TestUnitarios\\TestUnitarios.csproj",
+      "projectUniqueName": "C:\\Users\\lopez\\Desktop\\apiPaceño\\TestUnitarios\\TestUnitarios.csproj",
       "projectName": "TestUnitarios",
-      "projectPath": "C:\\Users\\Usuario\\Documents\\UCB\\Semestre 8\\TALLER DE SISTEMAS DE INFORMACION\\Delivery WebCore - ClientApp\\WebCore\\TestUnitarios\\TestUnitarios.csproj",
-      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Usuario\\Documents\\UCB\\Semestre 8\\TALLER DE SISTEMAS DE INFORMACION\\Delivery WebCore - ClientApp\\WebCore\\TestUnitarios\\obj\\",
+      "projectPath": "C:\\Users\\lopez\\Desktop\\apiPaceño\\TestUnitarios\\TestUnitarios.csproj",
+      "packagesPath": "C:\\Users\\lopez\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lopez\\Desktop\\apiPaceño\\TestUnitarios\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\lopez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -9672,8 +9677,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Usuario\\Documents\\UCB\\Semestre 8\\TALLER DE SISTEMAS DE INFORMACION\\Delivery WebCore - ClientApp\\WebCore\\Pedidos\\Pedidos.csproj": {
-              "projectPath": "C:\\Users\\Usuario\\Documents\\UCB\\Semestre 8\\TALLER DE SISTEMAS DE INFORMACION\\Delivery WebCore - ClientApp\\WebCore\\Pedidos\\Pedidos.csproj"
+            "C:\\Users\\lopez\\Desktop\\apiPaceño\\Pedidos\\Pedidos.csproj": {
+              "projectPath": "C:\\Users\\lopez\\Desktop\\apiPaceño\\Pedidos\\Pedidos.csproj"
             }
           }
         }
@@ -9727,7 +9732,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
