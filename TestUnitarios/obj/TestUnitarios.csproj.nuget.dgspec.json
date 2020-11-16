@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\leona\\Source\\Repos\\Delivery\\TestUnitarios\\TestUnitarios.csproj": {}
+    "C:\\Users\\lopez\\Desktop\\apiPaceño\\TestUnitarios\\TestUnitarios.csproj": {}
   },
   "projects": {
-    "C:\\Users\\leona\\Source\\Repos\\Delivery\\Pedidos\\Pedidos.csproj": {
+    "C:\\Users\\lopez\\Desktop\\apiPaceño\\Pedidos\\Pedidos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\leona\\Source\\Repos\\Delivery\\Pedidos\\Pedidos.csproj",
+        "projectUniqueName": "C:\\Users\\lopez\\Desktop\\apiPaceño\\Pedidos\\Pedidos.csproj",
         "projectName": "Pedidos",
-        "projectPath": "C:\\Users\\leona\\Source\\Repos\\Delivery\\Pedidos\\Pedidos.csproj",
-        "packagesPath": "C:\\Users\\leona\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\leona\\Source\\Repos\\Delivery\\Pedidos\\obj\\",
+        "projectPath": "C:\\Users\\lopez\\Desktop\\apiPaceño\\Pedidos\\Pedidos.csproj",
+        "packagesPath": "C:\\Users\\lopez\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lopez\\Desktop\\apiPaceño\\Pedidos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\leona\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lopez\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -105,24 +105,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\leona\\Source\\Repos\\Delivery\\TestUnitarios\\TestUnitarios.csproj": {
+    "C:\\Users\\lopez\\Desktop\\apiPaceño\\TestUnitarios\\TestUnitarios.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\leona\\Source\\Repos\\Delivery\\TestUnitarios\\TestUnitarios.csproj",
+        "projectUniqueName": "C:\\Users\\lopez\\Desktop\\apiPaceño\\TestUnitarios\\TestUnitarios.csproj",
         "projectName": "TestUnitarios",
-        "projectPath": "C:\\Users\\leona\\Source\\Repos\\Delivery\\TestUnitarios\\TestUnitarios.csproj",
-        "packagesPath": "C:\\Users\\leona\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\leona\\Source\\Repos\\Delivery\\TestUnitarios\\obj\\",
+        "projectPath": "C:\\Users\\lopez\\Desktop\\apiPaceño\\TestUnitarios\\TestUnitarios.csproj",
+        "packagesPath": "C:\\Users\\lopez\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lopez\\Desktop\\apiPaceño\\TestUnitarios\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\leona\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lopez\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -136,8 +136,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\leona\\Source\\Repos\\Delivery\\Pedidos\\Pedidos.csproj": {
-                "projectPath": "C:\\Users\\leona\\Source\\Repos\\Delivery\\Pedidos\\Pedidos.csproj"
+              "C:\\Users\\lopez\\Desktop\\apiPaceño\\Pedidos\\Pedidos.csproj": {
+                "projectPath": "C:\\Users\\lopez\\Desktop\\apiPaceño\\Pedidos\\Pedidos.csproj"
               }
             }
           }
@@ -187,14 +187,11 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

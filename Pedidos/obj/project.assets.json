@@ -8388,11 +8388,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lopez\\Videos\\api\\Pedidos\\Pedidos.csproj",
+      "projectUniqueName": "C:\\Users\\lopez\\Desktop\\apiPaceño\\Pedidos\\Pedidos.csproj",
       "projectName": "Pedidos",
-      "projectPath": "C:\\Users\\lopez\\Videos\\api\\Pedidos\\Pedidos.csproj",
+      "projectPath": "C:\\Users\\lopez\\Desktop\\apiPaceño\\Pedidos\\Pedidos.csproj",
       "packagesPath": "C:\\Users\\lopez\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lopez\\Videos\\api\\Pedidos\\obj\\",
+      "outputPath": "C:\\Users\\lopez\\Desktop\\apiPaceño\\Pedidos\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
