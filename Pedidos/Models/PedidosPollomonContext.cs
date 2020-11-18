@@ -44,7 +44,8 @@ namespace Pedidos.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("workstation id=PedidosPollomon.mssql.somee.com;packet size=4096;user id=pollomon_SQLLogin_1;pwd=akoluaza31;data source=PedidosPollomon.mssql.somee.com;persist security info=False;initial catalog=PedidosPollomon");
+                //optionsBuilder.UseSqlServer("workstation id=PedidosPollomon.mssql.somee.com;packet size=4096;user id=pollomon_SQLLogin_1;pwd=akoluaza31;data source=PedidosPollomon.mssql.somee.com;persist security info=False;initial catalog=PedidosPollomon");
+                optionsBuilder.UseSqlServer("Server=LAPTOP-BIISNMJT\\SQLEXPRESS;Database=pedidos;Trusted_Connection=True;MultipleActiveResultSets=True");
             }
         }
 

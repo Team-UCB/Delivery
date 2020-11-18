@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using Pedidos.Helpers;
 using Pedidos.Models;
 
 namespace Pedidos.Controllers
@@ -16,44 +14,25 @@ namespace Pedidos.Controllers
     public class RubrosController : ControllerBase
     {
         private readonly PedidosPollomonContext _context;
-        private readonly AppSettings _appSettings;
 
-        public RubrosController(PedidosPollomonContext context, IOptions<AppSettings> appSettings)
+        public RubrosController(PedidosPollomonContext context)
         {
             _context = context;
-            _appSettings = appSettings.Value;
-        }
-        public RubrosController(PedidosPollomonContext context, string secret)
-        {
-            _context = context;
-            _appSettings = new AppSettings { Secret = secret };
         }
 
-        [Authorize]
-        [HttpGet]
-        public async Task<IEnumerable<Rubro>> GetAllRubros()
-        {
-            return await _context.Rubros.ToListAsync();
-        }
-
-        /// <summary>
-        /// Gets All the Rubros from the BDB
-        /// </summary>
-        /// <returns></returns>
-        // GET: api/Rubros/columna/direccion
-        [Helpers.Authorize]
+        // GET: api/Rubros
+        //[Helpers.Authorize]
         [HttpGet]
         public async Task<ActionResult<PageAndSortResponse<Rubro>>> GetRubro([FromQuery] PageAndSortRequest param)
         {
-            IEnumerable<Rubro> listaOfertas = null;
+            IEnumerable<Rubro> listaRubros = null;
             if (param.Direccion.ToLower() == "asc")
-                listaOfertas = await _context.Rubros.OrderBy(p => EF.Property<object>(p, param.Columna)).ToListAsync();
+                listaRubros = await _context.Rubros.OrderBy(p => EF.Property<object>(p, param.Columna)).ToListAsync();
             else if (param.Direccion.ToLower() == "desc")
-                listaOfertas = await _context.Rubros.OrderByDescending(p => EF.Property<object>(p, param.Columna)).ToListAsync();
+                listaRubros = await _context.Rubros.OrderByDescending(p => EF.Property<object>(p, param.Columna)).ToListAsync();
             else
-                listaOfertas = await _context.Rubros.OrderBy(p => p.Id).ToListAsync();
-
-            if (listaOfertas == null)
+                listaRubros = await _context.Rubros.OrderBy(p => p.Id).ToListAsync();
+            if (listaRubros == null)
             {
                 return NotFound();
             }
@@ -61,24 +40,20 @@ namespace Pedidos.Controllers
             int total = 0;
             if (!string.IsNullOrEmpty(param.Filtro))
             {
-                listaOfertas = listaOfertas.Where(ele => ele.Nombre.Equals(param.Filtro));
+                listaRubros = listaRubros.Where(ele => ele.Nombre.Equals(param.Filtro));
             }
-            total = listaOfertas.Count();
-            listaOfertas = listaOfertas.Skip((param.Pagina - 1) * param.TamPagina).Take(param.TamPagina);
+            total = listaRubros.Count();
+            listaRubros = listaRubros.Skip((param.Pagina - 1) * param.TamPagina).Take(param.TamPagina);
 
             var result = new PageAndSortResponse<Rubro>
             {
-                Datos = listaOfertas,
+                Datos = listaRubros,
                 TotalFilas = total
             };
 
             return result;
         }
 
-        /// <summary>
-        /// Get a Chat specific for Id from the BDB
-        /// </summary>
-        /// <returns></returns>
         // GET: api/Rubros/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Rubro>> GetRubro(long id)
@@ -93,12 +68,6 @@ namespace Pedidos.Controllers
             return rubro;
         }
 
-        /// <summary>
-        /// Modifies an existing Rubro
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="rubro"></param>
-        /// <returns></returns>
         // PUT: api/Rubros/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -127,15 +96,10 @@ namespace Pedidos.Controllers
                     throw;
                 }
             }
-            return Ok();
-            //return NoContent();
+
+            return NoContent();
         }
 
-        /// <summary>
-        /// Creates a new rubro 
-        /// </summary>
-        /// <param name="rubro"></param>
-        /// <returns></returns>
         // POST: api/Rubros
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -148,12 +112,6 @@ namespace Pedidos.Controllers
             return CreatedAtAction("GetRubro", new { id = rubro.Id }, rubro);
         }
 
-
-        /// <summary>
-        /// Removes a rubro from BDB
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         // DELETE: api/Rubros/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Rubro>> DeleteRubro(long id)
@@ -166,8 +124,8 @@ namespace Pedidos.Controllers
 
             _context.Rubros.Remove(rubro);
             await _context.SaveChangesAsync();
-            return Ok();
-            //return rubro;
+
+            return rubro;
         }
 
         private bool RubroExists(long id)
