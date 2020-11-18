@@ -741,3 +741,8 @@ C:\Pace\WebCore\TestUnitarios\obj\Debug\netcoreapp3.1\TestUnitarios.AssemblyInfo
 C:\Pace\WebCore\TestUnitarios\obj\Debug\netcoreapp3.1\TestUnitarios.csproj.CoreCompileInputs.cache
 C:\Pace\WebCore\TestUnitarios\obj\Debug\netcoreapp3.1\TestUnitarios.dll
 C:\Pace\WebCore\TestUnitarios\obj\Debug\netcoreapp3.1\TestUnitarios.pdb
+C:\Users\lopez\Desktop\Taller Sistema de inf\API\TestUnitarios\obj\Debug\netcoreapp3.1\TestUnitarios.csprojAssemblyReference.cache
+C:\Users\lopez\Desktop\Taller Sistema de inf\API\TestUnitarios\obj\Debug\netcoreapp3.1\TestUnitarios.AssemblyInfoInputs.cache
+C:\Users\lopez\Desktop\Taller Sistema de inf\API\TestUnitarios\obj\Debug\netcoreapp3.1\TestUnitarios.csproj.CoreCompileInputs.cache
+C:\Users\lopez\Desktop\Taller Sistema de inf\API\TestUnitarios\obj\Debug\netcoreapp3.1\TestUnitarios.dll
+C:\Users\lopez\Desktop\Taller Sistema de inf\API\TestUnitarios\obj\Debug\netcoreapp3.1\TestUnitarios.pdb
