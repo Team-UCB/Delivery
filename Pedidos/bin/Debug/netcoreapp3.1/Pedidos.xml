@@ -162,7 +162,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.DireccionesController.GetDireccion(Pedidos.Models.PageAndSortRequest)">
+        <member name="M:Pedidos.Controllers.DireccionesController.GetDireccion(Pedidos.Models.PageAndSortRequest,System.Int64)">
             <summary>
             Gets all the data Direcciones from the BDB
             </summary>
@@ -170,7 +170,7 @@
         </member>
         <member name="M:Pedidos.Controllers.DireccionesController.GetDireccion(System.Int64)">
             <summary>
-             Gets an specific data Direccion from the BDB by id
+             Gets an specific data Direccion from the BDB by idCliente
             </summary>
             <returns></returns>
         </member>

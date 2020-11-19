@@ -25,7 +25,7 @@ namespace Pedidos.Controllers
         /// </summary>
         /// <returns></returns>
         // GET: api/Direcciones/columna/direccion
-        //[Helpers.Authorize]
+        [Helpers.Authorize]
         [HttpGet]
         public async Task<ActionResult<PageAndSortResponse<Direccion>>> GetDireccion([FromQuery] PageAndSortRequest param)
         {
@@ -61,20 +61,14 @@ namespace Pedidos.Controllers
         }
 
         /// <summary>
-        ///  Gets an specific data Direccion from the BDB by id
+        ///  Gets an specific data Direccion from the BDB by idCliente
         /// </summary>
         /// <returns></returns>
         // GET: api/Direcciones/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Direccion>> GetDireccion(long id)
+        public async Task<List<Direccion>>  GetDireccion(long id)
         {
-            var direccion = await _context.Direccions.FindAsync(id);
-
-            if (direccion == null)
-            {
-                return NotFound();
-            }
-
+            var direccion = await _context.Direccions.Where(ele => ele.IdCliente == id).ToListAsync();
             return direccion;
         }
 
