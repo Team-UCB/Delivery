@@ -27,7 +27,7 @@ namespace Pedidos.Controllers
         // GET: api/Direcciones/columna/direccion
         [Helpers.Authorize]
         [HttpGet]
-        public async Task<ActionResult<PageAndSortResponse<Direccion>>> GetDireccion([FromQuery] PageAndSortRequest param, long idCliente)
+        public async Task<ActionResult<PageAndSortResponse<Direccion>>> GetDireccion([FromQuery] PageAndSortRequest param)
         {
             IEnumerable<Direccion> listaDireccion = null;
             if (param.Direccion.ToLower() == "asc")
