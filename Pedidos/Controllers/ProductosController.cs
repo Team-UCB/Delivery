@@ -27,7 +27,7 @@ namespace Pedidos.Controllers
         // GET: api/Produtos/columna/direccion
         [Helpers.Authorize]
         [HttpGet]
-        public async Task<ActionResult<PageAndSortResponse<Producto>>> GetProducto([FromQuery] PageAndSortRequest param)
+        public async Task<ActionResult<PageAndSortResponse<Producto>>> GetFoto([FromQuery] PageAndSortRequest param)
         {
             IEnumerable<Producto> listaOfertas = null;
             if (param.Direccion.ToLower() == "asc")
@@ -36,6 +36,7 @@ namespace Pedidos.Controllers
                 listaOfertas = await _context.Productos.OrderByDescending(p => EF.Property<object>(p, param.Columna)).ToListAsync();
             else
                 listaOfertas = await _context.Productos.OrderBy(p => p.Id).ToListAsync();
+
             if (listaOfertas == null)
             {
                 return NotFound();
@@ -64,16 +65,18 @@ namespace Pedidos.Controllers
         /// <returns></returns>
         // GET: api/Productos/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Producto>> GetProducto(long id)
+        public async Task<ActionResult<PageAndSortResponse<Producto>>> GetProducto(long id)
         {
-            var producto = await _context.Productos.FindAsync(id);
 
-            if (producto == null)
+            var productosVendedor = _context.Productos.Where(p => p.IdVendedor == id).ToList();
+            var result = new PageAndSortResponse<Producto>
             {
-                return NotFound();
-            }
+                Datos = productosVendedor,
+                TotalFilas = 1
+            };
 
-            return producto;
+
+            return result;
         }
 
         /// <summary>
@@ -154,3 +157,4 @@ namespace Pedidos.Controllers
         }
     }
 }
+
