@@ -62,6 +62,31 @@ namespace Pedidos.Controllers
 
 
 
+
+
+
+
+
+
+
+        [HttpGet]
+        [Route("getPedidoVendedor/{param1}")]
+        public async Task<ActionResult<Vendedor>> GetPedidoVendedor(long param1)
+        {
+            var vendedor = new List<Vendedor>();
+            vendedor = _context.Vendedors.Where(p => p.Id == param1).ToList();
+
+
+            if (vendedor == null)
+            {
+                return NotFound();
+            }
+
+            return vendedor[0];
+        }
+
+
+
         // GET: api/Vendedores
         //[HttpGet]
         //public async Task<ActionResult<IEnumerable<Vendedor>>> GetVendedor()
