@@ -162,7 +162,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.DireccionesController.GetDireccion(Pedidos.Models.PageAndSortRequest,System.Int64)">
+        <member name="M:Pedidos.Controllers.DireccionesController.GetDireccion(Pedidos.Models.PageAndSortRequest)">
             <summary>
             Gets all the data Direcciones from the BDB
             </summary>
@@ -286,7 +286,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.ProductosController.GetFoto(Pedidos.Models.PageAndSortRequest)">
+        <member name="M:Pedidos.Controllers.ProductosController.GetProducto(Pedidos.Models.PageAndSortRequest)">
             <summary>
             Gets all the data Productos from the BDB
             </summary>

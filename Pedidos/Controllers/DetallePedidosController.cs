@@ -63,20 +63,34 @@ namespace Pedidos.Controllers
         /// Get a DetallePedidos specific for Id from the BDB
         /// </summary>
         /// <returns></returns>
-        
+
         // GET: api/DetallePedidos/5
+
+
         [HttpGet("{id}")]
-        public async Task<ActionResult<DetallePedido>> GetDetallePedido(long id)
+        public async Task<ActionResult<List<DetallePedido>>> GetDetallePedido(long id)
         {
-            var detallePedido = await _context.DetallePedidos.FindAsync(id);
 
-            if (detallePedido == null)
-            {
-                return NotFound();
-            }
-
-            return detallePedido;
+            var detallepedidos = _context.DetallePedidos.Where(c => c.IdPedido.Equals(id)).ToList();
+            return detallepedidos;
         }
+
+
+
+
+
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<DetallePedido>> GetDetallePedido(long id)
+        //{
+        //    var detallePedido = await _context.DetallePedidos.FindAsync(id);
+
+        //    if (detallePedido == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return detallePedido;
+        //}
 
 
 

@@ -68,6 +68,30 @@ namespace Pedidos.Controllers
             return cliente;
         }
 
+
+
+
+        [HttpGet]
+        [Route("getClientePedido/{param1}")]
+        public async Task<ActionResult<Cliente>> getClientePedido(long param1)
+        {
+            var cliente = new List<Cliente>();
+            cliente = _context.Clientes.Where(p => p.Id == param1).ToList();
+
+
+            if (cliente == null)
+            {
+                return NotFound();
+            }
+
+            return cliente[0];
+        }
+
+
+
+
+
+
         // PUT: api/Clientes/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
