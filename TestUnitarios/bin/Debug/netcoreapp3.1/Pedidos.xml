@@ -1,0 +1,403 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pedidos</name>
+    </assembly>
+    <members>
+        <member name="M:Pedidos.Controllers.CalificacionesController.GetCalificacion(Pedidos.Models.PageAndSortRequest)">
+            <summary>
+            Gets all the data Calificaciones from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.CalificacionesController.GetCalificacion(System.Int64)">
+            <summary>
+             Gets an specific data Calificacion from the BDB by id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.CalificacionesController.PutCalificacion(System.Int64,Pedidos.Models.Calificacion)">
+            <summary>
+            Send data to a server to update a resource about Calificacion.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.CalificacionesController.PostCalificacion(Pedidos.Models.Calificacion)">
+            <summary>
+            Send data to a server to create a resource about Calificacion.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.CalificacionesController.DeleteCalificacion(System.Int64)">
+            <summary>
+            Deletes the specified resource about Calificacion.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.CategoriaProductosController.GetCategoriaProductos(Pedidos.Models.PageAndSortRequest)">
+            <summary>
+            Gets all the data CategoriaProducto from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.CategoriaProductosController.GetCategoriaProducto(System.Int64)">
+            <summary>
+             Gets an specific data CategoriaProducto from the BDB by id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.CategoriaProductosController.PutCategoriaProducto(System.Int64,Pedidos.Models.CategoriaProducto)">
+            <summary>
+            Send data to a server to update a resource about CategoriaProducto.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.CategoriaProductosController.PostCategoriaProducto(Pedidos.Models.CategoriaProducto)">
+            <summary>
+            Send data to a server to create a resource about CategoriaProducto.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.CategoriaProductosController.DeleteCategoriaProducto(System.Int64)">
+            <summary>
+            Deletes the specified resource about CategoriaProducto.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.ChatsController.GetChat(Pedidos.Models.PageAndSortRequest)">
+            <summary>
+            Gets all the data Chats from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.ChatsController.GetChat(System.Int64)">
+            <summary>
+             Gets an specific data Chat from the BDB by id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.ChatsController.PutChat(System.Int64,Pedidos.Models.Chat)">
+            <summary>
+            Send data to a server to update a resource about Chat.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.ChatsController.PostChat(Pedidos.Models.Chat)">
+            <summary>
+            Send data to a server to create a resource about Chat.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.ChatsController.DeleteChat(System.Int64)">
+            <summary>
+            Deletes the specified resource about Chat.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.DetalleFacturasController.GetDetalleFactura(Pedidos.Models.PageAndSortRequest)">
+            <summary>
+            Gets All the Detalle Factura from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.DetalleFacturasController.GetDetalleFactura(System.Int64)">
+            <summary>
+            Get a Detalle Factura specific for Id from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.DetalleFacturasController.PutDetalleFactura(System.Int64,Pedidos.Models.DetalleFactura)">
+            <summary>
+            Modifies an existing Detalle Factura
+            </summary>
+            <param name="id"></param>
+            <param name="detalleFactura"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.DetalleFacturasController.PostDetalleFactura(Pedidos.Models.DetalleFactura)">
+            <summary>
+            Creates a new Detalle Factura 
+            </summary>
+            <param name="detalleFactura"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.DetalleFacturasController.DeleteDetalleFactura(System.Int64)">
+            <summary>
+            Removes a Detalle Factura from BDB
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.DetallePedidosController.GetRubro(Pedidos.Models.PageAndSortRequest)">
+            <summary>
+            Gets All the DetallePedidos from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.DetallePedidosController.GetDetallePedido(System.Int64)">
+            <summary>
+            Get a DetallePedidos specific for Id from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.DetallePedidosController.PutDetallePedido(System.Int64,Pedidos.Models.DetallePedido)">
+            <summary>
+            Modifies an existing Vendedor
+            </summary>
+            <param name="id"></param>
+            <param name="detallePedido"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.DetallePedidosController.PostDetallePedido(Pedidos.Models.DetallePedido)">
+            <summary>
+            Creates a new rubro 
+            </summary>
+            <param name="detallePedido"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.DetallePedidosController.DeleteDetallePedido(System.Int64)">
+            <summary>
+            Removes a Vendedor from BDB
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.DireccionesController.GetDireccion(Pedidos.Models.PageAndSortRequest)">
+            <summary>
+            Gets all the data Direcciones from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.DireccionesController.GetDireccion(System.Int64)">
+            <summary>
+             Gets an specific data Direccion from the BDB by idCliente
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.DireccionesController.PutDireccion(System.Int64,Pedidos.Models.Direccion)">
+            <summary>
+            Send data to a server to update a resource about Direccion.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.DireccionesController.PostDireccion(Pedidos.Models.Direccion)">
+            <summary>
+            Send data to a server to create a resource about Direccion.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.DireccionesController.DeleteDireccion(System.Int64)">
+            <summary>
+            Deletes the specified resource about Direccion.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.FotosController.GetFoto(Pedidos.Models.PageAndSortRequest)">
+            <summary>
+            Gets All the Fotos from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.FotosController.GetFoto(System.Int64)">
+            <summary>
+            Get a Foto specific for Id from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.FotosController.PutFoto(System.Int64,Pedidos.Models.Foto)">
+            <summary>
+            Modifies an existing Foto
+            </summary>
+            <param name="id"></param>
+            <param name="foto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.FotosController.PostFoto(Pedidos.Models.Foto)">
+            <summary>
+            Creates a new Foto 
+            </summary>
+            <param name="foto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.FotosController.DeleteFoto(System.Int64)">
+            <summary>
+            Removes a Foto from BDB
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.MensajesController.GetMensaje(Pedidos.Models.PageAndSortRequest)">
+            <summary>
+            Gets all the data Mensajes from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.MensajesController.GetMensaje(System.Int64)">
+            <summary>
+             Gets an specific data Mensaje from the BDB by id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.MensajesController.PutMensaje(System.Int64,Pedidos.Models.Mensaje)">
+            <summary>
+            Send data to a server to update a resource about Mensaje.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.MensajesController.PostMensaje(Pedidos.Models.Mensaje)">
+            <summary>
+            Send data to a server to update a resource about Mensaje 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.MensajesController.DeleteMensaje(System.Int64)">
+            <summary>
+            Deletes the specified resource about Mensaje.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.PedidosController.GetPedido(Pedidos.Models.PageAndSortRequest)">
+            <summary>
+            Gets all the data Pedidos from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.PedidosController.GetPedido(System.Int64)">
+            <summary>
+             Gets an specific data Pedido from the BDB by id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.PedidosController.PutPedido(System.Int64,Pedidos.Models.Pedido)">
+            <summary>
+            Send data to a server to update a resource about Pedido.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.PedidosController.PostPedido(Pedidos.Models.Pedido)">
+            <summary>
+            Send data to a server to create a resource about Pedido.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.PedidosController.DeletePedido(System.Int64)">
+            <summary>
+            Deletes the specified resource about Pedido.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.ProductosController.GetProducto(Pedidos.Models.PageAndSortRequest)">
+            <summary>
+            Gets all the data Productos from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.ProductosController.GetProducto(System.Int64)">
+            <summary>
+             Gets an specific data Producto from the BDB by id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.ProductosController.PutProducto(System.Int64,Pedidos.Models.Producto)">
+            <summary>
+            Send data to a server to update a resource about Producto.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.ProductosController.PostProducto(Pedidos.Models.Producto)">
+            <summary>
+            Send data to a server to create a resource about Producto.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.ProductosController.DeleteProducto(System.Int64)">
+            <summary>
+            Deletes the specified resource about Producto.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.TransportadoresController.GetTransportador(Pedidos.Models.PageAndSortRequest)">
+            <summary>
+            Gets all the data Transportadores from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.UsuariosController.GetUsuario(Pedidos.Models.PageAndSortRequest)">
+            <summary>
+            Gets All the Usuarios from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.UsuariosController.GetUsuario(System.String,System.String)">
+            <summary>
+            Get an existing Usuario
+            </summary>
+            <param name="Nombre"></param>
+            <param name="Clave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.UsuariosController.PutUsuario(System.Int32,Pedidos.Models.Usuario)">
+            <summary>
+            Modifies an existing Usuario
+            </summary>
+            <param name="id"></param>
+            /// <param name="usuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.UsuariosController.PostUsuario(Pedidos.Models.Usuario)">
+            <summary>
+            Creates a new usuario 
+            </summary>
+            <param name="usuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.UsuariosController.DeleteUsuario(System.Int64)">
+            <summary>
+            Removes a usuario from BDB
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.UsuariosController.GetById(System.Int32)">
+            <summary>
+            Gets Usuario token 
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.VendedoresController.GetVendedor(Pedidos.Models.PageAndSortRequest)">
+            <summary>
+            Gets All the Vendedores from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.VendedoresController.GetVendedor(System.Int64)">
+            <summary>
+            Get a Vendedor specific for Id from the BDB
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.VendedoresController.PutVendedor(System.Int64,Pedidos.Models.Vendedor)">
+            <summary>
+            Modifies an existing Vendedor
+            </summary>
+            <param name="id"></param>
+            <param name="vendedor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.VendedoresController.PostVendedor(Pedidos.Models.Vendedor)">
+            <summary>
+            Creates a new rubro 
+            </summary>
+            <param name="vendedor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pedidos.Controllers.VendedoresController.DeleteVendedor(System.Int64)">
+            <summary>
+            Removes a Vendedor from BDB
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
