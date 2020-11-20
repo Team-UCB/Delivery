@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "C8Bt+NxNUyeBxXSt94zZysAn4+q8Q4Eqc+okNTscmyI1nEsCnhecolyFettRWu8G/xs+a1W0n3jnBAn9csohIg==",
+  "dgSpecHash": "XVJGIwTUGcC6qeKrDOXEX0NNSyzPtIQGnT4mBUYnd3c2OMvsrj9vJ9aJe4zioMfSsywfhVcXgx1bMZRnAVltlw==",
   "success": true,
-  "projectFilePath": "D:\\PROYECTO LA PAZ ZZZZZZZZZZZZZZZZZZ\\BACKENDOFI\\Pedidos\\Pedidos.csproj",
+  "projectFilePath": "D:\\PROYECTO LA PAZ ZZZZZZZZZZZZZZZZZZ\\Nueva carpeta\\back\\Pedidos\\Pedidos.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Usuario\\.nuget\\packages\\antlr3.runtime\\3.5.1\\antlr3.runtime.3.5.1.nupkg.sha512",
     "C:\\Users\\Usuario\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

@@ -77,6 +77,30 @@ namespace Pedidos.Controllers
             return pedido;
         }
 
+
+
+
+        // GET: api/Pedidos/5
+        [HttpGet]
+        [Route("getPedidoRepartidor/{param1}")]
+        public async Task<ActionResult<Pedido>> GetPedidoRepartidor(long param1)
+        {
+            var pedido = new List<Pedido>();
+            pedido = _context.Pedidos.Where(p => p.IdTransporte == param1 && p.Estado.Equals("En Curso")).ToList();
+
+            if (pedido == null)
+            {
+                return NotFound();
+            }
+
+            return pedido[0];
+        }
+
+
+
+
+
+
         /// <summary>
         /// Send data to a server to update a resource about Pedido.
         /// </summary>
@@ -112,6 +136,18 @@ namespace Pedidos.Controllers
 
             return NoContent();
         }
+
+
+
+
+
+
+
+
+
+
+
+
 
         /// <summary>
         /// Send data to a server to create a resource about Pedido.
