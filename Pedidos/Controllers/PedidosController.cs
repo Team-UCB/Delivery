@@ -25,7 +25,7 @@ namespace Pedidos.Controllers
         /// </summary>
         /// <returns></returns>
         // GET: api/Pedidos/columna/direccion
-        [Helpers.Authorize]
+        //[Helpers.Authorize]
         [HttpGet]
         public async Task<ActionResult<PageAndSortResponse<Pedido>>> GetPedido([FromQuery] PageAndSortRequest param)
         {
