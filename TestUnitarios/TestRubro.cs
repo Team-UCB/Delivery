@@ -18,7 +18,7 @@ namespace TestUnitarios
         public async Task Add()
         {
             PedidosPollomonContext pedidospollomonContext = new PedidosPollomonContext();
-            RubrosController rubrosController = new RubrosController(pedidospollomonContext, "");
+            RubrosController rubrosController = new RubrosController(pedidospollomonContext);
             var result = await rubrosController.PostRubro(new Rubro() { Nombre = "test11", Descripcion = "test11" });
 
 
@@ -34,7 +34,7 @@ namespace TestUnitarios
         {
             //Console.WriteLine(idRubro);
             PedidosPollomonContext pedidospollomonContext = new PedidosPollomonContext();
-            RubrosController rubrosController = new RubrosController(pedidospollomonContext, "");
+            RubrosController rubrosController = new RubrosController(pedidospollomonContext);
             var result = await rubrosController.PutRubro(4, new Rubro() { Nombre = "text", Descripcion = "text" });
 
             Assert.IsNotNull(result);
@@ -52,17 +52,17 @@ namespace TestUnitarios
         public async Task Get()
         {
             PedidosPollomonContext pedidospollomonContext = new PedidosPollomonContext();
-            RubrosController rubrosController = new RubrosController(pedidospollomonContext, "");
-            var result = await rubrosController.GetAllRubros();
+            RubrosController rubrosController = new RubrosController(pedidospollomonContext);
+            var result = await rubrosController.GetRubro(new PageAndSortRequest() { Pagina = 1, TamPagina = 10, Columna = "Id", Direccion = "asc", Filtro = "" });
 
             Assert.IsNotNull(result);
-            Assert.IsTrue(result.Count() > 0);
+            Assert.IsTrue(result.Value.Datos.Count() > 0);
         }
         [TestMethod]
         public async Task Add99()
         {
             PedidosPollomonContext pedidospollomonContext = new PedidosPollomonContext();
-            RubrosController rubrosController = new RubrosController(pedidospollomonContext, "");
+            RubrosController rubrosController = new RubrosController(pedidospollomonContext);
             for (int i = 0; i < 10; i++)
             {
                 var result = await rubrosController.PostRubro(new Rubro() { Nombre = "test" + i, Descripcion = "test" + i });

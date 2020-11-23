@@ -290,7 +290,7 @@ namespace TestUnitarios
         [TestMethod]
         public async Task GetDetallePedidosTest()
         {
-            var result = await detallepedidosController.GetRubro(new PageAndSortRequest() { Pagina = 1, TamPagina = 10, Columna = "Id", Direccion = "asc", Filtro = "" });
+            var result = await detallepedidosController.GetDetallePedidos(new PageAndSortRequest() { Pagina = 1, TamPagina = 10, Columna = "Id", Direccion = "asc", Filtro = "" });
 
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Value.Datos.Count() > 0);
