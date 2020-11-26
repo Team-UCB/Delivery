@@ -128,7 +128,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.DetallePedidosController.GetRubro(Pedidos.Models.PageAndSortRequest)">
+        <member name="M:Pedidos.Controllers.DetallePedidosController.GetDetallePedidos(Pedidos.Models.PageAndSortRequest)">
             <summary>
             Gets All the DetallePedidos from the BDB
             </summary>

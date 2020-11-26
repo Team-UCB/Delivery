@@ -11,6 +11,7 @@ namespace Pedidos.Models
         public string Descripcion { get; set; }
         public decimal Latitud { get; set; }
         public decimal Longitud { get; set; }
+
         public string Referencia { get; set; }
         public bool Predeterminada { get; set; }
         public long IdCliente { get; set; }

@@ -1,21 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\FinalPace\\DeliveryBackEnd\\TestUnitarios\\TestUnitarios.csproj": {}
+    "D:\\PROYECTO LA PAZ ZZZZZZZZZZZZZZZZZZ\\backendofiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii\\TestUnitarios\\TestUnitarios.csproj": {}
   },
   "projects": {
-    "C:\\FinalPace\\DeliveryBackEnd\\Pedidos\\Pedidos.csproj": {
+    "D:\\PROYECTO LA PAZ ZZZZZZZZZZZZZZZZZZ\\backendofiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii\\Pedidos\\Pedidos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\FinalPace\\DeliveryBackEnd\\Pedidos\\Pedidos.csproj",
+        "projectUniqueName": "D:\\PROYECTO LA PAZ ZZZZZZZZZZZZZZZZZZ\\backendofiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii\\Pedidos\\Pedidos.csproj",
         "projectName": "Pedidos",
-        "projectPath": "C:\\FinalPace\\DeliveryBackEnd\\Pedidos\\Pedidos.csproj",
+        "projectPath": "D:\\PROYECTO LA PAZ ZZZZZZZZZZZZZZZZZZ\\backendofiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii\\Pedidos\\Pedidos.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\FinalPace\\DeliveryBackEnd\\Pedidos\\obj\\",
+        "outputPath": "D:\\PROYECTO LA PAZ ZZZZZZZZZZZZZZZZZZ\\backendofiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii\\Pedidos\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -101,22 +106,27 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\FinalPace\\DeliveryBackEnd\\TestUnitarios\\TestUnitarios.csproj": {
+    "D:\\PROYECTO LA PAZ ZZZZZZZZZZZZZZZZZZ\\backendofiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii\\TestUnitarios\\TestUnitarios.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\FinalPace\\DeliveryBackEnd\\TestUnitarios\\TestUnitarios.csproj",
+        "projectUniqueName": "D:\\PROYECTO LA PAZ ZZZZZZZZZZZZZZZZZZ\\backendofiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii\\TestUnitarios\\TestUnitarios.csproj",
         "projectName": "TestUnitarios",
-        "projectPath": "C:\\FinalPace\\DeliveryBackEnd\\TestUnitarios\\TestUnitarios.csproj",
+        "projectPath": "D:\\PROYECTO LA PAZ ZZZZZZZZZZZZZZZZZZ\\backendofiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii\\TestUnitarios\\TestUnitarios.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\FinalPace\\DeliveryBackEnd\\TestUnitarios\\obj\\",
+        "outputPath": "D:\\PROYECTO LA PAZ ZZZZZZZZZZZZZZZZZZ\\backendofiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii\\TestUnitarios\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -128,8 +138,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\FinalPace\\DeliveryBackEnd\\Pedidos\\Pedidos.csproj": {
-                "projectPath": "C:\\FinalPace\\DeliveryBackEnd\\Pedidos\\Pedidos.csproj"
+              "D:\\PROYECTO LA PAZ ZZZZZZZZZZZZZZZZZZ\\backendofiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii\\Pedidos\\Pedidos.csproj": {
+                "projectPath": "D:\\PROYECTO LA PAZ ZZZZZZZZZZZZZZZZZZ\\backendofiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii\\Pedidos\\Pedidos.csproj"
               }
             }
           }
@@ -179,14 +189,11 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

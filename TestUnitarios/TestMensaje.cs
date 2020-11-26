@@ -23,7 +23,9 @@ namespace TestUnitarios
             MensajesController mensajesController = new MensajesController(pedidosContext);
             
          
-            var result = await mensajesController.PostMensaje(new Mensaje() { Text = "test", 
+            var result = await mensajesController.PostMensaje(new Mensaje() {
+                FechaHora=DateTime.Now,
+                Text = "test", 
                 IdChatNavigation=new Chat { 
                     Estado="vivo",
                     IdDestino=124,
@@ -43,7 +45,9 @@ namespace TestUnitarios
         {
             Console.WriteLine(idMensaje);
             MensajesController mensajesController = new MensajesController(pedidosContext);
-            var result = await mensajesController.PutMensaje(idMensaje, new Mensaje() { Text = "cambiando",
+            var result = await mensajesController.PutMensaje(idMensaje, new Mensaje() {
+                FechaHora = DateTime.Now,
+                Text = "cambiando",
                 IdChatNavigation = new Chat
                 {
                     Estado = "vivo",
@@ -70,7 +74,9 @@ namespace TestUnitarios
 
             for (int i = 0; i < 99; i++)
             {
-                var result = await mensajesController.PostMensaje(new Mensaje() { Text = "test " + i,
+                var result = await mensajesController.PostMensaje(new Mensaje() {
+                    FechaHora = DateTime.Now,
+                    Text = "test " + i,
                     IdChatNavigation = new Chat
                     {
                         Estado = "vivo",
@@ -91,8 +97,6 @@ namespace TestUnitarios
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Value.Datos.Count() > 0);
         }
-
-
 
     }
 }
