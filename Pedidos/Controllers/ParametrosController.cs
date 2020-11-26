@@ -20,11 +20,38 @@ namespace Pedidos.Controllers
             _context = context;
         }
 
-        // GET: api/Parametros
+        // GET: api/Clientes/columna/direccion
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Parametro>>> GetParametros()
+        public async Task<ActionResult<PageAndSortResponse<Parametro>>> GetParametros([FromQuery] PageAndSortRequest param)
         {
-            return await _context.Parametros.ToListAsync();
+            IEnumerable<Parametro> ListaParametros = null;
+            if (param.Direccion.ToLower() == "asc")
+                ListaParametros = await _context.Parametros.OrderBy(p => EF.Property<object>(p, param.Columna)).ToListAsync();
+            else if (param.Direccion.ToLower() == "desc")
+                ListaParametros = await _context.Parametros.OrderByDescending(p => EF.Property<object>(p, param.Columna)).ToListAsync();
+            else
+                ListaParametros = await _context.Parametros.OrderBy(p => p.Id).ToListAsync();
+
+            if (ListaParametros == null)
+            {
+                return NotFound();
+            }
+
+            int total = 0;
+            if (!string.IsNullOrEmpty(param.Filtro))
+            {
+                ListaParametros = ListaParametros.Where(ele => ele.Nombre.Contains(param.Filtro));
+            }
+            total = ListaParametros.Count();
+            ListaParametros = ListaParametros.Skip((param.Pagina - 1) * param.TamPagina).Take(param.TamPagina);
+
+            var result = new PageAndSortResponse<Parametro>
+            {
+                Datos = ListaParametros,
+                TotalFilas = total
+            };
+
+            return result;
         }
 
         // GET: api/Parametros/5

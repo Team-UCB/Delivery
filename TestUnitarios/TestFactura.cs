@@ -1,5 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.VisualBasic;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pedidos.Controllers;
 using Pedidos.Models;
@@ -10,109 +9,36 @@ using System.Threading.Tasks;
 namespace TestUnitarios
 {
     [TestClass]
-    public class TestDetallePedido
+    public class TestFactura
     {
-        private static long idDetallePedido = -1;
-        static PedidosPollomonContext pedidos = new PedidosPollomonContext();
-        DetallePedidosController detallepedidosController = new DetallePedidosController(pedidos);
+        private static long idFactura = -1;
+
         [TestMethod]
-        public async Task PostDetallePedidoTest()
+        public async Task AddFactura()
         {
-
-            var result = await detallepedidosController.PostDetallePedido(new DetallePedido() { 
-                Cantidad =1,
-                SubMonto=1,
-                IdPedidoNavigation= new Pedido()
-                {
-                    FechaIngreso = DateTime.Now,
-                    FechaAtencion = DateTime.Now,
-                    FechaSalida = DateTime.Now,
-                    FechaEntrega = DateTime.Now,
-                    Estado = "activo",
-                    CodigoQrFactura = "codigo qr de prueba",
-                    MontoEnvio = 123,
-                    TipoPago = "efectivo",
-                    MontoCliente = 12,
-                    IdClienteNavigation = new Cliente()
-                    {
-                        NombresApellidos = "Pepe Galleta",
-                        Celular = "78547845",
-                        Telefono = "46657812"
-                    },
-                    IdTransporteNavigation = new Transportador()
-                    {
-                        Celular = "78547845",
-                        DescripcionVehiculo = "Moto",
-                        Estado = "activo",
-                        Latitud = 0M,
-                        Longitud = 0M,
-                        NombreCompleto = "Pedro Flores",
-                        TipoVehiculo = "Moto",
-                    },
-                    IdVendedorNavigation = new Vendedor()
-                    {
-                        NombreEmpresa = "Micro mercado la terminal",
-                        Celular = "78547845",
-                        Telefono = "46657812",
-                        Direccion = "Av. La Paz esq. Av. Victor Paz",
-                        Correo = "laterminalmm@gmail.com",
-                        PersonaContacto = "Juan Perez",
-                        PathLogo = "",
-                        IdRubroNavigation = new Rubro()
-                        {
-                            Nombre = "Super Mercados",
-                            Descripcion = "Nuevo Rubro"
-                        }
-                    }
-                },
-                IdProductoNavigation = new Producto
-                {
-                    Nombre = "Coca cola 2lts.",
-                    PrecioUnitario = 15,
-                    Cantidad = 2,
-                    PrecioMayor = 10,
-                    Marca = "Embol S.A",
-                    Modelo = "Coca-Cola",
-                    Especificaciones = "Gaseosa negra de 2 lts",
-                    IdCategoriaNavigation = new CategoriaProducto
-                    {
-                        Nombre = "Gaeosas",
-                        Descripcion = "liquidos en base a componentes gaseoss",
-                        Lugar = "Sección refrigerantes"
-                    },
-                    IdVendedorNavigation = new Vendedor
-                    {
-                        PersonaContacto = "Pedro Fuentes Lazarraga",
-                        Celular = "72967356",
-                        Telefono = "466-23058",
-                        Correo = "carlos.fuentes@hotmail.com",
-                        NombreEmpresa = "Arcor",
-                        Direccion = "Zona mercader Av. Ballivian",
-                        PathLogo = "",
-                        IdRubroNavigation = new Rubro
-                        {
-                            Nombre = "Comida Rápida",
-                            Descripcion = "encargados del área de comida rapida y derivados"
-                        }
-                    }
-                }
-            });
+            PedidosPollomonContext facturasContext = new PedidosPollomonContext();
+            FacturasController facturasController = new FacturasController(facturasContext);
 
 
-            Assert.IsNotNull(result.Result);
-            DetallePedido detallepedido = (DetallePedido)(result.Result as CreatedAtActionResult).Value;
-            Assert.IsNotNull(detallepedido);
-            Assert.IsTrue(detallepedido.Id > 0);
-            idDetallePedido = detallepedido.Id;
-        }
-        [TestMethod]
-        public async Task UpdateDetallePedidoTest()
-        {
-
-            var result = await detallepedidosController.PutDetallePedido(idDetallePedido, new DetallePedido()
+            var result = await facturasController.PostFactura(new Factura()
             {
-                Cantidad = 2000,
-                SubMonto = 1,
+                NroFactura = 0,
+                FechaEmision = DateTime.Now,
+                Estado = "activo",
+                CodigoControl = "text",
+                Observaciones = "ninguno",
+                IdDosificacionNavigation = new Dosificacion()
+                {
+                    NroAutorizacion = 0,
+                    NroFacturaActual = 0,
+                    Llave = "text",
+                    FechaLimiteEmision = DateTime.Now,
+                    Leyenda = "text",
+                    FechaActivacion = DateTime.Now,
+                    Activa = 0,
+                    ActividadPrincipal = "text",
+                    ActividadSecundaria = "text"
+                },
                 IdPedidoNavigation = new Pedido()
                 {
                     FechaIngreso = DateTime.Now,
@@ -126,7 +52,7 @@ namespace TestUnitarios
                     MontoCliente = 12,
                     IdClienteNavigation = new Cliente()
                     {
-                        NombresApellidos = "Pepe Galleta",
+                        NombresApellidos = "Galleta Mana",
                         Celular = "78547845",
                         Telefono = "46657812"
                     },
@@ -155,60 +81,131 @@ namespace TestUnitarios
                             Descripcion = "Nuevo Rubro"
                         }
                     }
-                },
-                IdProductoNavigation = new Producto
+
+                }
+
+            });
+
+            Assert.IsNotNull(result.Result);
+            Factura factura = (Factura)(result.Result as CreatedAtActionResult).Value;
+            Assert.IsNotNull(factura);
+            Assert.IsTrue(factura.Id > 0);
+            idFactura = factura.Id;
+        }
+        [TestMethod]
+        public async Task UpdFactura()
+        {
+            PedidosPollomonContext facturasContext = new PedidosPollomonContext();
+            FacturasController facturasController = new FacturasController(facturasContext);
+
+            var result = await facturasController.PutFactura(idFactura, new Factura()
+            {
+                NroFactura = 0,
+                FechaEmision = DateTime.Now,
+                Estado = "activo",
+                CodigoControl = "text",
+                Observaciones = "ninguno",
+                IdDosificacionNavigation = new Dosificacion()
                 {
-                    Nombre = "Coca cola 2lts.",
-                    PrecioUnitario = 15,
-                    Cantidad = 2,
-                    PrecioMayor = 10,
-                    Marca = "Embol S.A",
-                    Modelo = "Coca-Cola",
-                    Especificaciones = "Gaseosa negra de 2 lts",
-                    IdCategoriaNavigation = new CategoriaProducto
+                    NroAutorizacion = 0,
+                    NroFacturaActual = 0,
+                    Llave = "text",
+                    FechaLimiteEmision = DateTime.Now,
+                    Leyenda = "text",
+                    FechaActivacion = DateTime.Now,
+                    Activa = 0,
+                    ActividadPrincipal = "text",
+                    ActividadSecundaria = "text"
+                },
+                IdPedidoNavigation = new Pedido()
+                {
+                    FechaIngreso = DateTime.Now,
+                    FechaAtencion = DateTime.Now,
+                    FechaSalida = DateTime.Now,
+                    FechaEntrega = DateTime.Now,
+                    Estado = "activo",
+                    CodigoQrFactura = "codigo qr de prueba",
+                    MontoEnvio = 123,
+                    TipoPago = "efectivo",
+                    MontoCliente = 12,
+                    IdClienteNavigation = new Cliente()
                     {
-                        Nombre = "Gaeosas",
-                        Descripcion = "liquidos en base a componentes gaseoss",
-                        Lugar = "Sección refrigerantes"
+                        NombresApellidos = "Galleta Mana",
+                        Celular = "78547845",
+                        Telefono = "46657812"
                     },
-                    IdVendedorNavigation = new Vendedor
+                    IdTransporteNavigation = new Transportador()
                     {
-                        PersonaContacto = "Pedro Fuentes Lazarraga",
-                        Celular = "72967356",
-                        Telefono = "466-23058",
-                        Correo = "carlos.fuentes@hotmail.com",
-                        NombreEmpresa = "Arcor",
-                        Direccion = "Zona mercader Av. Ballivian",
+                        Celular = "78547845",
+                        DescripcionVehiculo = "Moto",
+                        Estado = "activo",
+                        Latitud = 0M,
+                        Longitud = 0M,
+                        NombreCompleto = "Pedro Flores",
+                        TipoVehiculo = "Moto",
+                    },
+                    IdVendedorNavigation = new Vendedor()
+                    {
+                        NombreEmpresa = "Micro mercado la terminal",
+                        Celular = "78547845",
+                        Telefono = "46657812",
+                        Direccion = "Av. La Paz esq. Av. Victor Paz",
+                        Correo = "laterminalmm@gmail.com",
+                        PersonaContacto = "Juan Perez",
                         PathLogo = "",
-                        IdRubroNavigation = new Rubro
+                        IdRubroNavigation = new Rubro()
                         {
-                            Nombre = "Comida Rápida",
-                            Descripcion = "encargados del área de comida rapida y derivados"
+                            Nombre = "Super Mercados",
+                            Descripcion = "Nuevo Rubro"
                         }
                     }
+
                 }
+
             });
             Assert.IsNotNull(result);
         }
 
         [TestMethod]
-        public async Task DeleteDetallePedidoTest()
+        public async Task DelFactura()
         {
+            PedidosPollomonContext facturasContext = new PedidosPollomonContext();
+            FacturasController facturasController = new FacturasController(facturasContext);
 
-            var result = await detallepedidosController.DeleteDetallePedido(idDetallePedido);
+            var result = await facturasController.DeleteFactura(idFactura);
 
             Assert.IsNotNull(result);
         }
-        [TestMethod]
-        public async Task Add99DetallePedidoTest()
-        {
 
-            for (int i = 0; i < 99; i++)
+
+        [TestMethod]
+        public async Task Add99Factura()
+        {
+            PedidosPollomonContext facturasContext = new PedidosPollomonContext();
+            FacturasController facturasController = new FacturasController(facturasContext);
+
+            for (int i = 0; i < 10; i++)
             {
-                var result = await detallepedidosController.PostDetallePedido(new DetallePedido()
+
+                var result = await facturasController.PostFactura(new Factura()
                 {
-                    Cantidad = i,
-                    SubMonto = i,
+                    NroFactura = 0,
+                    FechaEmision = DateTime.Now,
+                    Estado = "activo",
+                    CodigoControl = "text",
+                    Observaciones = "ninguno",
+                    IdDosificacionNavigation = new Dosificacion()
+                    {
+                        NroAutorizacion = 0,
+                        NroFacturaActual = 0,
+                        Llave = "text",
+                        FechaLimiteEmision = DateTime.Now,
+                        Leyenda = "text",
+                        FechaActivacion = DateTime.Now,
+                        Activa = 0,
+                        ActividadPrincipal = "text",
+                        ActividadSecundaria = "text"
+                    },
                     IdPedidoNavigation = new Pedido()
                     {
                         FechaIngreso = DateTime.Now,
@@ -222,7 +219,7 @@ namespace TestUnitarios
                         MontoCliente = 12,
                         IdClienteNavigation = new Cliente()
                         {
-                            NombresApellidos = "Pepe Galleta",
+                            NombresApellidos = "Galleta Mana",
                             Celular = "78547845",
                             Telefono = "46657812"
                         },
@@ -251,50 +248,30 @@ namespace TestUnitarios
                                 Descripcion = "Nuevo Rubro"
                             }
                         }
-                    },
-                    IdProductoNavigation = new Producto
-                    {
-                        Nombre = "Coca cola 2lts.",
-                        PrecioUnitario = 15,
-                        Cantidad = 2,
-                        PrecioMayor = 10,
-                        Marca = "Embol S.A",
-                        Modelo = "Coca-Cola",
-                        Especificaciones = "Gaseosa negra de 2 lts",
-                        IdCategoriaNavigation = new CategoriaProducto
-                        {
-                            Nombre = "Gaeosas",
-                            Descripcion = "liquidos en base a componentes gaseoss",
-                            Lugar = "Sección refrigerantes"
-                        },
-                        IdVendedorNavigation = new Vendedor
-                        {
-                            PersonaContacto = "Pedro Fuentes Lazarraga",
-                            Celular = "72967356",
-                            Telefono = "466-23058",
-                            Correo = "carlos.fuentes@hotmail.com",
-                            NombreEmpresa = "Arcor",
-                            Direccion = "Zona mercader Av. Ballivian",
-                            PathLogo = "",
-                            IdRubroNavigation = new Rubro
-                            {
-                                Nombre = "Comida Rápida",
-                                Descripcion = "encargados del área de comida rapida y derivados"
-                            }
-                        }
+
                     }
+
                 });
-                Assert.IsNotNull(result);
+                Assert.IsNotNull(result.Result);
             }
         }
         [TestMethod]
-        public async Task GetDetallePedidosTest()
+        public async Task GetFacturas()
         {
-            var result = await detallepedidosController.GetDetallePedidos(new PageAndSortRequest() { Pagina = 1, TamPagina = 10, Columna = "Id", Direccion = "asc", Filtro = "" });
+            PedidosPollomonContext facturasContext = new PedidosPollomonContext();
+            FacturasController facturasController = new FacturasController(facturasContext);
+
+            var result = await facturasController.GetFacturas(new PageAndSortRequest()
+            {
+                Pagina = 1,
+                TamPagina = 10,
+                Columna = "Id",
+                Direccion = "asc",
+                Filtro = ""
+            });
 
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Value.Datos.Count() > 0);
-
         }
     }
 }

@@ -26,7 +26,7 @@ namespace Pedidos.Controllers
         // GET: api/DetallePedidos/columna/direccion
         [Helpers.Authorize]
         [HttpGet]
-        public async Task<ActionResult<PageAndSortResponse<DetallePedido>>> GetRubro([FromQuery] PageAndSortRequest param)
+        public async Task<ActionResult<PageAndSortResponse<DetallePedido>>> GetDetallePedidos([FromQuery] PageAndSortRequest param)
         {
             IEnumerable<DetallePedido> listaOfertas = null;
             if (param.Direccion.ToLower() == "asc")

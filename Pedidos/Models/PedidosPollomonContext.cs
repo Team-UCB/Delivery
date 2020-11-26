@@ -43,11 +43,11 @@ namespace Pedidos.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-G7C1CO7\\SQLEXPRESS01;Database=pedidos;Trusted_Connection=True;MultipleActiveResultSets=True;");
+
+                optionsBuilder.UseSqlServer("Data Source=(localdb)\\ProjectsV13;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             }
         }
-        //workstation id=PedidosPollomon.mssql.somee.com;packet size=4096;user id=pollomon_SQLLogin_1;pwd=akoluaza31;data source=PedidosPollomon.mssql.somee.com;persist security info=False;initial catalog=PedidosPollomon
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Calificacion>(entity =>
@@ -441,6 +441,7 @@ namespace Pedidos.Models
                     .HasAnnotation("Relational:ColumnType", "datetime");
 
                 entity.Property(e => e.IdProducto).HasColumnName("id_producto");
+                entity.Property(e => e.IdUsuario).HasColumnName("id_usuario");
 
                 entity.Property(e => e.PrecioOferta)
                     .HasColumnType("decimal(18, 1)")
@@ -452,6 +453,15 @@ namespace Pedidos.Models
                     .HasForeignKey(d => d.IdProducto)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_producto_oferta");
+
+                entity.Property(e => e.FechaActualizacion)
+                   .HasColumnName("fecha_actualizacion")
+                   .HasColumnType("datetime");
+
+                entity.Property(e => e.FechaCreacion)
+                    .HasColumnName("fecha_creacion")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
             });
 
             modelBuilder.Entity<Pagina>(entity =>
