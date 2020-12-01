@@ -13,7 +13,7 @@ namespace TestUnitarios
     public class TestDireccion
     {
         private static long idDireccion = -1;
-        static PedidosPollomonContext pedidosContext = new PedidosPollomonContext();
+        static deliveryContext pedidosContext = new deliveryContext();
         DireccionesController direccionesController = new DireccionesController(pedidosContext);
 
         [TestMethod]

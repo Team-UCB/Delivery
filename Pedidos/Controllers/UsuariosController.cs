@@ -19,9 +19,9 @@ namespace Pedidos.Controllers
     [ApiController]
     public class UsuariosController : ControllerBase
     {
-        private readonly PedidosPollomonContext _context;
+        private readonly deliveryContext _context;
         private readonly AppSettings _appSettings;
-        public UsuariosController(PedidosPollomonContext context, IOptions<AppSettings> appSettings)
+        public UsuariosController(deliveryContext context, IOptions<AppSettings> appSettings)
         {
             _context = context;
             _appSettings = appSettings.Value;
@@ -32,7 +32,7 @@ namespace Pedidos.Controllers
         /// </summary>
         /// <returns></returns>
         // GET: api/Usuarios/columna/direccion
-        //[Helpers.Authorize]
+        [Helpers.Authorize]
         [HttpGet]
         public async Task<ActionResult<PageAndSortResponse<Usuario>>> GetUsuario([FromQuery] PageAndSortRequest param)
         {
@@ -135,10 +135,12 @@ namespace Pedidos.Controllers
         [HttpPost]
         public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
-            if (usuario.IdRol==0){
+            if (usuario.IdRol == 0)
+            {
                 usuario.IdRol = 2;
             }
-            if (usuario.Estado==null){
+            if (usuario.Estado == null)
+            {
                 usuario.Estado = "activo";
             }
             _context.Usuarios.Add(usuario);

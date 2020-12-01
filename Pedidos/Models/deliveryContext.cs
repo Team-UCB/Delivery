@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Pedidos.Models
 {
-    public partial class PedidosPollomonContext : DbContext
+    public partial class deliveryContext : DbContext
     {
-        public PedidosPollomonContext()
+        public deliveryContext()
         {
         }
 
-        public PedidosPollomonContext(DbContextOptions<PedidosPollomonContext> options)
+        public deliveryContext(DbContextOptions<deliveryContext> options)
             : base(options)
         {
         }
@@ -27,7 +27,6 @@ namespace Pedidos.Models
         public virtual DbSet<Dosificacion> Dosificacions { get; set; }
         public virtual DbSet<Factura> Facturas { get; set; }
         public virtual DbSet<Foto> Fotos { get; set; }
-        public virtual DbSet<Mensaje> Mensajes { get; set; }
         public virtual DbSet<Ofertum> Oferta { get; set; }
         public virtual DbSet<Pagina> Paginas { get; set; }
         public virtual DbSet<Parametro> Parametros { get; set; }
@@ -44,10 +43,10 @@ namespace Pedidos.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-G7C1CO7\\SQLEXPRESS01;Database=pedidos;Trusted_Connection=True;MultipleActiveResultSets=True;");
+                optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS02;Database=delivery;Trusted_Connection=True;");
             }
         }
-        //workstation id=PedidosPollomon.mssql.somee.com;packet size=4096;user id=pollomon_SQLLogin_1;pwd=akoluaza31;data source=PedidosPollomon.mssql.somee.com;persist security info=False;initial catalog=PedidosPollomon
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Calificacion>(entity =>
@@ -122,9 +121,20 @@ namespace Pedidos.Models
                     .IsUnicode(false)
                     .HasColumnName("estado");
 
+                entity.Property(e => e.FechaHora)
+                    .HasColumnType("datetime")
+                    .HasColumnName("fecha_hora")
+                    .HasAnnotation("Relational:ColumnType", "datetime");
+
                 entity.Property(e => e.IdDestino).HasColumnName("id_destino");
 
                 entity.Property(e => e.IdOrigen).HasColumnName("id_origen");
+
+                entity.Property(e => e.Text)
+                    .IsRequired()
+                    .HasMaxLength(500)
+                    .IsUnicode(false)
+                    .HasColumnName("text");
             });
 
             modelBuilder.Entity<Cliente>(entity =>
@@ -387,7 +397,6 @@ namespace Pedidos.Models
 
                 entity.Property(e => e.PathImg)
                     .IsRequired()
-                    .HasMaxLength(500)
                     .IsUnicode(false)
                     .HasColumnName("path_img");
 
@@ -398,37 +407,22 @@ namespace Pedidos.Models
                     .HasConstraintName("FK_producto_fotos");
             });
 
-            modelBuilder.Entity<Mensaje>(entity =>
-            {
-                entity.HasIndex(e => e.IdChat, "fkIdx_chat_mensajes");
-
-                entity.Property(e => e.Id).HasColumnName("id");
-
-                entity.Property(e => e.FechaHora)
-                    .HasColumnType("datetime")
-                    .HasColumnName("fecha_hora")
-                    .HasAnnotation("Relational:ColumnType", "datetime");
-
-                entity.Property(e => e.IdChat).HasColumnName("id_chat");
-
-                entity.Property(e => e.Text)
-                    .IsRequired()
-                    .HasMaxLength(500)
-                    .IsUnicode(false)
-                    .HasColumnName("text");
-
-                entity.HasOne(d => d.IdChatNavigation)
-                    .WithMany(p => p.Mensajes)
-                    .HasForeignKey(d => d.IdChat)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_chat_mensajes");
-            });
-
             modelBuilder.Entity<Ofertum>(entity =>
             {
                 entity.HasIndex(e => e.IdProducto, "fkIdx_producto_oferta");
 
                 entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.FechaActualizacion)
+                    .HasColumnType("datetime")
+                    .HasColumnName("fecha_actualizacion")
+                    .HasAnnotation("Relational:ColumnType", "datetime");
+
+                entity.Property(e => e.FechaCreacion)
+                    .HasColumnType("datetime")
+                    .HasColumnName("fecha_creacion")
+                    .HasDefaultValueSql("(getdate())")
+                    .HasAnnotation("Relational:ColumnType", "datetime");
 
                 entity.Property(e => e.FechaFin)
                     .HasColumnType("datetime")
@@ -441,6 +435,8 @@ namespace Pedidos.Models
                     .HasAnnotation("Relational:ColumnType", "datetime");
 
                 entity.Property(e => e.IdProducto).HasColumnName("id_producto");
+
+                entity.Property(e => e.IdUsuario).HasColumnName("id_usuario");
 
                 entity.Property(e => e.PrecioOferta)
                     .HasColumnType("decimal(18, 1)")

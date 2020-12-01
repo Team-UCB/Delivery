@@ -15,7 +15,7 @@ namespace TestUnitarios
         [TestMethod]
         public async Task Add()
         {
-            PedidosPollomonContext dosificacionesContext = new PedidosPollomonContext();
+            deliveryContext dosificacionesContext = new deliveryContext();
             DosificacionesController dosificacionesController = new DosificacionesController(dosificacionesContext);
             var result = await dosificacionesController.PostDosificacion(new Dosificacion()
             {
@@ -41,7 +41,7 @@ namespace TestUnitarios
         public async Task Upd()
         {
 
-            PedidosPollomonContext dosificacionesContext = new PedidosPollomonContext();
+            deliveryContext dosificacionesContext = new deliveryContext();
             DosificacionesController dosificacionesController = new DosificacionesController(dosificacionesContext);
             var result = await dosificacionesController.PutDosificacion(idDosificacion, new Dosificacion()
             {
@@ -65,7 +65,7 @@ namespace TestUnitarios
         [TestMethod]
         public async Task Del()
         {
-            PedidosPollomonContext dosificacionesContext = new PedidosPollomonContext();
+            deliveryContext dosificacionesContext = new deliveryContext();
             DosificacionesController dosificacionesController = new DosificacionesController(dosificacionesContext);
             var result = await dosificacionesController.DeleteDosificacion(idDosificacion);
 
@@ -75,11 +75,11 @@ namespace TestUnitarios
 
 
         }
-        
+
         [TestMethod]
         public async Task Add99()
         {
-            PedidosPollomonContext dosificacionesContext = new PedidosPollomonContext();
+            deliveryContext dosificacionesContext = new deliveryContext();
             DosificacionesController dosificacionesController = new DosificacionesController(dosificacionesContext);
             for (int i = 0; i < 10; i++)
             {
@@ -104,7 +104,7 @@ namespace TestUnitarios
         [TestMethod]
         public async Task Get()
         {
-            PedidosPollomonContext dosificacionesContext = new PedidosPollomonContext();
+            deliveryContext dosificacionesContext = new deliveryContext();
             DosificacionesController dosificacionesController = new DosificacionesController(dosificacionesContext);
             var result = await dosificacionesController.GetDosificaciones(new PageAndSortRequest() { Pagina = 1, TamPagina = 10, Columna = "Id", Direccion = "asc", Filtro = "" });
 

@@ -70,7 +70,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.ChatsController.GetChat(System.Int64)">
+        <member name="M:Pedidos.Controllers.ChatsController.GetChat(System.Int64,System.Int64)">
             <summary>
              Gets an specific data Chat from the BDB by id
             </summary>
@@ -226,37 +226,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.MensajesController.GetMensaje(Pedidos.Models.PageAndSortRequest)">
-            <summary>
-            Gets all the data Mensajes from the BDB
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Pedidos.Controllers.MensajesController.GetMensaje(System.Int64)">
-            <summary>
-             Gets an specific data Mensaje from the BDB by id
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Pedidos.Controllers.MensajesController.PutMensaje(System.Int64,Pedidos.Models.Mensaje)">
-            <summary>
-            Send data to a server to update a resource about Mensaje.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Pedidos.Controllers.MensajesController.PostMensaje(Pedidos.Models.Mensaje)">
-            <summary>
-            Send data to a server to update a resource about Mensaje 
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Pedidos.Controllers.MensajesController.DeleteMensaje(System.Int64)">
-            <summary>
-            Deletes the specified resource about Mensaje.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Pedidos.Controllers.PedidosController.GetPedido(Pedidos.Models.PageAndSortRequest)">
+        <member name="M:Pedidos.Controllers.PedidosController.GetPedidos(Pedidos.Models.PageAndSortRequest)">
             <summary>
             Gets all the data Pedidos from the BDB
             </summary>

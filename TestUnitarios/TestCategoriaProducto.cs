@@ -14,16 +14,16 @@ namespace TestUnitarios
         [TestMethod]
         public async Task Add99()
         {
-            PedidosPollomonContext categoriaProductosContext = new PedidosPollomonContext();
+            deliveryContext categoriaProductosContext = new deliveryContext();
             CategoriaProductosController categoriaProductosController = new CategoriaProductosController(categoriaProductosContext);
 
             for (int i = 0; i < 10; i++)
             {
-                var result = await categoriaProductosController.PostCategoriaProducto(new CategoriaProducto() 
+                var result = await categoriaProductosController.PostCategoriaProducto(new CategoriaProducto()
                 {
                     Nombre = "Libros",
                     Descripcion = "el Principito",
-                    Lugar = "Bolivar" 
+                    Lugar = "Bolivar"
                 });
                 Assert.IsNotNull(result.Result);
             }
@@ -33,13 +33,13 @@ namespace TestUnitarios
         [TestMethod]
         public async Task Add()
         {
-            PedidosPollomonContext categoriaProductosContext = new PedidosPollomonContext();
+            deliveryContext categoriaProductosContext = new deliveryContext();
             CategoriaProductosController categoriaProductosController = new CategoriaProductosController(categoriaProductosContext);
             var result = await categoriaProductosController.PostCategoriaProducto(new CategoriaProducto()
-            { 
+            {
                 Nombre = "Libros",
-                Descripcion = "el Principito", 
-                Lugar = "Bolivar" 
+                Descripcion = "el Principito",
+                Lugar = "Bolivar"
             });
 
 
@@ -53,13 +53,13 @@ namespace TestUnitarios
         public async Task Upd()
         {
 
-            PedidosPollomonContext categoriaProductosContext = new PedidosPollomonContext();
+            deliveryContext categoriaProductosContext = new deliveryContext();
             CategoriaProductosController categoriaProductosController = new CategoriaProductosController(categoriaProductosContext);
             var result = await categoriaProductosController.PutCategoriaProducto(idCategoriaProducto, new CategoriaProducto()
-            { 
+            {
                 Nombre = "Libros",
-                Descripcion = "el Principito", 
-                Lugar = "Bolivar" 
+                Descripcion = "el Principito",
+                Lugar = "Bolivar"
             });
 
             Assert.IsNotNull(result);
@@ -67,7 +67,7 @@ namespace TestUnitarios
         [TestMethod]
         public async Task Del()
         {
-            PedidosPollomonContext categoriaProductosContext = new PedidosPollomonContext();
+            deliveryContext categoriaProductosContext = new deliveryContext();
             CategoriaProductosController categoriaProductosController = new CategoriaProductosController(categoriaProductosContext);
             var result = await categoriaProductosController.DeleteCategoriaProducto(idCategoriaProducto);
 
@@ -76,14 +76,14 @@ namespace TestUnitarios
         [TestMethod]
         public async Task Get()
         {
-            PedidosPollomonContext categoriaProductosContext = new PedidosPollomonContext();
+            deliveryContext categoriaProductosContext = new deliveryContext();
             CategoriaProductosController categoriaProductosController = new CategoriaProductosController(categoriaProductosContext);
             var result = await categoriaProductosController.GetCategoriaProductos(new PageAndSortRequest()
-            { 
-                Pagina = 1, 
+            {
+                Pagina = 1,
                 TamPagina = 10,
                 Columna = "Id",
-                Direccion = "asc", 
+                Direccion = "asc",
                 Filtro = ""
             });
             Assert.IsNotNull(result);

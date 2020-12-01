@@ -14,11 +14,12 @@ namespace TestUnitarios
         private static long idPedido = -1;
 
         [TestMethod]
-        public async Task AddPedido ()
+        public async Task AddPedido()
         {
-            PedidosPollomonContext pedidosContext = new PedidosPollomonContext();
+            deliveryContext pedidosContext = new deliveryContext();
             PedidosController pedidosController = new PedidosController(pedidosContext);
-            var result = await pedidosController.PostPedido(new Pedido() {
+            var result = await pedidosController.PostPedido(new Pedido()
+            {
                 FechaIngreso = DateTime.Now,
                 FechaAtencion = DateTime.Now,
                 FechaSalida = DateTime.Now,
@@ -28,12 +29,14 @@ namespace TestUnitarios
                 MontoEnvio = 123,
                 TipoPago = "efectivo",
                 MontoCliente = 12,
-                IdClienteNavigation= new Cliente() {
+                IdClienteNavigation = new Cliente()
+                {
                     NombresApellidos = "Pepe Galleta",
                     Celular = "78547845",
                     Telefono = "46657812"
                 },
-                IdTransporteNavigation=new Transportador() {
+                IdTransporteNavigation = new Transportador()
+                {
                     Celular = "78547845",
                     DescripcionVehiculo = "Moto",
                     Estado = "activo",
@@ -42,7 +45,8 @@ namespace TestUnitarios
                     NombreCompleto = "Pedro Flores",
                     TipoVehiculo = "Moto",
                 },
-                IdVendedorNavigation= new Vendedor() {
+                IdVendedorNavigation = new Vendedor()
+                {
                     NombreEmpresa = "Micro mercado la terminal",
                     Celular = "78547845",
                     Telefono = "46657812",
@@ -56,7 +60,7 @@ namespace TestUnitarios
                         Descripcion = "Nuevo Rubro"
                     }
                 }
-                
+
             });
 
             Assert.IsNotNull(result.Result);
@@ -68,9 +72,9 @@ namespace TestUnitarios
         [TestMethod]
         public async Task UpdPedido()
         {
-            PedidosPollomonContext pedidosContext = new PedidosPollomonContext();
+            deliveryContext pedidosContext = new deliveryContext();
             PedidosController pedidosController = new PedidosController(pedidosContext);
-          
+
             var result = await pedidosController.PutPedido(idPedido, new Pedido()
             {
                 FechaIngreso = DateTime.Now,
@@ -121,21 +125,21 @@ namespace TestUnitarios
         [TestMethod]
         public async Task DelPedido()
         {
-            PedidosPollomonContext pedidosContext = new PedidosPollomonContext();
+            deliveryContext pedidosContext = new deliveryContext();
             PedidosController pedidosController = new PedidosController(pedidosContext);
-            
+
             var result = await pedidosController.DeletePedido(idPedido);
 
             Assert.IsNotNull(result);
         }
-        
-        
+
+
         [TestMethod]
         public async Task Add99Pedido()
         {
-            PedidosPollomonContext pedidosContext = new PedidosPollomonContext();
+            deliveryContext pedidosContext = new deliveryContext();
             PedidosController pedidosController = new PedidosController(pedidosContext);
-            
+
             for (int i = 0; i < 99; i++)
             {
 
@@ -189,10 +193,10 @@ namespace TestUnitarios
         [TestMethod]
         public async Task GetPedidos()
         {
-            PedidosPollomonContext pedidosContext = new PedidosPollomonContext();
+            deliveryContext pedidosContext = new deliveryContext();
             PedidosController pedidosController = new PedidosController(pedidosContext);
 
-            var result = await pedidosController.GetPedido(new PageAndSortRequest()
+            var result = await pedidosController.GetPedidos(new PageAndSortRequest()
             {
                 Pagina = 1,
                 TamPagina = 10,

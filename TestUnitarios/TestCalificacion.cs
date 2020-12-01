@@ -13,7 +13,7 @@ namespace TestUnitarios
     class TestCalificacion
     {
         private static long idCalificacion = -1;
-        static PedidosPollomonContext calificacion = new PedidosPollomonContext();
+        static deliveryContext calificacion = new deliveryContext();
         CalificacionesController calificacionController = new CalificacionesController(calificacion);
         [TestMethod]
         public async Task PostCalificacionTest()
@@ -160,8 +160,8 @@ namespace TestUnitarios
                     IdOrigen = i,
                     IdDestino = i,
                     Puntaje = i,
-                    Observaciones = "good" +i,
-                    Tipo = "grande"+i,
+                    Observaciones = "good" + i,
+                    Tipo = "grande" + i,
 
                     IdPedidoNavigation = new Pedido()
                     {

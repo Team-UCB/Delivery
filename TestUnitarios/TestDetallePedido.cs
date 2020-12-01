@@ -13,16 +13,17 @@ namespace TestUnitarios
     public class TestDetallePedido
     {
         private static long idDetallePedido = -1;
-        static PedidosPollomonContext pedidos = new PedidosPollomonContext();
+        static deliveryContext pedidos = new deliveryContext();
         DetallePedidosController detallepedidosController = new DetallePedidosController(pedidos);
         [TestMethod]
         public async Task PostDetallePedidoTest()
         {
 
-            var result = await detallepedidosController.PostDetallePedido(new DetallePedido() { 
-                Cantidad =1,
-                SubMonto=1,
-                IdPedidoNavigation= new Pedido()
+            var result = await detallepedidosController.PostDetallePedido(new DetallePedido()
+            {
+                Cantidad = 1,
+                SubMonto = 1,
+                IdPedidoNavigation = new Pedido()
                 {
                     FechaIngreso = DateTime.Now,
                     FechaAtencion = DateTime.Now,

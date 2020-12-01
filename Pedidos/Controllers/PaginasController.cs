@@ -11,48 +11,48 @@ namespace Pedidos.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ParametrosController : ControllerBase
+    public class PaginasController : ControllerBase
     {
         private readonly deliveryContext _context;
 
-        public ParametrosController(deliveryContext context)
+        public PaginasController(deliveryContext context)
         {
             _context = context;
         }
 
-        // GET: api/Parametros
+        // GET: api/Paginas
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Parametro>>> GetParametros()
+        public async Task<ActionResult<IEnumerable<Pagina>>> GetPaginas()
         {
-            return await _context.Parametros.ToListAsync();
+            return await _context.Paginas.ToListAsync();
         }
 
-        // GET: api/Parametros/5
+        // GET: api/Paginas/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Parametro>> GetParametro(long id)
+        public async Task<ActionResult<Pagina>> GetPagina(long id)
         {
-            var parametro = await _context.Parametros.FindAsync(id);
+            var pagina = await _context.Paginas.FindAsync(id);
 
-            if (parametro == null)
+            if (pagina == null)
             {
                 return NotFound();
             }
 
-            return parametro;
+            return pagina;
         }
 
-        // PUT: api/Parametros/5
+        // PUT: api/Paginas/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutParametro(long id, Parametro parametro)
+        public async Task<IActionResult> PutPagina(long id, Pagina pagina)
         {
-            if (id != parametro.Id)
+            if (id != pagina.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(parametro).State = EntityState.Modified;
+            _context.Entry(pagina).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace Pedidos.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ParametroExists(id))
+                if (!PaginaExists(id))
                 {
                     return NotFound();
                 }
@@ -73,37 +73,37 @@ namespace Pedidos.Controllers
             return NoContent();
         }
 
-        // POST: api/Parametros
+        // POST: api/Paginas
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Parametro>> PostParametro(Parametro parametro)
+        public async Task<ActionResult<Pagina>> PostPagina(Pagina pagina)
         {
-            _context.Parametros.Add(parametro);
+            _context.Paginas.Add(pagina);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetParametro", new { id = parametro.Id }, parametro);
+            return CreatedAtAction("GetPagina", new { id = pagina.Id }, pagina);
         }
 
-        // DELETE: api/Parametros/5
+        // DELETE: api/Paginas/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Parametro>> DeleteParametro(long id)
+        public async Task<ActionResult<Pagina>> DeletePagina(long id)
         {
-            var parametro = await _context.Parametros.FindAsync(id);
-            if (parametro == null)
+            var pagina = await _context.Paginas.FindAsync(id);
+            if (pagina == null)
             {
                 return NotFound();
             }
 
-            _context.Parametros.Remove(parametro);
+            _context.Paginas.Remove(pagina);
             await _context.SaveChangesAsync();
 
-            return parametro;
+            return pagina;
         }
 
-        private bool ParametroExists(long id)
+        private bool PaginaExists(long id)
         {
-            return _context.Parametros.Any(e => e.Id == id);
+            return _context.Paginas.Any(e => e.Id == id);
         }
     }
 }

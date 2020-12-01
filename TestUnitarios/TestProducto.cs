@@ -13,7 +13,7 @@ namespace TestUnitarios
         [TestMethod]
         public async Task Add99()
         {
-            PedidosPollomonContext productosContext = new PedidosPollomonContext();
+            deliveryContext productosContext = new deliveryContext();
             ProductosController productosController = new ProductosController(productosContext);
             for (int i = 0; i < 2; i++)
             {
@@ -60,7 +60,7 @@ namespace TestUnitarios
         [TestMethod]
         public async Task Add()
         {
-            PedidosPollomonContext productosContext = new PedidosPollomonContext();
+            deliveryContext productosContext = new deliveryContext();
             ProductosController productosController = new ProductosController(productosContext);
             //var result = await productosController.PostProducto(new Productos() { Descripcion = "testOr", PathImg = "testOr", IdProducto = 1 });
             var result = await productosController.PostProducto(
@@ -108,7 +108,7 @@ namespace TestUnitarios
         [TestMethod]
         public async Task Upd()
         {
-            PedidosPollomonContext productosContext = new PedidosPollomonContext();
+            deliveryContext productosContext = new deliveryContext();
             ProductosController productosController = new ProductosController(productosContext);
 
             var result = await productosController.PostProducto(
@@ -152,7 +152,7 @@ namespace TestUnitarios
         [TestMethod]
         public async Task Del()
         {
-            PedidosPollomonContext productosContext = new PedidosPollomonContext();
+            deliveryContext productosContext = new deliveryContext();
             ProductosController productosController = new ProductosController(productosContext);
             var result = await productosController.DeleteProducto(idProducto);
 
@@ -162,7 +162,7 @@ namespace TestUnitarios
         [TestMethod]
         public async Task Get()
         {
-            PedidosPollomonContext productosContext = new PedidosPollomonContext();
+            deliveryContext productosContext = new deliveryContext();
             ProductosController productosController = new ProductosController(productosContext);
             var result = await productosController.GetProducto(new PageAndSortRequest() { Pagina = 1, TamPagina = 10, Columna = "Id", Direccion = "asc", Filtro = "" });
 
@@ -170,6 +170,6 @@ namespace TestUnitarios
             Assert.IsTrue(result.Value.Datos.Count() > 0);
         }
 
-        
+
     }
 }

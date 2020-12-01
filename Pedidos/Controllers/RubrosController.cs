@@ -13,9 +13,9 @@ namespace Pedidos.Controllers
     [ApiController]
     public class RubrosController : ControllerBase
     {
-        private readonly PedidosPollomonContext _context;
+        private readonly deliveryContext _context;
 
-        public RubrosController(PedidosPollomonContext context)
+        public RubrosController(deliveryContext context)
         {
             _context = context;
         }
