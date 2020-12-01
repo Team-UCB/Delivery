@@ -13,9 +13,9 @@ namespace Pedidos.Controllers
     [ApiController]
     public class ClientesController : ControllerBase
     {
-        private readonly PedidosPollomonContext _context;
+        private readonly deliveryContext _context;
 
-        public ClientesController(PedidosPollomonContext context)
+        public ClientesController(deliveryContext context)
         {
             _context = context;
         }

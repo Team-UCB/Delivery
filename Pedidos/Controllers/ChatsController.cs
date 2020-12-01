@@ -13,9 +13,9 @@ namespace Pedidos.Controllers
     [ApiController]
     public class ChatsController : ControllerBase
     {
-        private readonly PedidosPollomonContext _context;
+        private readonly deliveryContext _context;
 
-        public ChatsController(PedidosPollomonContext context)
+        public ChatsController(deliveryContext context)
         {
             _context = context;
         }
@@ -64,16 +64,10 @@ namespace Pedidos.Controllers
         /// </summary>
         /// <returns></returns>
         // GET: api/Chats/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Chat>> GetChat(long id)
+        [HttpGet("{IdOrigen}/{IdDestino}")]
+        public async Task<List<Chat>> GetChat(long IdOrigen, long IdDestino)
         {
-            var chat = await _context.Chats.FindAsync(id);
-
-            if (chat == null)
-            {
-                return NotFound();
-            }
-
+            var chat = await _context.Chats.Where(ele => ele.IdOrigen == IdOrigen && ele.IdDestino == IdDestino).ToListAsync();
             return chat;
         }
 

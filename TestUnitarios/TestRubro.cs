@@ -15,9 +15,20 @@ namespace TestUnitarios
     {
         private static long idRubro = -1;
         [TestMethod]
+        public async Task Add99()
+        {
+            deliveryContext pedidospollomonContext = new deliveryContext();
+            RubrosController rubrosController = new RubrosController(pedidospollomonContext);
+            for (int i = 0; i < 10; i++)
+            {
+                var result = await rubrosController.PostRubro(new Rubro() { Nombre = "test" + i, Descripcion = "test" + i });
+                Assert.IsNotNull(result.Result);
+            }
+        }
+        [TestMethod]
         public async Task Add()
         {
-            PedidosPollomonContext pedidospollomonContext = new PedidosPollomonContext();
+            deliveryContext pedidospollomonContext = new deliveryContext();
             RubrosController rubrosController = new RubrosController(pedidospollomonContext);
             var result = await rubrosController.PostRubro(new Rubro() { Nombre = "test11", Descripcion = "test11" });
 
@@ -33,41 +44,31 @@ namespace TestUnitarios
         public async Task Upd()
         {
             //Console.WriteLine(idRubro);
-            PedidosPollomonContext pedidospollomonContext = new PedidosPollomonContext();
+            deliveryContext pedidospollomonContext = new deliveryContext();
             RubrosController rubrosController = new RubrosController(pedidospollomonContext);
             var result = await rubrosController.PutRubro(4, new Rubro() { Nombre = "text", Descripcion = "text" });
 
             Assert.IsNotNull(result);
         }
-        //[TestMethod]
-        //public async Task Del()
-        //{
-        //    PedidosPollomonContext pedidospollomonContext = new PedidosPollomonContext();
-        //    RubrosController rubrosController = new RubrosController(pedidospollomonContext, "");
-        //    var result = await rubrosController.DeleteRubro(6);
+        [TestMethod]
+        public async Task Del()
+        {
+            deliveryContext pedidospollomonContext = new deliveryContext();
+            RubrosController rubrosController = new RubrosController(pedidospollomonContext);
+            var result = await rubrosController.DeleteRubro(idRubro);
 
-        //    Assert.IsNotNull(result);
-        //}
+            Assert.IsNotNull(result);
+        }
         [TestMethod]
         public async Task Get()
         {
-            PedidosPollomonContext pedidospollomonContext = new PedidosPollomonContext();
+            deliveryContext pedidospollomonContext = new deliveryContext();
             RubrosController rubrosController = new RubrosController(pedidospollomonContext);
             var result = await rubrosController.GetRubro(new PageAndSortRequest() { Pagina = 1, TamPagina = 10, Columna = "Id", Direccion = "asc", Filtro = "" });
 
             Assert.IsNotNull(result);
             Assert.IsTrue(result.Value.Datos.Count() > 0);
         }
-        [TestMethod]
-        public async Task Add99()
-        {
-            PedidosPollomonContext pedidospollomonContext = new PedidosPollomonContext();
-            RubrosController rubrosController = new RubrosController(pedidospollomonContext);
-            for (int i = 0; i < 10; i++)
-            {
-                var result = await rubrosController.PostRubro(new Rubro() { Nombre = "test" + i, Descripcion = "test" + i });
-                Assert.IsNotNull(result.Result);
-            }
-        }
+        
     }
 }

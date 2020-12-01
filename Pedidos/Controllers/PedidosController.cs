@@ -13,9 +13,9 @@ namespace Pedidos.Controllers
     [ApiController]
     public class PedidosController : ControllerBase
     {
-        private readonly PedidosPollomonContext _context;
+        private readonly deliveryContext _context;
 
-        public PedidosController(PedidosPollomonContext context)
+        public PedidosController(deliveryContext context)
         {
             _context = context;
         }
@@ -27,7 +27,7 @@ namespace Pedidos.Controllers
         // GET: api/Pedidos/columna/direccion
         //[Helpers.Authorize]
         [HttpGet]
-        public async Task<ActionResult<PageAndSortResponse<Pedido>>> GetPedido([FromQuery] PageAndSortRequest param)
+        public async Task<ActionResult<PageAndSortResponse<Pedido>>> GetPedidos([FromQuery] PageAndSortRequest param)
         {
             IEnumerable<Pedido> listaPedido = null;
             if (param.Direccion.ToLower() == "asc")
@@ -38,6 +38,7 @@ namespace Pedidos.Controllers
                 listaPedido = await _context.Pedidos.OrderBy(p => p.Id).ToListAsync();
 
             if (listaPedido == null)
+
             {
                 return NotFound();
             }
@@ -45,6 +46,7 @@ namespace Pedidos.Controllers
             int total = 0;
             if (!string.IsNullOrEmpty(param.Filtro))
             {
+
                 listaPedido = listaPedido.Where(ele => ele.Estado.Contains(param.Filtro));
             }
             total = listaPedido.Count();
@@ -53,6 +55,7 @@ namespace Pedidos.Controllers
             var result = new PageAndSortResponse<Pedido>
             {
                 Datos = listaPedido,
+
                 TotalFilas = total
             };
 

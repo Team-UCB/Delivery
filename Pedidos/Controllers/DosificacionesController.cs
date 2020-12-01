@@ -13,9 +13,9 @@ namespace Pedidos.Controllers
     [ApiController]
     public class DosificacionesController : ControllerBase
     {
-        private readonly PedidosPollomonContext _context;
+        private readonly deliveryContext _context;
 
-        public DosificacionesController(PedidosPollomonContext context)
+        public DosificacionesController(deliveryContext context)
         {
             _context = context;
         }
@@ -54,7 +54,7 @@ namespace Pedidos.Controllers
 
             return result;
         }
-        
+
         // GET: api/Dosificaciones/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Dosificacion>> GetDosificacion(long id)

@@ -52,7 +52,7 @@ namespace Pedidos
                     AllowAnyMethod();
                 });
             });
-            services.AddDbContext<PedidosPollomonContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlDB")));
+            services.AddDbContext<deliveryContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlDB")));
 
             services.AddSwaggerGen(c =>
             {

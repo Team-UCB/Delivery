@@ -15,10 +15,10 @@ namespace Pedidos.Controllers
     [ApiController]
     public class FotosController : ControllerBase
     {
-        private readonly PedidosPollomonContext _context;
+        private readonly deliveryContext _context;
         private readonly AppSettings _appSettings;
 
-        public FotosController(PedidosPollomonContext context)
+        public FotosController(deliveryContext context)
         {
             _context = context;
         }

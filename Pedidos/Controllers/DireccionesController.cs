@@ -13,9 +13,9 @@ namespace Pedidos.Controllers
     [ApiController]
     public class DireccionesController : ControllerBase
     {
-        private readonly PedidosPollomonContext _context;
+        private readonly deliveryContext _context;
 
-        public DireccionesController(PedidosPollomonContext context)
+        public DireccionesController(deliveryContext context)
         {
             _context = context;
         }
@@ -46,7 +46,7 @@ namespace Pedidos.Controllers
             if (!string.IsNullOrEmpty(param.Filtro))
             {
                 listaDireccion = listaDireccion.Where(ele => ele.Descripcion.Contains(param.Filtro));
-                
+
             }
             total = listaDireccion.Count();
             listaDireccion = listaDireccion.Skip((param.Pagina - 1) * param.TamPagina).Take(param.TamPagina);
@@ -56,7 +56,7 @@ namespace Pedidos.Controllers
                 Datos = listaDireccion,
                 TotalFilas = total
             };
-        
+
             return result;
         }
 
@@ -66,7 +66,7 @@ namespace Pedidos.Controllers
         /// <returns></returns>
         // GET: api/Direcciones/5
         [HttpGet("{id}")]
-        public async Task<List<Direccion>>  GetDireccion(long id)
+        public async Task<List<Direccion>> GetDireccion(long id)
         {
             var direccion = await _context.Direccions.Where(ele => ele.IdCliente == id).ToListAsync();
             return direccion;

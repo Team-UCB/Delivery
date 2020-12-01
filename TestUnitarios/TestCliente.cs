@@ -14,7 +14,7 @@ namespace TestUnitarios
     public class TestCliente
     {
         private static long idCliente = -1;
-        static PedidosPollomonContext pedidos = new PedidosPollomonContext();
+        static deliveryContext pedidos = new deliveryContext();
         ClientesController clientesController = new ClientesController(pedidos);
 
         [TestMethod]
