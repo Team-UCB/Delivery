@@ -21,6 +21,10 @@ namespace Pedidos.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Gets All the Clientes from the BDB
+        /// </summary>
+        /// <returns></returns>
         [Helpers.Authorize]
         [HttpGet]
         public async Task<ActionResult<PageAndSortResponse<Cliente>>> GetCliente([FromQuery] PageAndSortRequest param)
@@ -55,6 +59,11 @@ namespace Pedidos.Controllers
             return result;
         }
 
+        /// <summary>
+        /// Get a Cliente specific for Id from the BDB
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: api/Clientes/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Cliente>> GetCliente(long id)
@@ -71,7 +80,11 @@ namespace Pedidos.Controllers
 
 
 
-
+        /// <summary>
+        /// Get a Cliente specific from BDB
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("getClientePedido/{param1}")]
         public async Task<ActionResult<Cliente>> getClientePedido(long param1)
@@ -88,11 +101,12 @@ namespace Pedidos.Controllers
             return cliente[0];
         }
 
-
-
-
-
-
+        /// <summary>
+        /// Modifies an existing Cliente
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="cliente"></param>
+        /// <returns></returns>
         // PUT: api/Clientes/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -125,6 +139,11 @@ namespace Pedidos.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Creates a new Cliente 
+        /// </summary>
+        /// <param name="foto"></param>
+        /// <returns></returns>
         // POST: api/Clientes
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -137,6 +156,11 @@ namespace Pedidos.Controllers
             return CreatedAtAction("GetCliente", new { id = cliente.Id }, cliente);
         }
 
+        /// <summary>
+        /// Removes a Cliente from BDB
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // DELETE: api/Clientes/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Cliente>> DeleteCliente(long id)

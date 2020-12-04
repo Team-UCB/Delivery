@@ -23,12 +23,6 @@ namespace Pedidos.Controllers
         {
             _context = context;
         }
-        //[Authorize]
-        //[HttpGet]
-        //public async Task<IEnumerable<Foto>> GetAllFotos()
-        //{
-        //    return await _context.Fotos.ToListAsync();
-        //}
 
         /// <summary>
         /// Gets All the Fotos from the BDB
@@ -72,6 +66,7 @@ namespace Pedidos.Controllers
         /// <summary>
         /// Get a Foto specific for Id from the BDB
         /// </summary>
+        /// <param name="id"></param>
         /// <returns></returns>
         // GET: api/Fotos/5
         [HttpGet("{id}")]

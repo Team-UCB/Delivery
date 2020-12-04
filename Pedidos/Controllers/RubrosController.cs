@@ -21,6 +21,10 @@ namespace Pedidos.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Gets all the data Rubro from the BDB
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Rubros
         //[Helpers.Authorize]
         [HttpGet]
@@ -55,6 +59,11 @@ namespace Pedidos.Controllers
             return result;
         }
 
+        /// <summary>
+        /// Get a Rubro specific for Id from the BDB
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: api/Rubros/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Rubro>> GetRubro(long id)
@@ -69,6 +78,12 @@ namespace Pedidos.Controllers
             return rubro;
         }
 
+        /// <summary>
+        /// Modifies an existing Rubro
+        /// </summary>
+        /// <param name="id"></param>
+        /// /// <param name="rubro"></param>
+        /// <returns></returns>
         // PUT: api/Rubros/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -101,6 +116,11 @@ namespace Pedidos.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Creates a new Rubro 
+        /// </summary>
+        /// <param name="rubro"></param>
+        /// <returns></returns>
         // POST: api/Rubros
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -113,6 +133,11 @@ namespace Pedidos.Controllers
             return CreatedAtAction("GetRubro", new { id = rubro.Id }, rubro);
         }
 
+        /// <summary>
+        /// Removes a Rubro from BDB
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // DELETE: api/Rubros/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Rubro>> DeleteRubro(long id)
