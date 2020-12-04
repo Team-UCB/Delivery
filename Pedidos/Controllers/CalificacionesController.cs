@@ -19,7 +19,14 @@ namespace Pedidos.Controllers
         {
             _context = context;
         }
+        [HttpGet]
+        [Route("GetComentarios/{idDestino}")]
+        public async Task<ActionResult<List<Calificacion>>> GetComentarios(long idDestino)
+        {
+            var comentarios = _context.Calificacions.Where(c => c.IdDestino.Equals(idDestino)).ToList();
 
+            return comentarios;
+        }
         /// <summary>
         /// Gets all the data Calificaciones from the BDB
         /// </summary>
