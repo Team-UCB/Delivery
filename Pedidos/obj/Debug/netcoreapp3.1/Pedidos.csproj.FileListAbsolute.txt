@@ -1854,7 +1854,6 @@ C:\Users\leona\Source\Repos\DeliveryBackend\Pedidos\bin\Debug\netcoreapp3.1\runt
 C:\Users\leona\Source\Repos\DeliveryBackend\Pedidos\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\leona\Source\Repos\DeliveryBackend\Pedidos\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\leona\Source\Repos\DeliveryBackend\Pedidos\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\leona\Source\Repos\DeliveryBackend\Pedidos\obj\Debug\netcoreapp3.1\Pedidos.csprojAssemblyReference.cache
 C:\Users\leona\Source\Repos\DeliveryBackend\Pedidos\obj\Debug\netcoreapp3.1\Pedidos.dll.config
 C:\Users\leona\Source\Repos\DeliveryBackend\Pedidos\obj\Debug\netcoreapp3.1\staticwebassets\Pedidos.StaticWebAssets.Manifest.cache
 C:\Users\leona\Source\Repos\DeliveryBackend\Pedidos\obj\Debug\netcoreapp3.1\staticwebassets\Pedidos.StaticWebAssets.xml

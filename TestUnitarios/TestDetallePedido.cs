@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pedidos.Controllers;
+using Pedidos.Data;
 using Pedidos.Models;
 using System;
 using System.Linq;

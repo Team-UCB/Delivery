@@ -5,6 +5,7 @@ using Pedidos.Models;
 using System.Threading.Tasks;
 using System.Linq;
 using System;
+using Pedidos.Data;
 
 namespace TestUnitarios
 {

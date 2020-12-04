@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace Pedidos.Models
+namespace Pedidos.Data
 {
     public partial class deliveryContext : DbContext
     {
@@ -518,13 +518,11 @@ namespace Pedidos.Models
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.CodigoQrFactura)
-                    .IsRequired()
                     .HasMaxLength(500)
                     .IsUnicode(false)
                     .HasColumnName("codigo_qr_factura");
 
                 entity.Property(e => e.Estado)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("estado");
@@ -566,7 +564,6 @@ namespace Pedidos.Models
                     .HasAnnotation("Relational:ColumnType", "decimal(18, 1)");
 
                 entity.Property(e => e.TipoPago)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("tipo_pago");
@@ -580,13 +577,11 @@ namespace Pedidos.Models
                 entity.HasOne(d => d.IdTransporteNavigation)
                     .WithMany(p => p.Pedidos)
                     .HasForeignKey(d => d.IdTransporte)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_transporte_pedido");
 
                 entity.HasOne(d => d.IdVendedorNavigation)
                     .WithMany(p => p.Pedidos)
                     .HasForeignKey(d => d.IdVendedor)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_vendedor_pedido");
             });
 
