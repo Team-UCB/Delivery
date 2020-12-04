@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\leona\\source\\repos\\DeliveryBackend\\TestUnitarios\\TestUnitarios.csproj": {}
+    "C:\\Users\\leona\\Source\\Repos\\DeliveryBackend\\TestUnitarios\\TestUnitarios.csproj": {}
   },
   "projects": {
-    "C:\\Users\\leona\\source\\repos\\DeliveryBackend\\Pedidos\\Pedidos.csproj": {
+    "C:\\Users\\leona\\Source\\Repos\\DeliveryBackend\\Pedidos\\Pedidos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\leona\\source\\repos\\DeliveryBackend\\Pedidos\\Pedidos.csproj",
+        "projectUniqueName": "C:\\Users\\leona\\Source\\Repos\\DeliveryBackend\\Pedidos\\Pedidos.csproj",
         "projectName": "Pedidos",
-        "projectPath": "C:\\Users\\leona\\source\\repos\\DeliveryBackend\\Pedidos\\Pedidos.csproj",
+        "projectPath": "C:\\Users\\leona\\Source\\Repos\\DeliveryBackend\\Pedidos\\Pedidos.csproj",
         "packagesPath": "C:\\Users\\leona\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\leona\\source\\repos\\DeliveryBackend\\Pedidos\\obj\\",
+        "outputPath": "C:\\Users\\leona\\Source\\Repos\\DeliveryBackend\\Pedidos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Microsoft\\Xamarin\\NuGet\\"
@@ -109,14 +109,14 @@
         }
       }
     },
-    "C:\\Users\\leona\\source\\repos\\DeliveryBackend\\TestUnitarios\\TestUnitarios.csproj": {
+    "C:\\Users\\leona\\Source\\Repos\\DeliveryBackend\\TestUnitarios\\TestUnitarios.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\leona\\source\\repos\\DeliveryBackend\\TestUnitarios\\TestUnitarios.csproj",
+        "projectUniqueName": "C:\\Users\\leona\\Source\\Repos\\DeliveryBackend\\TestUnitarios\\TestUnitarios.csproj",
         "projectName": "TestUnitarios",
-        "projectPath": "C:\\Users\\leona\\source\\repos\\DeliveryBackend\\TestUnitarios\\TestUnitarios.csproj",
+        "projectPath": "C:\\Users\\leona\\Source\\Repos\\DeliveryBackend\\TestUnitarios\\TestUnitarios.csproj",
         "packagesPath": "C:\\Users\\leona\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\leona\\source\\repos\\DeliveryBackend\\TestUnitarios\\obj\\",
+        "outputPath": "C:\\Users\\leona\\Source\\Repos\\DeliveryBackend\\TestUnitarios\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Microsoft\\Xamarin\\NuGet\\"
@@ -136,8 +136,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\leona\\source\\repos\\DeliveryBackend\\Pedidos\\Pedidos.csproj": {
-                "projectPath": "C:\\Users\\leona\\source\\repos\\DeliveryBackend\\Pedidos\\Pedidos.csproj"
+              "C:\\Users\\leona\\Source\\Repos\\DeliveryBackend\\Pedidos\\Pedidos.csproj": {
+                "projectPath": "C:\\Users\\leona\\Source\\Repos\\DeliveryBackend\\Pedidos\\Pedidos.csproj"
               }
             }
           }

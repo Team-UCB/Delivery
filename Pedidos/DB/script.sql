@@ -19,7 +19,7 @@ GO
 EXEC sp_MSforeachtable 'DROP TABLE ?'
 GO
 
--- ************************************** [CategoriaProducto]
+-- ************** [CategoriaProducto]
 
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='CategoriaProducto')
 CREATE TABLE [CategoriaProducto]
@@ -34,7 +34,7 @@ CREATE TABLE [CategoriaProducto]
 );
 GO
 
--- ************************************** [Rubro]
+-- ************** [Rubro]
 
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Rubro')
 CREATE TABLE [Rubro]
@@ -48,8 +48,47 @@ CREATE TABLE [Rubro]
 );
 GO
 
--- ************************************** [Transportador]
+-- ************** [Transportador]
+/*
+IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Transportador')
+CREATE TABLE [Transportador]
+(
+ [id]                   bigint IDENTITY (1, 1) NOT NULL ,
+ [nombre_completo]      varchar(250) NOT NULL ,
+ [celular]              varchar(10) NOT NULL ,
+ [descripcion_vehiculo] varchar(250) NOT NULL ,
+ [tipo_vehiculo]        varchar(50) NOT NULL ,
+ [estado]               varchar(50) NOT NULL ,
+ [latitud]              decimal(18,6) NOT NULL ,
+ [longitud]             decimal(18,6) NOT NULL ,
+ [email]                VARCHAR(50) NOT NULL,
 
+
+ CONSTRAINT [PK_tranportador] PRIMARY KEY CLUSTERED ([id] ASC)
+);
+GO
+
+-- ************** [Cliente]
+
+IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Cliente')
+CREATE TABLE [Cliente]
+(
+ [id]                bigint IDENTITY (1, 1) NOT NULL ,
+ [nombres_apellidos] varchar(500) NOT NULL ,
+ [celular]           varchar(10) NOT NULL ,
+ [telefono]          varchar(10) NOT NULL ,
+ [correo]			 varchar(100) NULL,
+
+
+ CONSTRAINT [PK_cliente] PRIMARY KEY CLUSTERED ([id] ASC)
+);
+GO*/
+
+
+
+
+
+-- ************** [Transportador]
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Transportador')
 CREATE TABLE [Transportador]
 (
@@ -67,7 +106,7 @@ CREATE TABLE [Transportador]
 );
 GO
 
--- ************************************** [Cliente]
+-- ************** [Cliente]
 
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Cliente')
 CREATE TABLE [Cliente]
@@ -82,7 +121,7 @@ CREATE TABLE [Cliente]
 );
 GO
 
--- ************************************** [Direccion]
+-- ************** [Direccion]
 
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Direccion')
 CREATE TABLE [Direccion]
@@ -109,7 +148,7 @@ CREATE NONCLUSTERED INDEX [fkIdx_cliente_direccion] ON [Direccion]
 
 GO
 
--- ************************************** [Vendedor]
+-- ************** [Vendedor]
 
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Vendedor')
 CREATE TABLE [Vendedor]
@@ -138,7 +177,7 @@ CREATE NONCLUSTERED INDEX [fkIdx_rubro_vendedor] ON [Vendedor]
 
 GO
 
--- ************************************** [Producto]
+-- ************** [Producto]
 
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Producto')
 CREATE TABLE [Producto]
@@ -176,7 +215,7 @@ CREATE NONCLUSTERED INDEX [fkIdx_vendedor_producto] ON [Producto]
 
 GO
 
--- ************************************** [Fotos]
+-- ************** [Fotos]
 
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Fotos')
 CREATE TABLE [Fotos]
@@ -200,7 +239,7 @@ CREATE NONCLUSTERED INDEX [fkIdx_producto_fotos] ON [Fotos]
 
 GO
 
--- ************************************** [Oferta]
+-- ************** [Oferta]
 
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Oferta')
 CREATE TABLE [Oferta]
@@ -228,24 +267,24 @@ CREATE NONCLUSTERED INDEX [fkIdx_producto_oferta] ON [Oferta]
 
 GO
 
--- ************************************** [Pedido]
+-- ************** [Pedido]
 
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Pedido')
 CREATE TABLE [Pedido]
 (
  [id]                bigint IDENTITY (1, 1) NOT NULL ,
- [fecha_ingreso]     datetime NOT NULL ,
- [fecha_atencion]    datetime NOT NULL ,
- [fecha_salida]      datetime NOT NULL ,
- [fecha_entrega]     datetime NOT NULL ,
- [estado]            varchar(50) NOT NULL ,
- [codigo_qr_factura] varchar(500) NOT NULL ,
- [monto_envio]       decimal(18,1) NOT NULL ,
- [tipo_pago]         varchar(50) NOT NULL ,
- [monto_cliente]     decimal(18,1) NOT NULL ,
+ [fecha_ingreso]     datetime NULL ,
+ [fecha_atencion]    datetime NULL ,
+ [fecha_salida]      datetime NULL ,
+ [fecha_entrega]     datetime NULL ,
+ [estado]            varchar(50) NULL ,
+ [codigo_qr_factura] varchar(500) NULL ,
+ [monto_envio]       decimal(18,1) NULL ,
+ [tipo_pago]         varchar(50) NULL ,
+ [monto_cliente]     decimal(18,1) NULL ,
  [id_cliente]        bigint NOT NULL ,
- [id_vendedor]       bigint NOT NULL ,
- [id_transporte]     bigint NOT NULL ,
+ [id_vendedor]       bigint NULL ,
+ [id_transporte]     bigint NULL ,
 
 
  CONSTRAINT [PK_pedido] PRIMARY KEY CLUSTERED ([id] ASC),
@@ -277,7 +316,7 @@ CREATE NONCLUSTERED INDEX [fkIdx_transporte_pedido] ON [Pedido]
 
 GO
 
--- ************************************** [DetallePedido]
+-- ************** [DetallePedido]
 
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='DetallePedido')
 CREATE TABLE [DetallePedido]
@@ -310,7 +349,7 @@ CREATE NONCLUSTERED INDEX [fkIdx_producto_detallepedido] ON [DetallePedido]
 
 GO
 
--- ************************************** [Calificacion]
+-- ************** [Calificacion]
 
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Calificacion')
 CREATE TABLE [Calificacion]
@@ -337,7 +376,7 @@ CREATE NONCLUSTERED INDEX [fkIdx_pedido_calificacion] ON [Calificacion]
 
 GO
 
--- ************************************** [Rol]
+-- ************** [Rol]
 
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Rol')
 CREATE TABLE [Rol]
@@ -350,7 +389,7 @@ CREATE TABLE [Rol]
 );
 GO
 
--- ************************************** [Usuario]
+-- ************** [Usuario]
 
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Usuario')
 CREATE TABLE [Usuario]
@@ -377,7 +416,20 @@ CREATE NONCLUSTERED INDEX [fkIdx_rol_usuario] ON [Usuario]
 
 GO
 
--- ************************************** [Chat]
+-- ************** [Chat]
+/*
+IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Chat')
+CREATE TABLE [Chat]
+(
+ [id]         bigint IDENTITY (1, 1) NOT NULL ,
+ [id_origen]  bigint NOT NULL ,
+ [id_destino] bigint NOT NULL ,
+ [estado]     varchar(50) NOT NULL ,
+
+
+ CONSTRAINT [PK_chat] PRIMARY KEY CLUSTERED ([id] ASC)
+);
+GO*/
 
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Chat')
 CREATE TABLE [Chat]
@@ -394,7 +446,31 @@ CREATE TABLE [Chat]
 );
 GO
 
--- ************************************** [Pagina]
+-- ************** [Mensajes]
+/*
+IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Mensajes')
+CREATE TABLE [Mensajes]
+(
+ [id]         bigint IDENTITY (1, 1) NOT NULL ,
+ [fecha_hora] datetime NOT NULL ,
+ [text]       varchar(500) NOT NULL ,
+ [id_chat]    bigint NOT NULL ,
+
+
+ CONSTRAINT [PK_mensajes] PRIMARY KEY CLUSTERED ([id] ASC),
+ CONSTRAINT [FK_chat_mensajes] FOREIGN KEY ([id_chat])  REFERENCES [Chat]([id])
+);
+GO
+
+*/
+CREATE NONCLUSTERED INDEX [fkIdx_chat_mensajes] ON [Mensajes] 
+ (
+  [id_chat] ASC
+ )
+
+GO
+
+-- ************** [Pagina]
 
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Pagina')
 CREATE TABLE [Pagina]
@@ -412,7 +488,7 @@ CREATE TABLE [Pagina]
 );
 GO
 
--- ************************************** [Dosificacion]
+-- ************** [Dosificacion]
 
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Dosificacion')
 CREATE TABLE [Dosificacion]
@@ -432,7 +508,7 @@ CREATE TABLE [Dosificacion]
 );
 GO
 
--- ************************************** [Factura]
+-- ************** [Factura]
 
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Factura')
 CREATE TABLE [Factura]
@@ -468,7 +544,7 @@ CREATE NONCLUSTERED INDEX [fkIdx_pedido_factura] ON [Factura]
 
 GO
 
--- ************************************** [DetalleFactura]
+-- ************** [DetalleFactura]
 
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='DetalleFactura')
 CREATE TABLE [DetalleFactura]
@@ -502,7 +578,7 @@ CREATE NONCLUSTERED INDEX [fkIdx_factura_detallefactura] ON [DetalleFactura]
 
 GO
 
--- ************************************** [Parametro]
+-- ************** [Parametro]
 
 IF NOT EXISTS (SELECT * FROM sys.tables t WHERE t.name='Parametro')
 CREATE TABLE [Parametro]
@@ -516,8 +592,11 @@ CREATE TABLE [Parametro]
 );
 GO
 
--- **** DATOS ****
-insert into rol (nombre) values ('admin');
+-- ** DATOS **
+insert into rol (nombre) values ('Administrador');
+insert into rol (nombre) values ('Cliente');
+insert into rol (nombre) values ('Vendedor');
+insert into rol (nombre) values ('Transportador');
 
 insert into usuario (nombre, clave, estado, id_rol) values ('admin', 'admin', 'activo', 1);
 
@@ -525,4 +604,3 @@ insert into parametro (nombre, valor) values ('tipo_pagina', 'Página');
 insert into parametro (nombre, valor) values ('tipo_pagina', 'Noticia');
 insert into parametro (nombre, valor) values ('tipo_pagina', 'Soporte');
 insert into parametro (nombre, valor) values ('tipo_pagina', 'Principal');
-
