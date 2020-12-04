@@ -1865,3 +1865,4 @@ C:\Users\leona\Source\Repos\DeliveryBackend\Pedidos\obj\Debug\netcoreapp3.1\Pedi
 C:\Users\leona\Source\Repos\DeliveryBackend\Pedidos\obj\Debug\netcoreapp3.1\Pedidos.dll
 C:\Users\leona\Source\Repos\DeliveryBackend\Pedidos\obj\Debug\netcoreapp3.1\Pedidos.xml
 C:\Users\leona\Source\Repos\DeliveryBackend\Pedidos\obj\Debug\netcoreapp3.1\Pedidos.pdb
+C:\Users\leona\Source\Repos\DeliveryBackend\Pedidos\obj\Debug\netcoreapp3.1\Pedidos.csprojAssemblyReference.cache

@@ -21,6 +21,10 @@ namespace Pedidos.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// Gets All the Dosificaciones from the BDB
+        /// </summary>
+        /// <returns></returns>
         // GET: api/Dosificacion/columna/direccion
         [Helpers.Authorize]
         [HttpGet]
@@ -56,6 +60,11 @@ namespace Pedidos.Controllers
             return result;
         }
 
+        /// <summary>
+        /// Get a Dosificacion specific for Id from the BDB
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: api/Dosificaciones/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Dosificacion>> GetDosificacion(long id)
@@ -70,6 +79,12 @@ namespace Pedidos.Controllers
             return dosificacion;
         }
 
+        /// <summary>
+        /// Modifies an existing Dosificacion
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="dosificacion"></param>
+        /// <returns></returns>
         // PUT: api/Dosificaciones/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -102,6 +117,11 @@ namespace Pedidos.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Creates a new Dosificacion 
+        /// </summary>
+        /// <param name="dosificacion"></param>
+        /// <returns></returns>
         // POST: api/Dosificaciones
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
@@ -114,6 +134,11 @@ namespace Pedidos.Controllers
             return CreatedAtAction("GetDosificacion", new { id = dosificacion.Id }, dosificacion);
         }
 
+        /// <summary>
+        /// Removes a Dosificacion from BDB
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // DELETE: api/Dosificaciones/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Dosificacion>> DeleteDosificacion(long id)
