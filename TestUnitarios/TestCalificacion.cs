@@ -7,6 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using Pedidos.Data;
 
 namespace TestUnitarios
 {

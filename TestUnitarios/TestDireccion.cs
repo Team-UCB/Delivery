@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using NuGet.Frameworks;
 using System.Linq;
+using Pedidos.Data;
 
 namespace TestUnitarios
 {

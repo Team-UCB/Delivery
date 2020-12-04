@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Pedidos.Data;
 using Pedidos.Models;
 
 namespace Pedidos.Controllers
@@ -65,9 +66,9 @@ namespace Pedidos.Controllers
         /// <returns></returns>
         // GET: api/Chats/5
         [HttpGet("{IdOrigen}/{IdDestino}")]
-        public async Task<List<Chat>> GetChat(long IdOrigen, long IdDestino)
+        public async Task<ActionResult<List< Chat>>> GetChat(long IdOrigen, long IdDestino)
         {
-            var chat = await _context.Chats.Where(ele => ele.IdOrigen == IdOrigen && ele.IdDestino == IdDestino).ToListAsync();
+            var chat = await _context.Chats.Where(ele => ele.IdOrigen == IdOrigen && ele.IdDestino == IdDestino || ele.IdOrigen == IdDestino && ele.IdDestino == IdOrigen).ToListAsync();
             return chat;
         }
 
@@ -117,6 +118,7 @@ namespace Pedidos.Controllers
         [HttpPost]
         public async Task<ActionResult<Chat>> PostChat(Chat chat)
         {
+            chat.FechaHora = DateTime.Now;
             _context.Chats.Add(chat);
             await _context.SaveChangesAsync();
 

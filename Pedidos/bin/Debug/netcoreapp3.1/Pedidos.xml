@@ -16,13 +16,13 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.CalificacionesController.PutCalificacion(System.Int64,Pedidos.Models.Calificacion)">
+        <member name="M:Pedidos.Controllers.CalificacionesController.PutCalificacion(System.Int64,Pedidos.Data.Calificacion)">
             <summary>
             Send data to a server to update a resource about Calificacion.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.CalificacionesController.PostCalificacion(Pedidos.Models.Calificacion)">
+        <member name="M:Pedidos.Controllers.CalificacionesController.PostCalificacion(Pedidos.Data.Calificacion)">
             <summary>
             Send data to a server to create a resource about Calificacion.
             </summary>
@@ -46,13 +46,13 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.CategoriaProductosController.PutCategoriaProducto(System.Int64,Pedidos.Models.CategoriaProducto)">
+        <member name="M:Pedidos.Controllers.CategoriaProductosController.PutCategoriaProducto(System.Int64,Pedidos.Data.CategoriaProducto)">
             <summary>
             Send data to a server to update a resource about CategoriaProducto.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.CategoriaProductosController.PostCategoriaProducto(Pedidos.Models.CategoriaProducto)">
+        <member name="M:Pedidos.Controllers.CategoriaProductosController.PostCategoriaProducto(Pedidos.Data.CategoriaProducto)">
             <summary>
             Send data to a server to create a resource about CategoriaProducto.
             </summary>
@@ -76,13 +76,13 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.ChatsController.PutChat(System.Int64,Pedidos.Models.Chat)">
+        <member name="M:Pedidos.Controllers.ChatsController.PutChat(System.Int64,Pedidos.Data.Chat)">
             <summary>
             Send data to a server to update a resource about Chat.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.ChatsController.PostChat(Pedidos.Models.Chat)">
+        <member name="M:Pedidos.Controllers.ChatsController.PostChat(Pedidos.Data.Chat)">
             <summary>
             Send data to a server to create a resource about Chat.
             </summary>
@@ -106,7 +106,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.DetalleFacturasController.PutDetalleFactura(System.Int64,Pedidos.Models.DetalleFactura)">
+        <member name="M:Pedidos.Controllers.DetalleFacturasController.PutDetalleFactura(System.Int64,Pedidos.Data.DetalleFactura)">
             <summary>
             Modifies an existing Detalle Factura
             </summary>
@@ -114,7 +114,7 @@
             <param name="detalleFactura"></param>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.DetalleFacturasController.PostDetalleFactura(Pedidos.Models.DetalleFactura)">
+        <member name="M:Pedidos.Controllers.DetalleFacturasController.PostDetalleFactura(Pedidos.Data.DetalleFactura)">
             <summary>
             Creates a new Detalle Factura 
             </summary>
@@ -140,7 +140,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.DetallePedidosController.PutDetallePedido(System.Int64,Pedidos.Models.DetallePedido)">
+        <member name="M:Pedidos.Controllers.DetallePedidosController.PutDetallePedido(System.Int64,Pedidos.Data.DetallePedido)">
             <summary>
             Modifies an existing Vendedor
             </summary>
@@ -148,7 +148,7 @@
             <param name="detallePedido"></param>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.DetallePedidosController.PostDetallePedido(Pedidos.Models.DetallePedido)">
+        <member name="M:Pedidos.Controllers.DetallePedidosController.PostDetallePedido(Pedidos.Data.DetallePedido)">
             <summary>
             Creates a new rubro 
             </summary>
@@ -174,13 +174,13 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.DireccionesController.PutDireccion(System.Int64,Pedidos.Models.Direccion)">
+        <member name="M:Pedidos.Controllers.DireccionesController.PutDireccion(System.Int64,Pedidos.Data.Direccion)">
             <summary>
             Send data to a server to update a resource about Direccion.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.DireccionesController.PostDireccion(Pedidos.Models.Direccion)">
+        <member name="M:Pedidos.Controllers.DireccionesController.PostDireccion(Pedidos.Data.Direccion)">
             <summary>
             Send data to a server to create a resource about Direccion.
             </summary>
@@ -204,7 +204,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.FotosController.PutFoto(System.Int64,Pedidos.Models.Foto)">
+        <member name="M:Pedidos.Controllers.FotosController.PutFoto(System.Int64,Pedidos.Data.Foto)">
             <summary>
             Modifies an existing Foto
             </summary>
@@ -212,7 +212,7 @@
             <param name="foto"></param>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.FotosController.PostFoto(Pedidos.Models.Foto)">
+        <member name="M:Pedidos.Controllers.FotosController.PostFoto(Pedidos.Data.Foto)">
             <summary>
             Creates a new Foto 
             </summary>
@@ -238,13 +238,13 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.PedidosController.PutPedido(System.Int64,Pedidos.Models.Pedido)">
+        <member name="M:Pedidos.Controllers.PedidosController.PutPedido(System.Int64,Pedidos.Data.Pedido)">
             <summary>
             Send data to a server to update a resource about Pedido.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.PedidosController.PostPedido(Pedidos.Models.Pedido)">
+        <member name="M:Pedidos.Controllers.PedidosController.PostPedido(Pedidos.Data.Pedido)">
             <summary>
             Send data to a server to create a resource about Pedido.
             </summary>
@@ -268,13 +268,13 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.ProductosController.PutProducto(System.Int64,Pedidos.Models.Producto)">
+        <member name="M:Pedidos.Controllers.ProductosController.PutProducto(System.Int64,Pedidos.Data.Producto)">
             <summary>
             Send data to a server to update a resource about Producto.
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.ProductosController.PostProducto(Pedidos.Models.Producto)">
+        <member name="M:Pedidos.Controllers.ProductosController.PostProducto(Pedidos.Data.Producto)">
             <summary>
             Send data to a server to create a resource about Producto.
             </summary>
@@ -306,7 +306,7 @@
             <param name="Clave"></param>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.UsuariosController.PutUsuario(System.Int32,Pedidos.Models.Usuario)">
+        <member name="M:Pedidos.Controllers.UsuariosController.PutUsuario(System.Int32,Pedidos.Data.Usuario)">
             <summary>
             Modifies an existing Usuario
             </summary>
@@ -314,7 +314,7 @@
             /// <param name="usuario"></param>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.UsuariosController.PostUsuario(Pedidos.Models.Usuario)">
+        <member name="M:Pedidos.Controllers.UsuariosController.PostUsuario(Pedidos.Data.Usuario)">
             <summary>
             Creates a new usuario 
             </summary>
@@ -347,7 +347,7 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.VendedoresController.PutVendedor(System.Int64,Pedidos.Models.Vendedor)">
+        <member name="M:Pedidos.Controllers.VendedoresController.PutVendedor(System.Int64,Pedidos.Data.Vendedor)">
             <summary>
             Modifies an existing Vendedor
             </summary>
@@ -355,7 +355,7 @@
             <param name="vendedor"></param>
             <returns></returns>
         </member>
-        <member name="M:Pedidos.Controllers.VendedoresController.PostVendedor(Pedidos.Models.Vendedor)">
+        <member name="M:Pedidos.Controllers.VendedoresController.PostVendedor(Pedidos.Data.Vendedor)">
             <summary>
             Creates a new rubro 
             </summary>

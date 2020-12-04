@@ -14,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Pedidos.Controllers;
+using Pedidos.Data;
 using Pedidos.Helpers;
 using Pedidos.Models;
 

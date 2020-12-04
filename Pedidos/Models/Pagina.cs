@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace Pedidos.Models
+namespace Pedidos.Data
 {
     public partial class Pagina
     {

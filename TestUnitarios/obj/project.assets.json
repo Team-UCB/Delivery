@@ -9647,23 +9647,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lopez\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\leona\\.nuget\\packages\\": {},
+    "D:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lopez\\Desktop\\Taller Sistema de inf\\APIfinal\\TestUnitarios\\TestUnitarios.csproj",
+      "projectUniqueName": "C:\\Users\\leona\\Source\\Repos\\DeliveryBackend\\TestUnitarios\\TestUnitarios.csproj",
       "projectName": "TestUnitarios",
-      "projectPath": "C:\\Users\\lopez\\Desktop\\Taller Sistema de inf\\APIfinal\\TestUnitarios\\TestUnitarios.csproj",
-      "packagesPath": "C:\\Users\\lopez\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lopez\\Desktop\\Taller Sistema de inf\\APIfinal\\TestUnitarios\\obj\\",
+      "projectPath": "C:\\Users\\leona\\Source\\Repos\\DeliveryBackend\\TestUnitarios\\TestUnitarios.csproj",
+      "packagesPath": "C:\\Users\\leona\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\leona\\Source\\Repos\\DeliveryBackend\\TestUnitarios\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "D:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\lopez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\leona\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -9677,8 +9677,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\lopez\\Desktop\\Taller Sistema de inf\\APIfinal\\Pedidos\\Pedidos.csproj": {
-              "projectPath": "C:\\Users\\lopez\\Desktop\\Taller Sistema de inf\\APIfinal\\Pedidos\\Pedidos.csproj"
+            "C:\\Users\\leona\\Source\\Repos\\DeliveryBackend\\Pedidos\\Pedidos.csproj": {
+              "projectPath": "C:\\Users\\leona\\Source\\Repos\\DeliveryBackend\\Pedidos\\Pedidos.csproj"
             }
           }
         }
@@ -9735,7 +9735,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

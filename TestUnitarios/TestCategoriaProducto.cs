@@ -4,7 +4,7 @@ using Pedidos.Controllers;
 using Pedidos.Models;
 using System.Threading.Tasks;
 using System.Linq;
-
+using Pedidos.Data;
 
 namespace TestUnitarios
 {
