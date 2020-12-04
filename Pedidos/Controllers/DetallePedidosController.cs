@@ -172,5 +172,38 @@ namespace Pedidos.Controllers
         {
             return _context.DetallePedidos.Any(e => e.Id == id);
         }
+
+
+        [HttpGet]
+        [Route("getReporteVentas/{param1}")]
+        public async Task<ActionResult<List<Producto>>> GetReporte(long param1)
+        {
+
+            var ProductosEmpresa = _context.Productos.Where(p => p.IdVendedor == param1).ToList();
+            var reporte = new List<ViewModelReporteProductos>();
+            var cantida=0;
+            var response = new List<Producto>();
+
+            foreach (var item in ProductosEmpresa)
+            { 
+                cantida = _context.DetallePedidos.Where(p => p.IdProducto == item.Id).Count();
+                if (cantida>0)
+                {
+                    ViewModelReporteProductos aux=new ViewModelReporteProductos();
+                    aux.Cantidad = cantida;
+                    aux.Productos = item;
+                    reporte.Add(aux);
+                   cantida = 0;
+               }
+           }
+
+            var ReporteMax= reporte.OrderByDescending(p => p.Cantidad).ToList();
+            var ReporteMin = ReporteMax[ReporteMax.Count()-1];
+
+            response.Add(ReporteMax[0].Productos);
+            response.Add(ReporteMin.Productos);
+
+            return response; 
+        }
     }
 }

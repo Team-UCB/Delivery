@@ -20,6 +20,32 @@ namespace Pedidos.Controllers
             _context = context;
         }
 
+
+
+
+
+
+
+
+        // GET: api/Direcciones
+        //[Authorize]
+        [HttpGet]
+        [Route("getDireccioneValida/{id}")]
+        public async Task<ActionResult<Direccion>> GetDireccions(long id)
+        {
+            var direccion = _context.Direccions.Where(p => p.IdCliente == id).ToList();
+
+            if (direccion == null)
+            {
+                return NotFound();
+            }
+
+            return direccion[0];
+        }
+
+
+
+
         /// <summary>
         /// Gets all the data Direcciones from the BDB
         /// </summary>

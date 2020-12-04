@@ -118,6 +118,11 @@ namespace Pedidos.Controllers
 
             _context.Entry(pedido).State = EntityState.Modified;
 
+            if (pedido.Estado=="En Curso")
+            {
+                pedido.FechaSalida = DateTime.Now;
+            }
+
             try
             {
                 await _context.SaveChangesAsync();
